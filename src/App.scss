@@ -1,0 +1,73 @@
+.container {
+  padding: 32px 48px;
+}
+
+h1 {
+  font-family: Butler;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 64px;
+  color: #1f2933;
+}
+
+h2 {
+  font-family: Butler;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 50.4px;
+  color: #1f2933;
+}
+
+h3 {
+  font-family: Segoe UI;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 26.4px;
+  color: #1f2933;
+}
+
+.title {
+  font-family: Butler;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 64px;
+  text-align: center;
+}
+
+.section {
+  margin-top: 120px;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.small-text {
+  //styleName: Small Text;
+  font-family: Segoe UI;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: -0.03em;
+  text-align: left;
+}
+
+.body-text {
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.button {
+  padding: 8px;
+}
+
+.button-text {
+  font-family: Segoe UI;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+}
