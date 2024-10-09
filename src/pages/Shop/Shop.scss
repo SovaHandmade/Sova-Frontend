@@ -6,31 +6,11 @@
     gap: 24px;
   }
 
-  &__filters {
-    padding: 24px;
-    grid-column: 1 / 4;
+  &__products-container {
+    grid-column: 4/-1;
 
-    background: #ffffff;
-
-    border: 2px double transparent;
-    border-radius: 40px;
-
-    background-image: linear-gradient(white, white),
-      linear-gradient(
-        292.16deg,
-        #519dff 0%,
-        #6f90f4 18.97%,
-        #8e84e9 28.46%,
-        #ca4597 37.95%,
-        #cf6c56 47.44%,
-        #f78b5a 56.92%,
-        #fbb54e 66.41%,
-        #78ca68 75.9%,
-        #64ccb4 85.38%,
-        #50cfff 94.87%
-      );
-    border-image-slice: 1;
-    background-origin: border-box;
-    background-clip: content-box, border-box;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
   }
 }

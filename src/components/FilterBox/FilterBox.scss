@@ -1,0 +1,107 @@
+.filter-box {
+  height: fit-content;
+
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+
+  padding: 24px;
+  grid-column: 1 / 4;
+
+  background: #ffffff;
+
+  border: 2px double transparent;
+  border-radius: 40px;
+  border-image-slice: 1;
+
+  background-image: linear-gradient(white, white), linear-gradient(white, white),
+    linear-gradient(
+      292.16deg,
+      #519dff 0%,
+      #6f90f4 18.97%,
+      #8e84e9 28.46%,
+      #ca4597 37.95%,
+      #cf6c56 47.44%,
+      #f78b5a 56.92%,
+      #fbb54e 66.41%,
+      #78ca68 75.9%,
+      #64ccb4 85.38%,
+      #50cfff 94.87%
+    );
+
+  background-origin: border-box;
+  background-clip: content-box, padding-box, border-box;
+
+  &__container {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    color: #00000080;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__clear-button {
+    padding: 8px;
+
+    border: none;
+    background: none;
+
+    color: #000000;
+  }
+
+  &__apply-button {
+    padding: 20px 48px;
+
+    border: none;
+    border-radius: 40px;
+
+    background: linear-gradient(270deg, #dd66a9 0%, #ef7f31 50%, #d7b33d 100%);
+    color: #ffffff;
+  }
+
+  &__filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__filter {
+    padding: 8px 16px;
+
+    border: 2px double transparent;
+    border-radius: 40px;
+    border-image-slice: 1;
+    color: #1f2933;
+    background: #ffffff;
+
+    background-image: linear-gradient(#ffffff, #ffffff),
+      linear-gradient(#ffffff, #ffffff),
+      linear-gradient(
+        292.16deg,
+        #519dff 0%,
+        #6f90f4 18.97%,
+        #8e84e9 28.46%,
+        #ca4597 37.95%,
+        #cf6c56 47.44%,
+        #f78b5a 56.92%,
+        #fbb54e 66.41%,
+        #78ca68 75.9%,
+        #64ccb4 85.38%,
+        #50cfff 94.87%
+      );
+
+    background-origin: border-box;
+    background-clip: content-box, padding-box, border-box;
+
+    &--selected {
+      background-image: linear-gradient(#fcf1f2, #fcf1f2),
+        linear-gradient(#fcf1f2, #fcf1f2),
+        linear-gradient(270deg, #dd66a9 0%, #ef7f31 50%, #d7b33d 100%);
+    }
+  }
+}

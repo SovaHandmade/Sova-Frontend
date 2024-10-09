@@ -1,0 +1,45 @@
+.footer {
+  padding: 15px 24px;
+
+  &__logo {
+    margin-right: 115px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+
+    &-left {
+      display: flex;
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      gap: 24px;
+
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  border-top: 2px solid;
+
+  border-image-source: linear-gradient(
+    112.16deg,
+    #519dff 0%,
+    #6f90f4 24.97%,
+    #8e84e9 33.46%,
+    #ca4597 50%,
+    #cf6c56 67.44%,
+    #f78b5a 76.92%,
+    #fbb54e 90.41%,
+    #78ca68 100%
+  );
+  border-image-slice: 1;
+}
