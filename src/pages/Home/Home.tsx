@@ -7,7 +7,7 @@ export const Home = () => {
         <br />
         and festive atmosphere to your home.
       </p>
-      <img src="public/logo_big.svg" alt="" />
+      <img src="logo_big.svg" alt="" />
     </div>
   );
 };

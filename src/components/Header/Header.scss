@@ -1,3 +1,5 @@
+@import "../../styles/vars.scss";
+
 .header {
   padding: 15px 24px;
 
@@ -30,16 +32,6 @@
 
   border-bottom: 2px solid;
 
-  border-image-source: linear-gradient(
-    292.16deg,
-    #519dff 0%,
-    #6f90f4 24.97%,
-    #8e84e9 33.46%,
-    #ca4597 50%,
-    #cf6c56 67.44%,
-    #f78b5a 76.92%,
-    #fbb54e 90.41%,
-    #78ca68 100%
-  );
+  border-image-source: $header-gradient;
   border-image-slice: 1;
 }

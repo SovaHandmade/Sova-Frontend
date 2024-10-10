@@ -1,0 +1,55 @@
+// #region: gradients
+$header-gradient: linear-gradient(
+  292.16deg,
+  #519dff 0%,
+  #6f90f4 24.97%,
+  #8e84e9 33.46%,
+  #ca4597 50%,
+  #cf6c56 67.44%,
+  #f78b5a 76.92%,
+  #fbb54e 90.41%,
+  #78ca68 100%
+);
+
+$footer-gradient: linear-gradient(
+  112.16deg,
+  #519dff 0%,
+  #6f90f4 24.97%,
+  #8e84e9 33.46%,
+  #ca4597 50%,
+  #cf6c56 67.44%,
+  #f78b5a 76.92%,
+  #fbb54e 90.41%,
+  #78ca68 100%
+);
+
+$border-gradient: linear-gradient(
+  292.16deg,
+  #519dff 0%,
+  #6f90f4 18.97%,
+  #8e84e9 28.46%,
+  #ca4597 37.95%,
+  #cf6c56 47.44%,
+  #f78b5a 56.92%,
+  #fbb54e 66.41%,
+  #78ca68 75.9%,
+  #64ccb4 85.38%,
+  #50cfff 94.87%
+);
+
+$active-border-gradient: linear-gradient(
+  270deg,
+  #dd66a9 0%,
+  #ef7f31 50%,
+  #d7b33d 100%
+);
+
+$white-gradient: linear-gradient(white, white);
+// #endregion
+
+// #region: global vars
+$product-card-image-size: 318px;
+
+$border-radius-x: 40px;
+$border-radius-m: 24px;
+// #endregion

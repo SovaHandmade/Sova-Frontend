@@ -1,8 +1,11 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/vars.scss";
+
 .product-card {
   width: fit-content;
 
   background-color: #f5f7fa;
-  border-radius: 40px;
+  border-radius: $border-radius-x;
 
   &__container {
     display: flex;
@@ -15,10 +18,10 @@
   }
 
   &__image {
-    width: 318px;
-    height: 318px;
+    width: $product-card-image-size;
+    height: $product-card-image-size;
 
-    border-radius: 24px;
+    border-radius: $border-radius-m;
 
     object-fit: cover;
   }
@@ -45,15 +48,6 @@
   &__buy-button {
     padding: 20px;
 
-    border: 2px double transparent;
-    border-radius: 40px;
-    border-image-slice: 1;
-
-    background-image: linear-gradient(white, white),
-      linear-gradient(white, white),
-      linear-gradient(270deg, #dd66a9 0%, #ef7f31 50%, #d7b33d 100%);
-
-    background-origin: border-box;
-    background-clip: content-box, padding-box, border-box;
+    @include border-gradient(white, $active-border-gradient);
   }
 }

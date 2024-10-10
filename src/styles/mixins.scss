@@ -1,0 +1,13 @@
+@mixin border-gradient($bg-color, $border-color) {
+  background: #ffffff;
+
+  border: 2px double transparent;
+  border-radius: $border-radius-x;
+  border-image-slice: 1;
+
+  background-image: linear-gradient($bg-color, $bg-color),
+    linear-gradient($bg-color, $bg-color), $border-color;
+
+  background-origin: border-box;
+  background-clip: content-box, padding-box, border-box;
+}

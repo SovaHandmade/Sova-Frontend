@@ -5,7 +5,7 @@ export const Header = () => {
     <header className="header">
       <nav className="header__nav">
         <div className="header__nav-left">
-          <img className="header__logo" src="public/logo.svg" alt="Logo" />
+          <img className="header__logo" src="logo.svg" alt="Logo" />
           <ul className="header__nav-list">
             <li className="header__nav-list-item button-text">Shop</li>
             <li className="header__nav-list-item button-text">About</li>
@@ -18,14 +18,14 @@ export const Header = () => {
               Cart
               <img
                 className="header__basket-icon"
-                src="public/icons/basket.svg"
+                src="icons/basket.svg"
                 alt="Basket icon"
               />
             </li>
             <li className="header__nav-list-item button-text">
               <img
                 className="header__user-icon"
-                src="public/icons/user_light.svg"
+                src="icons/user_light.svg"
                 alt="User icon"
               />
             </li>

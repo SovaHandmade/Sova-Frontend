@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className="footer">
       <nav className="footer__nav">
         <div className="footer__nav-left">
-          <img className="footer__logo" src="public/logo.svg" alt="Logo" />
+          <img className="footer__logo" src="logo.svg" alt="Logo" />
           <ul className="footer__nav-list">
             <li className="footer__nav-list-item button-text">Shop</li>
             <li className="footer__nav-list-item button-text">About</li>
@@ -21,14 +21,14 @@ export const Footer = () => {
             <li className="footer__nav-list-item button-text">
               <img
                 className="footer__user-icon"
-                src="public/icons/facebook.svg"
+                src="icons/facebook.svg"
                 alt="Facebook icon"
               />
             </li>
             <li className="footer__nav-list-item button-text">
               <img
                 className="footer__user-icon"
-                src="public/icons/instagram.svg"
+                src="icons/instagram.svg"
                 alt="Instagram icon"
               />
             </li>
