@@ -1,0 +1,62 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.product {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    gap: 48px;
+
+    @include border-gradient(white, $border-gradient);
+  }
+
+  &__photo {
+    height: 546px;
+    width: 546px;
+
+    object-fit: cover;
+
+    @include border-gradient(white, $border-gradient);
+
+    // change that shit later
+    transform: scale(1.005, 1.005);
+  }
+
+  &__back-button {
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+
+    @include border-gradient(white, $active-border-gradient);
+
+    &-image {
+      display: block;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+
+    &-entry {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+
+      &-name {
+        margin: 0;
+        color: #616e7c;
+      }
+
+      &-value {
+        margin: 0;
+        color: #1f2933;
+        max-width: 390px;
+      }
+    }
+  }
+}

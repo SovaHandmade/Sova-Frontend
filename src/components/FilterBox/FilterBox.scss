@@ -50,16 +50,4 @@
     gap: 8px;
     flex-wrap: wrap;
   }
-
-  &__filter {
-    padding: 8px 16px;
-
-    @include border-gradient(white, $border-gradient);
-
-    color: #1f2933;
-
-    &--selected {
-      @include border-gradient(#fcf1f2, $active-border-gradient);
-    }
-  }
 }

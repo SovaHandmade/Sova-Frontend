@@ -1,8 +1,8 @@
-@mixin border-gradient($bg-color, $border-color) {
+@mixin border-gradient($bg-color, $border-color, $radius: $border-radius-x) {
   background: #ffffff;
 
   border: 2px double transparent;
-  border-radius: $border-radius-x;
+  border-radius: $radius;
   border-image-slice: 1;
 
   background-image: linear-gradient($bg-color, $bg-color),

@@ -1,3 +1,4 @@
+import { Filter } from "../Filter/Filter";
 import "./FilterBox.scss";
 
 export const FilterBox = () => {
@@ -6,35 +7,19 @@ export const FilterBox = () => {
       <div className="filter-box__container">
         <p className="small-text">Topic</p>
         <div className="filter-box__filters filter-box__filters--selected">
-          <div className="filter-box__filter filter-box__filter--selected">
-            <p className="button-text">All</p>
-          </div>
-          <div className="filter-box__filter">
-            <p className="button-text">Spring</p>
-          </div>
-          <div className="filter-box__filter">
-            <p className="button-text">Winter</p>
-          </div>
-          <div className="filter-box__filter">
-            <p className="button-text">Autumn</p>
-          </div>
+          <Filter text="All" selected={true} />
+          <Filter text="Spring" selected={false} />
+          <Filter text="Winter" selected={false} />
+          <Filter text="Autumn" selected={false} />
         </div>
       </div>
       <div className="filter-box__container">
         <p className="small-text">Form</p>
         <div className="filter-box__filters filter-box__filters--selected">
-          <div className="filter-box__filter filter-box__filter--selected">
-            <p className="button-text">All</p>
-          </div>
-          <div className="filter-box__filter">
-            <p className="button-text">Composition</p>
-          </div>
-          <div className="filter-box__filter">
-            <p className="button-text">Wreath</p>
-          </div>
-          <div className="filter-box__filter">
-            <p className="button-text">Candlestick</p>
-          </div>
+          <Filter text="All" selected={true} />
+          <Filter text="Composition" selected={false} />
+          <Filter text="Wreath" selected={false} />
+          <Filter text="Candlestick" selected={false} />
         </div>
       </div>
       <div className="filter-box__buttons">
