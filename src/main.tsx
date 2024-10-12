@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Shop } from "./pages/Shop/Shop.tsx";
 import { Product } from "./pages/Product/Product.tsx";
+import { Cart } from "./pages/Cart/Cart.tsx";
 import App from "./App.tsx";
 import "./index.scss";
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "product",
         element: <Product />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

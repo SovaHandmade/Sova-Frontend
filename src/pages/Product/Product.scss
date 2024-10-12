@@ -2,10 +2,6 @@
 @import "../../styles/mixins.scss";
 
 .product {
-  display: flex;
-  gap: 24px;
-  flex-direction: column;
-
   &__container {
     display: flex;
     gap: 48px;

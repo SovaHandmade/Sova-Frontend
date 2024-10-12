@@ -1,0 +1,111 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.cart {
+  &__container {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+  }
+
+  &__products {
+    padding: 24px;
+
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+
+    @include border-gradient(white, $border-gradient);
+  }
+
+  &__product {
+    display: flex;
+    gap: 24px;
+
+    &-photo {
+      width: 180px;
+      height: 180px;
+
+      border-radius: 24px;
+
+      object-fit: cover;
+    }
+
+    &-info {
+      display: flex;
+      gap: 16px;
+      flex-direction: column;
+
+      &-entry {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+
+        &-name {
+          color: #616e7c;
+        }
+      }
+    }
+
+    &-order-info {
+      margin-left: auto;
+
+      display: flex;
+      gap: 16px;
+      flex-direction: column;
+      align-items: flex-end;
+
+      &-quantity {
+        margin-top: auto;
+
+        justify-self: flex-end;
+        display: flex;
+        gap: 12px;
+      }
+    }
+
+    &-order-remove-icon {
+      width: 24px;
+    }
+  }
+
+  &__total {
+    width: 100%;
+    padding: 24px;
+    margin-left: auto;
+
+    box-sizing: border-box;
+
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-end;
+
+    border-top: 2px solid #e4e7ee;
+
+    &-text {
+      color: #616e7c;
+    }
+  }
+
+  &__order-button {
+    padding: 20px;
+    width: 325px;
+  }
+
+  &__shopping-button {
+    padding: 16px;
+    width: 325px;
+
+    color: black;
+
+    @include border-gradient(white, $active-border-gradient);
+  }
+
+  &__buttons {
+    margin-left: auto;
+
+    display: flex;
+    gap: 8px;
+  }
+}
