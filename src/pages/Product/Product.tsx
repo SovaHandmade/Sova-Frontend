@@ -1,3 +1,4 @@
+import { BackButton } from "../../components/BackButton";
 import { Filter } from "../../components/Filter";
 import { ProductCard } from "../../components/ProductCard";
 import "./Product.scss";
@@ -6,13 +7,7 @@ export const Product = () => {
   return (
     <>
       <div className="product">
-        <div className="product__back-button">
-          <img
-            className="product__back-button-image"
-            src="icons/arrow_left_dark.svg"
-            alt="Arrow left"
-          />
-        </div>
+        <BackButton />
 
         <div className="product__container">
           <img

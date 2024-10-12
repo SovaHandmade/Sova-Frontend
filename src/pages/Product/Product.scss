@@ -25,18 +25,6 @@
     transform: scale(1.005, 1.005);
   }
 
-  &__back-button {
-    padding: 10px;
-    width: fit-content;
-    height: fit-content;
-
-    @include border-gradient(white, $active-border-gradient);
-
-    &-image {
-      display: block;
-    }
-  }
-
   &__tags {
     display: flex;
     gap: 8px;
