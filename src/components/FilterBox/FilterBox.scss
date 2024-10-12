@@ -35,16 +35,6 @@
     color: #000000;
   }
 
-  &__apply-button {
-    padding: 20px 48px;
-
-    border: none;
-    border-radius: $border-radius-x;
-
-    background: $active-border-gradient;
-    color: #ffffff;
-  }
-
   &__filters {
     display: flex;
     gap: 8px;

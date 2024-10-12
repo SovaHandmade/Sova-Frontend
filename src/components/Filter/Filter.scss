@@ -2,6 +2,7 @@
 @import "../../styles/vars.scss";
 
 .filter {
+  width: fit-content;
   padding: 8px 16px;
 
   @include border-gradient(white, $border-gradient);

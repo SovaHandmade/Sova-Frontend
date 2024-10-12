@@ -48,6 +48,8 @@
   &__buy-button {
     padding: 20px;
 
+    color: #000000;
+
     @include border-gradient(white, $active-border-gradient);
   }
 }

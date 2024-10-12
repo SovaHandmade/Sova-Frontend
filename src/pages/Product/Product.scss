@@ -37,10 +37,52 @@
     }
   }
 
-  &__info {
+  &__tags {
     display: flex;
-    gap: 12px;
+    gap: 8px;
+  }
+
+  &__price {
+    align-self: flex-end;
+
+    display: flex;
+    gap: 8px;
+
+    &-text {
+      color: #616e7c;
+    }
+  }
+
+  &__cart-button {
+    padding: 14px;
+    gap: 4px;
+
+    color: black;
+
+    @include border-gradient(white, $active-border-gradient);
+  }
+
+  &__info {
+    padding: 24px 0;
+
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
+    &-top {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+    }
+
+    &-bottom {
+      width: 100%;
+      align-self: flex-end;
+
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+    }
 
     &-entry {
       display: flex;
@@ -55,8 +97,83 @@
       &-value {
         margin: 0;
         color: #1f2933;
-        max-width: 390px;
+        max-width: 360px;
       }
     }
+  }
+
+  &__delivery {
+    padding: 24px;
+
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+
+    @include border-gradient(white, $border-gradient);
+
+    border-right: none;
+    border-bottom: none;
+    border-top: none;
+
+    flex-grow: 1;
+  }
+
+  &__section {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+  }
+
+  &__methods {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  &__method {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &-text {
+      white-space: nowrap;
+    }
+
+    &-time {
+      color: #9aa5b1;
+    }
+
+    &--double-text {
+      display: flex;
+      gap: 4px;
+      flex-direction: column;
+    }
+  }
+
+  &__contact {
+    margin-top: auto;
+
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+
+    &-text-gray {
+      color: #616e7c;
+    }
+  }
+}
+
+.suggestions {
+  margin-top: 80px;
+  margin-bottom: 24px;
+
+  &__products {
+    display: flex;
+    gap: 24px;
   }
 }
