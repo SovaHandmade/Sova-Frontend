@@ -23,10 +23,8 @@ export const FilterBox = () => {
         </div>
       </div>
       <div className="filter-box__buttons">
-        <button className="button-text filter-box__clear-button">
-          Clear filters
-        </button>
-        <button className="button-text filter-box__apply-button">Apply</button>
+        <button className="filter-box__clear-button">Clear filters</button>
+        <button className="filter-box__apply-button">Apply</button>
       </div>
     </div>
   );

@@ -55,11 +55,9 @@ export const Product = () => {
                 <h2 className="product__price-value">800 grn</h2>
               </div>
 
-              <button className="product__buy-button button-text">
-                Place an order
-              </button>
+              <button className="product__buy-button">Place an order</button>
 
-              <button className="product__cart-button button-text">
+              <button className="product__cart-button">
                 Add To Cart
                 <img src="icons/basket.svg" alt="Basket icon" />
               </button>

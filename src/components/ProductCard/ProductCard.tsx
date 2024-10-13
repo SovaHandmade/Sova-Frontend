@@ -16,7 +16,7 @@ export const ProductCard = () => {
           <h3 className="product-card__info-price">800grn</h3>
         </div>
 
-        <button className="product-card__buy-button button-text">Buy</button>
+        <button className="product-card__buy-button">Buy</button>
       </div>
     </div>
   );

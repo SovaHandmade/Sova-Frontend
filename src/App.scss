@@ -43,6 +43,8 @@ h4 {
 }
 
 button {
+  @extend .button-text;
+
   padding: 20px 48px;
 
   display: flex;
