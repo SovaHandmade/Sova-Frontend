@@ -87,6 +87,7 @@
   }
 
   &__delivery {
+    margin-left: auto;
     padding: 24px;
 
     display: flex;
@@ -98,8 +99,6 @@
     border-right: none;
     border-bottom: none;
     border-top: none;
-
-    flex-grow: 1;
   }
 
   &__section {
