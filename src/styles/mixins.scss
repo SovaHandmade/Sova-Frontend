@@ -1,3 +1,10 @@
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  grid-auto-flow: row;
+}
+
 @mixin border-gradient($bg-color, $border-color, $radius: $border-radius-x) {
   background: #ffffff;
 

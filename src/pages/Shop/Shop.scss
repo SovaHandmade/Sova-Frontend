@@ -1,9 +1,10 @@
+@import "../../styles/mixins.scss";
+
 .shop {
   &__container {
     margin-top: 16px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+
+    @include page-grid;
   }
 
   &__products-container {
