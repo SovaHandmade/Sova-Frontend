@@ -1,5 +1,11 @@
 import "./HomeCompositions.scss";
 
+const IMAGES = [
+  "product-photo/1.jpg",
+  "product-photo/1.jpg",
+  "product-photo/1.jpg",
+];
+
 export const HomeCompositions = () => {
   return (
     <section className="home__compositions">
@@ -20,23 +26,14 @@ export const HomeCompositions = () => {
       </p>
 
       <div className="home__compositions-images">
-        <img
-          className="home__image"
-          src="product-photo/1.jpg"
-          alt="Product photo"
-        />
-
-        <img
-          className="home__image"
-          src="product-photo/1.jpg"
-          alt="Product photo"
-        />
-
-        <img
-          className="home__image"
-          src="product-photo/1.jpg"
-          alt="Product photo"
-        />
+        {IMAGES.map((image, index) => (
+          <img
+            className="home__image"
+            src={image}
+            key={index}
+            alt="Product photo"
+          />
+        ))}
       </div>
     </section>
   );
