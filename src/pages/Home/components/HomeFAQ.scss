@@ -1,0 +1,57 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/mixins.scss";
+
+.home__faq {
+  padding: 40px;
+
+  @include border-gradient(#e8ecf4, $border-gradient);
+
+  &-title {
+    grid-column: 5 / 9;
+    text-align: center;
+  }
+
+  &-container {
+    grid-column: 1 / -1;
+
+    display: flex;
+  }
+
+  &-button {
+    grid-column: 5 / 9;
+  }
+
+  &-question {
+    width: 310px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+
+    &-top {
+      display: flex;
+      align-items: start;
+    }
+
+    &-number {
+      margin-top: -18px;
+      margin-right: -16px;
+
+      font-family: Segoe UI;
+      font-size: 128px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 115.2px;
+      color: white;
+    }
+
+    &-subtitle {
+      color: #616e7c;
+    }
+
+    &-image {
+      width: fit-content;
+    }
+  }
+}

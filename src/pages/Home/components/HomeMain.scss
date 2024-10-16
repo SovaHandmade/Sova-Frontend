@@ -1,0 +1,84 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/mixins.scss";
+
+.home__main {
+  &-title {
+    grid-column: 1 / 7;
+
+    width: fit-content;
+
+    &-container {
+      display: flex;
+      align-items: end;
+      gap: 12px;
+
+      font-size: 128px;
+      font-weight: 600;
+      line-height: 128px;
+    }
+
+    &-big {
+      padding: 0 10px;
+
+      font-size: 150px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 140px;
+
+      background: $active-border-gradient;
+
+      background-clip: text;
+      color: transparent;
+    }
+
+    &-medium {
+      padding: 0 2px;
+
+      font-size: 128px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 128px;
+
+      background: $active-border-gradient;
+
+      background-clip: text;
+      color: transparent;
+    }
+
+    &-small {
+      padding: 0 2px;
+
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 32px;
+      text-align: right;
+
+      background: $active-border-gradient;
+
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  &-subtitle {
+    grid-column: 1 / 5;
+
+    max-width: 420px;
+
+    font-family: Segoe UI;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+  }
+
+  &-logo {
+    grid-column: 6 / -1;
+
+    display: block;
+    margin-top: 100px;
+    margin-right: -48px;
+    margin-left: auto;
+  }
+}

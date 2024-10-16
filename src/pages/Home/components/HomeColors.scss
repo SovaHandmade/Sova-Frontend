@@ -1,0 +1,48 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/mixins.scss";
+
+.home__colors {
+  &-title {
+    grid-column: 2 / 7;
+  }
+
+  &-subtitle {
+    grid-column: 2 / 6;
+  }
+
+  &-container {
+    grid-column: 4 / -2;
+    position: relative;
+
+    display: flex;
+  }
+
+  &-image {
+    &--small {
+      margin-left: auto;
+    }
+
+    &--big {
+      width: 432px;
+      height: 432px;
+
+      margin-top: 250px;
+    }
+  }
+
+  &-arrow {
+    position: absolute;
+
+    &--left {
+      top: 122px;
+      left: 400px;
+    }
+
+    &--right {
+      bottom: 240px;
+      right: 284px;
+
+      transform: scale(-1, -1);
+    }
+  }
+}
