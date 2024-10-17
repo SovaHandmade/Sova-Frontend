@@ -7,9 +7,11 @@ function App() {
   return (
     <div className="main">
       <Header />
+
       <div className="container">
         <Outlet />
       </div>
+
       <Footer />
     </div>
   );

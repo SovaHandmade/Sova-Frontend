@@ -1,0 +1,20 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/mixins.scss";
+
+.about-me__contacts {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+
+  &-number {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &-socials {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}

@@ -1,0 +1,11 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/mixins.scss";
+
+.about-me__main {
+  &-description {
+    width: 750px;
+    padding: 24px;
+
+    @include border-gradient(white, $border-gradient);
+  }
+}

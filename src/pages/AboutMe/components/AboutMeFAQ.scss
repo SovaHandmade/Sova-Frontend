@@ -1,0 +1,33 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/mixins.scss";
+
+.about-me__faq {
+  &-question {
+    padding: 24px;
+
+    @include border-gradient(white, $active-border-gradient);
+
+    transition: height 100ms;
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-text {
+      margin-top: 16px;
+
+      overflow: hidden;
+
+      transition: max-height 0.3s ease-in-out, margin-top 0.1s ease-in-out 0s;
+
+      &--hidden {
+        margin-top: 0;
+        max-height: 0 !important;
+
+        transition: max-height 0.3s ease-in-out,
+          margin-top 0.3s ease-in-out 0.2s;
+      }
+    }
+  }
+}

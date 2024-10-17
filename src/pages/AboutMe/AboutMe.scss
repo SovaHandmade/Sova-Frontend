@@ -1,0 +1,18 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.about-me {
+  @include page-grid;
+
+  &__container {
+    grid-column: 1 / 8;
+
+    display: flex;
+    gap: 60px;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+}
