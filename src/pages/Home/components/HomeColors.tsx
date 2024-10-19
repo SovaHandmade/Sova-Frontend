@@ -12,6 +12,18 @@ export const HomeColors = () => {
         Ми створимо композицію в будь-якій кольоровій гамі за вашим вибором.
       </p>
 
+      <img
+        className="home__gradient home__gradient-3"
+        src="gradients/home/vector_3.svg"
+        alt=""
+      />
+
+      <img
+        className="home__gradient home__gradient-4"
+        src="gradients/home/vector_4.svg"
+        alt=""
+      />
+
       <div className="home__colors-container">
         <img
           className="home__image home__colors-image--big"

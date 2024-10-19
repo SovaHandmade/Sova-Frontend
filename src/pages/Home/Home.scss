@@ -65,4 +65,29 @@
 
     @include border-gradient(white, $border-gradient);
   }
+
+  &__gradient {
+    position: absolute;
+    z-index: -1;
+
+    &-1 {
+      top: 0;
+      left: 0;
+    }
+
+    &-2 {
+      top: 0;
+      right: 0;
+    }
+
+    &-3 {
+      margin-top: -30px;
+      left: 0;
+    }
+
+    &-4 {
+      margin-top: -60px;
+      right: 0;
+    }
+  }
 }

@@ -7,12 +7,6 @@ import "./Home.scss";
 export const Home = () => {
   return (
     <main className="home">
-      <img
-        className="home__background"
-        src="background_gradient.svg"
-        alt="Background gradient"
-      />
-
       <HomeMain />
       <HomeCompositions />
       <HomeColors />
