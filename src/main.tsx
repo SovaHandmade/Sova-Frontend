@@ -1,12 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
 import { Home } from "./pages/Home";
 import { Shop } from "./pages/Shop";
 import { Cart } from "./pages/Cart";
 import { Product } from "./pages/Product";
 import { AboutMe } from "./pages/AboutMe";
+import { NotFound } from "./pages/NotFound";
 
 import App from "./App.tsx";
 import "./index.scss";
@@ -36,7 +41,15 @@ const router = createBrowserRouter([
         path: "about-me",
         element: <AboutMe />,
       },
+      {
+        path: "not-found",
+        element: <NotFound />,
+      },
     ],
+  },
+  {
+    path: "*",
+    element: <Navigate to="/not-found" replace={true} />,
   },
 ]);
 
