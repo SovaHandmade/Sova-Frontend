@@ -2,9 +2,11 @@
 @import "../../styles/mixins.scss";
 
 .about-me {
-  @include page-grid;
-
   &__container {
+    @include page-grid;
+  }
+
+  &__sections {
     grid-column: 1 / 8;
 
     display: flex;

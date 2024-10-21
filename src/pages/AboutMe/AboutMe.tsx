@@ -18,9 +18,11 @@ export const AboutMe = () => {
       <BackButton />
 
       <div className="about-me__container">
-        <AboutMeMain />
-        <AboutMeContacts />
-        <AboutMeFAQ questions={QUESTIONS} />
+        <div className="about-me__sections">
+          <AboutMeMain />
+          <AboutMeContacts />
+          <AboutMeFAQ questions={QUESTIONS} />
+        </div>
       </div>
     </div>
   );
