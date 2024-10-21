@@ -1,0 +1,19 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.auth-page {
+  height: 100%;
+
+  @include page-grid;
+
+  align-items: center;
+
+  &__container {
+    grid-column: 5 / -5;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+}

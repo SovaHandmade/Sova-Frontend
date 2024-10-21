@@ -15,6 +15,8 @@ import { NotFound } from "./pages/NotFound";
 
 import App from "./App.tsx";
 import "./index.scss";
+import { Order } from "./pages/Order/Order.tsx";
+import { AuthPage } from "./pages/AuthPage/AuthPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +44,16 @@ const router = createBrowserRouter([
         element: <AboutMe />,
       },
       {
+        path: "order",
+        element: <Order />,
+      },
+      {
         path: "not-found",
         element: <NotFound />,
+      },
+      {
+        path: "auth",
+        element: <AuthPage />,
       },
     ],
   },
