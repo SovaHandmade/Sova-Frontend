@@ -9,14 +9,15 @@ import {
 import { Home } from "./pages/Home";
 import { Shop } from "./pages/Shop";
 import { Cart } from "./pages/Cart";
+import { Order } from "./pages/Order";
 import { Product } from "./pages/Product";
 import { AboutMe } from "./pages/AboutMe";
+import { AuthPage } from "./pages/AuthPage";
 import { NotFound } from "./pages/NotFound";
+import { Profile } from "./pages/Profile";
 
 import App from "./App.tsx";
 import "./index.scss";
-import { Order } from "./pages/Order/Order.tsx";
-import { AuthPage } from "./pages/AuthPage/AuthPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "auth",
         element: <AuthPage />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },
