@@ -6,7 +6,7 @@ type Props = {
   isAdmin?: boolean;
 };
 
-export const Profile: React.FC<Props> = ({ isAdmin = true }) => {
+export const Profile: React.FC<Props> = ({ isAdmin = false }) => {
   return (
     <div className="profile">
       <div className="profile__top">
@@ -17,7 +17,7 @@ export const Profile: React.FC<Props> = ({ isAdmin = true }) => {
       {!!isAdmin && (
         <button className="profile__new-product-button">
           Створти новий продукт
-          <img src="icons/plus_white.svg" alt="Plus icon" />
+          <img src="/icons/plus_white.svg" alt="Plus icon" />
         </button>
       )}
 

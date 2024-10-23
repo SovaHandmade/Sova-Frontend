@@ -4,7 +4,7 @@ export const CartProduct = () => {
   return (
     <div className="cart-product">
       <img
-        src="product-photo/1.jpg"
+        src="/product-photo/1.jpg"
         alt="Product photo"
         className="cart-product__photo"
       />
@@ -19,20 +19,20 @@ export const CartProduct = () => {
       </div>
       <div className="cart-product__order-info">
         <img
-          src="icons/trash.svg"
+          src="/icons/trash.svg"
           alt="Trash icon"
           className="cart-product__order-remove-icon"
         />
 
         <div className="cart-product__order-info-quantity">
           <img
-            src="icons/plus.svg"
+            src="/icons/plus.svg"
             alt="Plus icon  "
             className="cart-product__order-plus-icon"
           />
           <p className="body-text">2</p>
           <img
-            src="icons/minus.svg"
+            src="/icons/minus.svg"
             alt="Minus icon  "
             className="cart-product__order-minus-icon"
           />

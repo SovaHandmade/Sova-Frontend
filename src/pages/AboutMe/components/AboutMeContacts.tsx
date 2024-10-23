@@ -8,9 +8,9 @@ export const AboutMeContacts = () => {
         <h3>Телефон: +380951310343</h3>
 
         <div className="about-me__contacts-socials">
-          <img src="icons/telegram.svg" alt="" />
+          <img src="/icons/telegram.svg" alt="" />
           <p className="small-text">або</p>
-          <img src="icons/viber.svg" alt="" />
+          <img src="/icons/viber.svg" alt="" />
         </div>
       </div>
       <h3>Email: sosnovska.0625@gmail.com</h3>

@@ -4,7 +4,7 @@ export const ProductCard = () => {
   return (
     <div className="product-card">
       <img
-        src="product-photo/1.jpg"
+        src="/product-photo/1.jpg"
         alt="Product photo"
         className="product-card__image"
       />

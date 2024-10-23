@@ -12,7 +12,7 @@ export const Product = () => {
         <div className="product__container">
           <img
             className="product__photo"
-            src="product-photo/1.jpg"
+            src="/product-photo/1.jpg"
             alt="Product photo"
           />
 
@@ -59,7 +59,7 @@ export const Product = () => {
 
               <button className="product__cart-button">
                 Add To Cart
-                <img src="icons/basket.svg" alt="Basket icon" />
+                <img src="/icons/basket.svg" alt="Basket icon" />
               </button>
             </div>
           </div>
@@ -72,7 +72,7 @@ export const Product = () => {
                 <div className="product__method">
                   <img
                     className="product__method-icon"
-                    src="icons/expand.svg"
+                    src="/icons/expand.svg"
                     alt="Expand icon"
                   />
                   <p className="small-text product__method-text">
@@ -82,7 +82,7 @@ export const Product = () => {
                 <div className="product__method">
                   <img
                     className="product__method-icon"
-                    src="icons/nova-poshta.png"
+                    src="/icons/nova-poshta.png"
                     alt="Expand icon"
                   />
                   <div className="product__method--double-text">
@@ -95,7 +95,7 @@ export const Product = () => {
                 <div className="product__method">
                   <img
                     className="product__method-icon"
-                    src="icons/ukr-poshta.png"
+                    src="/icons/ukr-poshta.png"
                     alt="Expand icon"
                   />
                   <div className="product__method--double-text">
@@ -115,7 +115,7 @@ export const Product = () => {
                 <div className="product__method">
                   <img
                     className="product__method-icon"
-                    src="icons/credit_card.svg"
+                    src="/icons/credit_card.svg"
                     alt="Expand icon"
                   />
                   <p className="small-text product__method-text">
@@ -126,7 +126,7 @@ export const Product = () => {
                 <div className="product__method">
                   <img
                     className="product__method-icon"
-                    src="icons/wallet.svg"
+                    src="/icons/wallet.svg"
                     alt="Expand icon"
                   />
                   <p className="small-text product__method-text">

@@ -25,7 +25,7 @@ export const Cart = () => {
         <div className="cart__buttons">
           <button className="cart__shopping-button ">
             Continue shopping
-            <img src="icons/basket.svg" alt="Basket icon" />
+            <img src="/icons/basket.svg" alt="Basket icon" />
           </button>
           <button className="cart__order-button ">Order</button>
         </div>
