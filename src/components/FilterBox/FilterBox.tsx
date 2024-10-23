@@ -1,7 +1,12 @@
+import React from "react";
 import { Filter } from "../Filter/Filter";
 import "./FilterBox.scss";
 
-export const FilterBox = () => {
+type Props = {
+  showButtons?: boolean;
+};
+
+export const FilterBox: React.FC<Props> = ({ showButtons }) => {
   return (
     <div className="filter-box">
       <div className="filter-box__container">
@@ -22,10 +27,13 @@ export const FilterBox = () => {
           <Filter text="Candlestick" selected={false} />
         </div>
       </div>
-      <div className="filter-box__buttons">
-        <button className="filter-box__clear-button">Clear filters</button>
-        <button className="filter-box__apply-button">Apply</button>
-      </div>
+
+      {showButtons && (
+        <div className="filter-box__buttons">
+          <button className="filter-box__clear-button">Clear filters</button>
+          <button className="filter-box__apply-button">Apply</button>
+        </div>
+      )}
     </div>
   );
 };

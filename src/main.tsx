@@ -11,10 +11,11 @@ import { Shop } from "./pages/Shop";
 import { Cart } from "./pages/Cart";
 import { Order } from "./pages/Order";
 import { Product } from "./pages/Product";
+import { Profile } from "./pages/Profile";
 import { AboutMe } from "./pages/AboutMe";
 import { AuthPage } from "./pages/AuthPage";
 import { NotFound } from "./pages/NotFound";
-import { Profile } from "./pages/Profile";
+import { CreateProduct } from "./pages/CreateProduct";
 
 import App from "./App.tsx";
 import "./index.scss";
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "product/create",
+        element: <CreateProduct />,
       },
     ],
   },

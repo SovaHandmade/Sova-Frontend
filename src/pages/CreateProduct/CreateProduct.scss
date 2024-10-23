@@ -1,0 +1,70 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.create-product {
+  @include page-grid;
+  height: 100%;
+
+  &__image {
+    grid-column: 1 / 6;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+
+    border-radius: 40px;
+
+    object-fit: cover;
+  }
+
+  &__form {
+    &-container {
+      grid-column: 6 / 10;
+    }
+
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+
+    &-file-button {
+      padding: 16px;
+
+      margin-bottom: 24px;
+      width: 100%;
+
+      display: flex;
+      gap: 4px;
+      align-items: center;
+
+      color: black;
+
+      @include border-gradient(white, $active-border-gradient);
+    }
+
+    &-file-input {
+      display: none;
+    }
+  }
+
+  &__filters {
+    grid-column: 10 / -1;
+  }
+
+  &__bottom {
+    width: 100%;
+    align-self: end;
+    justify-self: end;
+
+    &-button {
+      &-left {
+        grid-column: 7 / 10;
+
+        color: black;
+
+        @include border-gradient(white, $active-border-gradient);
+      }
+
+      &-right {
+        grid-column: 10 / -1;
+      }
+    }
+  }
+}
