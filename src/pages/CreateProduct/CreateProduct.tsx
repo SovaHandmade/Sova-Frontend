@@ -22,7 +22,10 @@ export const CreateProduct = () => {
       />
 
       <div className="create-product__form-container">
-        <button className="create-product__form-file-button">
+        <button
+          className="create-product__form-file-button"
+          onClick={handleFileInputClick}
+        >
           <img src="/icons/plus.svg" alt="Plus icon" />
           Додати фотографію
         </button>

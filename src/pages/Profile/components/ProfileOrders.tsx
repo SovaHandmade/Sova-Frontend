@@ -1,6 +1,7 @@
 import React from "react";
 import { Filter } from "../../../components/Filter";
 import "./ProfileOrders.scss";
+import { ProfileOrderItem } from "./ProfileOrderItem";
 
 type Props = {
   isAdmin: boolean;
@@ -34,20 +35,7 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin }) => {
           </div>
         </div>
 
-        <div className="profile__orders-row">
-          <div className="profile__orders-column">
-            <p className="button-text">#4567</p>
-          </div>
-          <div className="profile__orders-column">
-            <p className="small-text">03.10.2024</p>
-          </div>
-          <div className="profile__orders-column">
-            <p className="small-text">Обробка</p>
-          </div>
-          <div className="profile__orders-column">
-            <p className="small-text">2600 grh</p>
-          </div>
-        </div>
+        <ProfileOrderItem />
       </div>
     </div>
   );

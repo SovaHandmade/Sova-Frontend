@@ -1,0 +1,33 @@
+.profile__order {
+  &-details {
+    padding: 0 40px;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-info {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+
+      color: #616e7c;
+    }
+  }
+
+  &-credentials {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    align-items: start;
+
+    &-info {
+      display: flex;
+      gap: 16px;
+      flex-direction: column;
+
+      color: #616e7c;
+    }
+  }
+}
