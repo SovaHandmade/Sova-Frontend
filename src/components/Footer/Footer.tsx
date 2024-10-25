@@ -1,15 +1,36 @@
+import { Link, NavLink } from "react-router-dom";
+import classNames from "classnames";
 import "./Footer.scss";
 
 export const Footer = () => {
+  const navClassnameHandler = ({ isActive }: { isActive: boolean }) =>
+    classNames("header__nav-link button-text", {
+      "header__nav-link--active": isActive,
+    });
+
   return (
     <footer className="footer">
       <nav className="footer__nav">
         <div className="footer__nav-left">
-          <img className="footer__logo" src="/logo.svg" alt="Logo" />
+          <Link to="/">
+            <img className="footer__logo" src="/logo.svg" alt="Logo" />
+          </Link>
           <ul className="footer__nav-list">
-            <li className="footer__nav-list-item button-text">Shop</li>
-            <li className="footer__nav-list-item button-text">About</li>
-            <li className="footer__nav-list-item button-text">Q&A</li>
+            <li className="footer__nav-list-item">
+              <NavLink className={navClassnameHandler} to="/shop">
+                Shop
+              </NavLink>
+            </li>
+            <li className="footer__nav-list-item">
+              <NavLink className={navClassnameHandler} to="/about-me">
+                About
+              </NavLink>
+            </li>
+            <li className="footer__nav-list-item">
+              <NavLink className={navClassnameHandler} to="/about-me">
+                Q&A
+              </NavLink>
+            </li>
           </ul>
         </div>
 

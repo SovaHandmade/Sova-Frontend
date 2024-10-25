@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./HomeFAQ.scss";
 
 const QUESTIONS = [
@@ -49,7 +50,9 @@ export const HomeFAQ = () => {
         ))}
       </div>
 
-      <button className="home__faq-button">Перейти до товарів</button>
+      <Link className="home__faq-button button" to="/shop">
+        Перейти до товарів
+      </Link>
     </section>
   );
 };
