@@ -15,6 +15,17 @@
     grid-column: 1 / -1;
 
     display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    &--top {
+      display: flex;
+    }
+
+    &--bottom {
+      margin-left: auto;
+      display: flex;
+    }
   }
 
   &-button {
@@ -28,6 +39,10 @@
     flex-direction: column;
     gap: 16px;
     align-items: center;
+
+    @include small-desktop {
+      width: 220px;
+    }
 
     &-top {
       display: flex;

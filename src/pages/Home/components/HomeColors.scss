@@ -4,10 +4,18 @@
 .home__colors {
   &-title {
     grid-column: 2 / 7;
+
+    @include small-desktop {
+      grid-column: 2 / 9;
+    }
   }
 
   &-subtitle {
     grid-column: 2 / 6;
+
+    @include small-desktop {
+      grid-column: 2 / 7;
+    }
   }
 
   &-container {
@@ -15,6 +23,10 @@
     position: relative;
 
     display: flex;
+
+    @include small-desktop {
+      grid-column: 3 / -2;
+    }
   }
 
   &-image {
@@ -27,6 +39,13 @@
       height: 432px;
 
       margin-top: 250px;
+
+      @include small-desktop {
+        margin-top: 220px;
+
+        width: 383px !important;
+        height: 383px !important;
+      }
     }
   }
 
@@ -36,6 +55,11 @@
     &--left {
       top: 122px;
       left: 400px;
+
+      @include small-desktop {
+        top: 108px;
+        left: 343px;
+      }
     }
 
     &--right {
@@ -43,6 +67,11 @@
       right: 284px;
 
       transform: scale(-1, -1);
+
+      @include small-desktop {
+        bottom: 269px;
+        right: 179px;
+      }
     }
   }
 }

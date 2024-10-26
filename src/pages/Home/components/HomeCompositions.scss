@@ -4,12 +4,20 @@
 .home__compositions {
   &-title {
     grid-column: 2 / 8;
+
+    @include small-desktop {
+      grid-column: 2 / 10;
+    }
   }
 
   &-subtitle {
     grid-column: 8 / 12;
 
     align-self: end;
+
+    @include small-desktop {
+      grid-column: 7 / 12;
+    }
   }
 
   &-images {
@@ -21,5 +29,11 @@
     gap: 40px;
 
     @include border-gradient(#e8ecf4, $border-gradient);
+
+    @include small-desktop {
+      margin-top: 40px;
+
+      padding: 24px;
+    }
   }
 }

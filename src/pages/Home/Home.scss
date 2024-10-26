@@ -6,6 +6,10 @@
   flex-direction: column;
   gap: 120px;
 
+  @include small-desktop {
+    gap: 90px;
+  }
+
   & > section {
     @include page-grid;
   }
@@ -64,6 +68,11 @@
     object-fit: cover;
 
     @include border-gradient(white, $border-gradient);
+
+    @include small-desktop {
+      width: 220px;
+      height: 220px;
+    }
   }
 
   &__gradient {

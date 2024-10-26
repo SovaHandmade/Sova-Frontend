@@ -71,14 +71,29 @@
     font-weight: 500;
     line-height: 28px;
     letter-spacing: -0.02em;
+
+    @include small-desktop {
+      grid-column: 1 / 7;
+      grid-row: 2;
+    }
   }
 
   &-logo {
     grid-column: 6 / -1;
 
+    width: 100%;
+
     display: block;
     margin-top: 100px;
     margin-right: -48px;
     margin-left: auto;
+
+    @include small-desktop {
+      grid-column: 5 / -1;
+      grid-row: 2;
+
+      margin-top: -48px;
+      margin-right: 0;
+    }
   }
 }

@@ -1,4 +1,5 @@
 @import "./styles/vars.scss";
+@import "./styles/mixins.scss";
 
 html {
   font-family: Cormorant Infant;
@@ -26,6 +27,10 @@ body,
 
   margin: auto;
   max-width: 1440px;
+
+  @include small-desktop {
+    padding: 16px 24px;
+  }
 }
 
 a {
