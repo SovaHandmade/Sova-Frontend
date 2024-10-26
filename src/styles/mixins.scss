@@ -18,3 +18,27 @@
   background-origin: border-box;
   background-clip: content-box, padding-box, border-box;
 }
+
+@mixin small-desktop {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 744px) {
+    @content;
+  }
+}
+
+@mixin small-tablet {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (min-width: 375px) {
+    @content;
+  }
+}
