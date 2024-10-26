@@ -55,11 +55,9 @@
     }
 
     @include small-tablet {
-      margin-top: 0;
-
-      padding: 12px;
-
       grid-column: 1 / -1;
+      margin-top: 0;
+      padding: 12px;
     }
   }
 }

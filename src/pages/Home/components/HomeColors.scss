@@ -104,6 +104,11 @@
         top: 60px;
         left: 201px;
       }
+
+      @include phone {
+        top: 60px;
+        left: 120px;
+      }
     }
 
     &--right {
@@ -125,6 +130,11 @@
       @include small-tablet {
         bottom: 140px;
         right: 135px;
+      }
+
+      @include phone {
+        bottom: 140px;
+        right: 40px;
       }
     }
   }
