@@ -68,6 +68,10 @@
     &-right {
       display: block;
       text-align: right;
+
+      @include small-tablet {
+        text-align: left;
+      }
     }
   }
 
@@ -92,6 +96,11 @@
       width: 156px;
       height: 156px;
     }
+
+    @include small-tablet {
+      width: 136px;
+      height: 136px;
+    }
   }
 
   &__gradient {
@@ -101,6 +110,10 @@
     &-1 {
       top: 0;
       left: 0;
+
+      @include small-desktop {
+        display: none;
+      }
     }
 
     &-2 {
@@ -111,6 +124,10 @@
     &-3 {
       margin-top: -30px;
       left: 0;
+
+      @include small-desktop {
+        display: none;
+      }
     }
 
     &-4 {

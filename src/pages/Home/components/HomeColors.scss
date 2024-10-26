@@ -8,6 +8,10 @@
     @include small-desktop {
       grid-column: 2 / 9;
     }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
   }
 
   &-subtitle {
@@ -15,6 +19,10 @@
 
     @include small-desktop {
       grid-column: 2 / 7;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / 4;
     }
   }
 
@@ -26,6 +34,10 @@
 
     @include small-desktop {
       grid-column: 3 / -2;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
     }
   }
 
@@ -53,6 +65,13 @@
         width: 276px !important;
         height: 276px !important;
       }
+
+      @include tablet {
+        margin-top: 128px;
+
+        width: 216px !important;
+        height: 216px !important;
+      }
     }
   }
 
@@ -61,6 +80,10 @@
 
     @include tablet {
       width: 71px;
+    }
+
+    @include small-tablet {
+      width: 61px;
     }
 
     &--left {
@@ -75,6 +98,11 @@
       @include tablet {
         top: 85px;
         left: 241px;
+      }
+
+      @include small-tablet {
+        top: 60px;
+        left: 201px;
       }
     }
 
@@ -92,6 +120,11 @@
       @include tablet {
         bottom: 202px;
         right: 142px;
+      }
+
+      @include small-tablet {
+        bottom: 140px;
+        right: 135px;
       }
     }
   }

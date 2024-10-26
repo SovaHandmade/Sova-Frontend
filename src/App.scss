@@ -31,6 +31,10 @@ body,
   @include small-desktop {
     padding: 16px 24px;
   }
+
+  @include small-tablet {
+    padding: 16px;
+  }
 }
 
 a {

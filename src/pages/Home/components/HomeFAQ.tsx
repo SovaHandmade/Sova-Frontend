@@ -46,20 +46,22 @@ export const HomeFAQ = () => {
 
   return (
     <section className="home__faq">
-      <h2 className="home__faq-title">Як все працює?</h2>
-
       <div className="home__faq-container">
-        <div className="home__faq-container--top">
-          {questionsElements.slice(0, 2).map((question) => question)}
-        </div>
-        <div className="home__faq-container--bottom">
-          {questionsElements.slice(2).map((question) => question)}
-        </div>
-      </div>
+        <h2 className="home__faq-title">Як все працює?</h2>
 
-      <Link className="home__faq-button button" to="/shop">
-        Перейти до товарів
-      </Link>
+        <div className="home__faq-questions-container">
+          <div className="home__faq-questions-container--top">
+            {questionsElements.slice(0, 2).map((question) => question)}
+          </div>
+          <div className="home__faq-questions-container--bottom">
+            {questionsElements.slice(2).map((question) => question)}
+          </div>
+        </div>
+
+        <Link className="home__faq-button button" to="/shop">
+          Перейти до товарів
+        </Link>
+      </div>
     </section>
   );
 };

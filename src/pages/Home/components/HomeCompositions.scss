@@ -8,6 +8,10 @@
     @include small-desktop {
       grid-column: 2 / 10;
     }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
   }
 
   &-subtitle {
@@ -21,6 +25,10 @@
 
     @include tablet {
       grid-column: 2 / 8;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / 4;
     }
   }
 
@@ -44,6 +52,12 @@
 
     @include tablet {
       margin-top: 32px;
+    }
+
+    @include small-tablet {
+      padding: 12px;
+
+      grid-column: 1 / -1;
     }
   }
 }

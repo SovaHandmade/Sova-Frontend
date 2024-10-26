@@ -7,6 +7,10 @@
 
     width: fit-content;
 
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
+
     &-container {
       display: flex;
       align-items: end;
@@ -19,6 +23,10 @@
       @include tablet {
         font-size: 64px;
         line-height: 64px;
+      }
+
+      @include small-tablet {
+        gap: 8px;
       }
     }
 
@@ -39,6 +47,11 @@
         font-size: 100px;
         line-height: 85px;
       }
+
+      @include small-tablet {
+        font-size: 74px;
+        line-height: 70px;
+      }
     }
 
     &-medium {
@@ -57,6 +70,11 @@
       @include tablet {
         font-size: 100px;
         line-height: 85px;
+      }
+
+      @include small-tablet {
+        font-size: 74px;
+        line-height: 70px;
       }
     }
 
@@ -102,6 +120,10 @@
       font-size: 16px;
       line-height: 22.4px;
     }
+
+    @include small-tablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &-logo {
@@ -125,6 +147,10 @@
     @include tablet {
       grid-row: 3;
       margin-top: -52px;
+    }
+
+    @include small-tablet {
+      display: none;
     }
   }
 }
