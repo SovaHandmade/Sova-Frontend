@@ -70,6 +70,11 @@ h2 {
   font-weight: 700;
   line-height: 50.4px;
   color: #1f2933;
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
 }
 
 h3 {

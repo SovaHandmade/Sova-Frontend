@@ -2,6 +2,7 @@
 @import "../../../styles/mixins.scss";
 
 .home__faq {
+  margin: 0 48px;
   padding: 40px;
 
   @include border-gradient(#e8ecf4, $border-gradient);
@@ -18,18 +19,40 @@
     flex-direction: column;
     align-items: start;
 
+    @include tablet {
+      margin: 0 24px;
+    }
+
     &--top {
+      width: 100%;
       display: flex;
+
+      @include tablet {
+        justify-content: space-between;
+        gap: 24px;
+      }
     }
 
     &--bottom {
+      width: 100%;
       margin-left: auto;
       display: flex;
+
+      @include tablet {
+        margin: 0;
+
+        justify-content: space-between;
+        gap: 24px;
+      }
     }
   }
 
   &-button {
     grid-column: 5 / 9;
+
+    @include tablet {
+      grid-column: 1 / -1;
+    }
   }
 
   &-question {

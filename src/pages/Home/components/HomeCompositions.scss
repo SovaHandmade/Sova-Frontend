@@ -18,6 +18,10 @@
     @include small-desktop {
       grid-column: 7 / 12;
     }
+
+    @include tablet {
+      grid-column: 2 / 8;
+    }
   }
 
   &-images {
@@ -32,8 +36,14 @@
 
     @include small-desktop {
       margin-top: 40px;
+      gap: 0;
+      justify-content: space-between;
 
       padding: 24px;
+    }
+
+    @include tablet {
+      margin-top: 32px;
     }
   }
 }

@@ -15,6 +15,11 @@
       font-size: 128px;
       font-weight: 600;
       line-height: 128px;
+
+      @include tablet {
+        font-size: 64px;
+        line-height: 64px;
+      }
     }
 
     &-big {
@@ -29,6 +34,11 @@
 
       background-clip: text;
       color: transparent;
+
+      @include tablet {
+        font-size: 100px;
+        line-height: 85px;
+      }
     }
 
     &-medium {
@@ -43,6 +53,11 @@
 
       background-clip: text;
       color: transparent;
+
+      @include tablet {
+        font-size: 100px;
+        line-height: 85px;
+      }
     }
 
     &-small {
@@ -58,6 +73,10 @@
 
       background-clip: text;
       color: transparent;
+
+      @include tablet {
+        text-align: left;
+      }
     }
   }
 
@@ -75,6 +94,13 @@
     @include small-desktop {
       grid-column: 1 / 7;
       grid-row: 2;
+    }
+
+    @include tablet {
+      grid-column: 1 / 7;
+
+      font-size: 16px;
+      line-height: 22.4px;
     }
   }
 
@@ -94,6 +120,11 @@
 
       margin-top: -48px;
       margin-right: 0;
+    }
+
+    @include tablet {
+      grid-row: 3;
+      margin-top: -52px;
     }
   }
 }

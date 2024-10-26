@@ -46,11 +46,22 @@
         width: 383px !important;
         height: 383px !important;
       }
+
+      @include tablet {
+        margin-top: 158px;
+
+        width: 276px !important;
+        height: 276px !important;
+      }
     }
   }
 
   &-arrow {
     position: absolute;
+
+    @include tablet {
+      width: 71px;
+    }
 
     &--left {
       top: 122px;
@@ -59,6 +70,11 @@
       @include small-desktop {
         top: 108px;
         left: 343px;
+      }
+
+      @include tablet {
+        top: 85px;
+        left: 241px;
       }
     }
 
@@ -71,6 +87,11 @@
       @include small-desktop {
         bottom: 269px;
         right: 179px;
+      }
+
+      @include tablet {
+        bottom: 202px;
+        right: 142px;
       }
     }
   }
