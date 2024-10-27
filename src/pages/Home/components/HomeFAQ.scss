@@ -22,6 +22,10 @@
 
       padding: 16px;
     }
+
+    @include phone {
+      margin-bottom: 60px;
+    }
   }
 
   &-title {
@@ -127,6 +131,10 @@
       width: 200px;
     }
 
+    @include phone {
+      width: 220px;
+    }
+
     &-top {
       display: flex;
       align-items: start;
@@ -134,9 +142,9 @@
 
     &-number {
       margin-top: -18px;
-      margin-right: -16px;
+      margin-right: -10px;
 
-      font-family: Segoe UI;
+      font-family: Segoe UI, Inter;
       font-size: 128px;
       font-style: italic;
       font-weight: 400;
