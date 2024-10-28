@@ -38,6 +38,10 @@
       z-index: 1;
     }
 
+    @include tablet {
+      grid-column: 8 / -1;
+    }
+
     &--show {
       opacity: 1;
       pointer-events: all;

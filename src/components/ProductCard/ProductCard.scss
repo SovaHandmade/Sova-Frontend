@@ -28,6 +28,11 @@
     @include small-desktop {
       width: 300px;
     }
+
+    @include tablet {
+      width: 213px;
+      height: 233px;
+    }
   }
 
   &__info {
@@ -55,5 +60,9 @@
     color: #000000;
 
     @include border-gradient(white, $active-border-gradient);
+
+    @include tablet {
+      padding: 14px;
+    }
   }
 }
