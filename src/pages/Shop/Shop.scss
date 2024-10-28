@@ -1,17 +1,65 @@
 @import "../../styles/mixins.scss";
+@import "../../styles/vars.scss";
 
 .shop {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__filters-button {
+    display: none;
+
+    padding: 12px 16px;
+    box-sizing: border-box;
+
+    color: black;
+
+    @include border-gradient(white, $active-border-gradient);
+
+    @include small-desktop {
+      display: block;
+    }
+  }
+
+  &__filter-box {
+    grid-column: 1 / 4;
+
+    @include small-desktop {
+      position: absolute;
+
+      transition: opacity 300ms;
+
+      opacity: 0;
+      pointer-events: none;
+
+      grid-column: 9 / -1;
+
+      z-index: 1;
+    }
+
+    &--show {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
   &__container {
+    position: relative;
     margin-top: 16px;
 
     @include page-grid;
   }
 
   &__products-container {
-    grid-column: 4/-1;
+    grid-column: 4 / -1;
 
     display: flex;
     gap: 24px;
     flex-wrap: wrap;
+
+    @include small-desktop {
+      grid-column: 1 / -1;
+    }
   }
 }
