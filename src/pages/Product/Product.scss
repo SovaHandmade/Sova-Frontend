@@ -19,6 +19,10 @@
 
     // change that shit later
     transform: scale(1.005, 1.005);
+
+    @include small-desktop {
+      grid-column: 1 / 7;
+    }
   }
 
   &__tags {
@@ -56,6 +60,13 @@
     flex-direction: column;
     justify-content: space-between;
 
+    @include small-desktop {
+      grid-column: 7 / -1;
+
+      padding-right: 24px;
+      padding-bottom: 0;
+    }
+
     &-top {
       display: flex;
       gap: 12px;
@@ -79,6 +90,9 @@
       &-name {
         margin: 0;
         color: #616e7c;
+        white-space: nowrap;
+
+        margin-bottom: auto;
       }
 
       &-value {
@@ -96,6 +110,7 @@
     margin-left: auto;
     padding: 24px;
     padding-right: 12px;
+    box-sizing: border-box;
 
     display: flex;
     gap: 24px;
@@ -106,12 +121,39 @@
     border-right: none;
     border-bottom: none;
     border-top: none;
+
+    @include small-desktop {
+      grid-column: 1 / -1;
+      grid-row: initial;
+      flex-direction: row;
+      justify-content: space-between;
+
+      padding: 24px;
+
+      width: 100%;
+
+      @include border-gradient(white, $border-gradient);
+
+      border-right: none;
+      border-left: none;
+      border-bottom: none;
+    }
   }
 
   &__section {
     display: flex;
     gap: 16px;
     flex-direction: column;
+
+    @include small-desktop {
+      flex-direction: row;
+    }
+
+    &--group {
+      @include small-desktop {
+        flex-direction: column;
+      }
+    }
   }
 
   &__methods {
@@ -154,6 +196,10 @@
 
     &-text-gray {
       color: #616e7c;
+    }
+
+    @include small-desktop {
+      margin: 0;
     }
   }
 }
