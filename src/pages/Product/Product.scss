@@ -3,15 +3,15 @@
 
 .product {
   &__container {
-    display: flex;
-    gap: 48px;
+    @include page-grid;
 
     @include border-gradient(white, $border-gradient);
   }
 
   &__photo {
-    height: 546px;
-    width: 546px;
+    width: 100%;
+    grid-column: 1 / 6;
+    aspect-ratio: 1 / 1;
 
     object-fit: cover;
 
@@ -47,6 +47,9 @@
   }
 
   &__info {
+    grid-column: 6 / 11;
+    grid-row: 1;
+
     padding: 24px 0;
 
     display: flex;
@@ -87,8 +90,12 @@
   }
 
   &__delivery {
+    grid-column: 10 / -1;
+    grid-row: 1;
+
     margin-left: auto;
     padding: 24px;
+    padding-right: 12px;
 
     display: flex;
     gap: 24px;
