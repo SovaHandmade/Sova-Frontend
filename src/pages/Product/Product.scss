@@ -23,6 +23,10 @@
     @include small-desktop {
       grid-column: 1 / 7;
     }
+
+    @include tablet {
+      aspect-ratio: unset;
+    }
   }
 
   &__tags {
