@@ -69,7 +69,7 @@ export const Product = () => {
               <div className="product__section">
                 <h4>Delivery:</h4>
 
-                <div className="product__methods">
+                <div className="product__methods product__methods-delivery">
                   <div className="product__method">
                     <img
                       className="product__method-icon"

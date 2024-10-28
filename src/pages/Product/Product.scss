@@ -11,6 +11,8 @@
   &__photo {
     width: 100%;
     grid-column: 1 / 6;
+    grid-row: 1;
+
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
@@ -24,14 +26,25 @@
       grid-column: 1 / 7;
     }
 
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
+
     @include tablet {
       aspect-ratio: unset;
+    }
+
+    @include small-tablet {
+      aspect-ratio: 1 / 1;
+      box-sizing: border-box;
     }
   }
 
   &__tags {
     display: flex;
     gap: 8px;
+
+    padding: 8px 0;
   }
 
   &__price {
@@ -69,6 +82,12 @@
 
       padding-right: 24px;
       padding-bottom: 0;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      padding: 16px;
     }
 
     &-top {
@@ -142,6 +161,12 @@
       border-left: none;
       border-bottom: none;
     }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+
+      flex-direction: column;
+    }
   }
 
   &__section {
@@ -164,6 +189,14 @@
     display: flex;
     gap: 12px;
     flex-direction: column;
+
+    &-delivery {
+      @include small-desktop {
+        flex-direction: row;
+        column-gap: 40px;
+        flex-wrap: wrap;
+      }
+    }
   }
 
   &__method {
@@ -218,5 +251,10 @@
   &__products {
     display: flex;
     gap: 24px;
+    flex-wrap: wrap;
+
+    @include small-tablet {
+      gap: 16px;
+    }
   }
 }
