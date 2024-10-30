@@ -21,7 +21,7 @@ export const Profile: React.FC<Props> = ({ isAdmin = false }) => {
         </button>
       )}
 
-      <ProfileOrders isAdmin={isAdmin} />
+      <ProfileOrders isAdmin={isAdmin} orders={[]} />
 
       {!isAdmin && <ProfilePersonalInfo />}
     </div>

@@ -33,5 +33,20 @@
   &-column > p {
     width: 150px;
     text-align: center;
+
+    &:not(:first-child) {
+      color: #616e7c;
+    }
+  }
+
+  &-empty {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+
+    &-text {
+      color: #9aa5b1;
+    }
   }
 }
