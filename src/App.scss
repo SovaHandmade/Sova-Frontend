@@ -157,6 +157,11 @@ button,
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.03em;
+
+  @include small-tablet {
+    font-size: 17px;
+    line-height: 20.4px;
+  }
 }
 
 .button-text {

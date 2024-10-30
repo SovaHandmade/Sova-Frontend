@@ -2,14 +2,18 @@
 @import "../../../styles/mixins.scss";
 
 .about-me__contacts {
-  display: flex;
-  gap: 16px;
-  flex-direction: column;
+  &-container {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+  }
 
   &-number {
     display: flex;
     gap: 16px;
     align-items: center;
+
+    flex-wrap: wrap;
   }
 
   &-socials {
