@@ -22,18 +22,20 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
           </div>
         )}
 
-        <div className="profile__orders-headers profile__orders-row">
+        <div className="profile__orders-headers profile__orders-headers-row profile__orders-row">
           <div className="profile__orders-column">
             <h3>Замовлення</h3>
           </div>
-          <div className="profile__orders-column">
-            <h4>Дата</h4>
-          </div>
-          <div className="profile__orders-column">
-            <h4>Стан</h4>
-          </div>
-          <div className="profile__orders-column">
-            <h4>Разом</h4>
+          <div className="profile__orders-row profile__orders-headers-group">
+            <div className="profile__orders-column profile__orders-column--header">
+              <h4>Дата</h4>
+            </div>
+            <div className="profile__orders-column profile__orders-column--header">
+              <h4>Стан</h4>
+            </div>
+            <div className="profile__orders-column profile__orders-column--header">
+              <h4>Разом</h4>
+            </div>
           </div>
         </div>
 
