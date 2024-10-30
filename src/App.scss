@@ -76,7 +76,7 @@ h2 {
   line-height: 50.4px;
   color: #1f2933;
 
-  @include tablet {
+  @include small-tablet {
     font-size: 24px;
     line-height: 26.4px;
   }
@@ -89,7 +89,7 @@ h3 {
   line-height: 26.4px;
   color: #1f2933;
 
-  @include tablet {
+  @include small-tablet {
     font-size: 20px;
     line-height: 24px;
   }
@@ -145,7 +145,7 @@ button,
   letter-spacing: -0.03em;
   text-align: left;
 
-  @include tablet {
+  @include small-tablet {
     font-size: 14px;
     line-height: 14px;
   }

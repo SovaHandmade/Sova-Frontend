@@ -2,15 +2,26 @@
 @import "../../styles/mixins.scss";
 
 .order {
-  display: flex;
-
   @include page-grid;
+  row-gap: 0;
 
   &__contact-notice {
     grid-column: 4 / -4;
 
     padding: 0 24px;
     margin-bottom: 40px;
+
+    @include small-desktop {
+      grid-column: 3 / -3;
+    }
+
+    @include tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include small-tablet {
+      padding: 0;
+    }
   }
 
   &__summary {
@@ -25,6 +36,14 @@
     flex-direction: column;
 
     @include border-gradient(#f5f7fa, $border-gradient);
+
+    @include small-desktop {
+      grid-column: 3 / -3;
+    }
+
+    @include tablet {
+      grid-column: 1 / -1;
+    }
   }
 
   &__products {
@@ -47,6 +66,10 @@
 
       color: #1f2933;
     }
+
+    &-value {
+      white-space: nowrap;
+    }
   }
 
   &__total {
@@ -56,12 +79,29 @@
     gap: 16px;
     align-items: center;
 
+    @include small-tablet {
+      width: 100%;
+      justify-content: space-between;
+    }
+
     &-text {
       color: #616e7c;
+    }
+
+    &-amount {
+      white-space: nowrap;
     }
   }
 
   &__form {
     grid-column: 5 / -5;
+
+    @include small-desktop {
+      grid-column: 4 / -4;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
   }
 }
