@@ -1,4 +1,5 @@
 @import "./styles/vars.scss";
+@import "./styles/mixins.scss";
 
 html {
   font-family: Cormorant Infant;
@@ -9,7 +10,7 @@ html,
 body,
 #root,
 .main {
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .main {
@@ -20,12 +21,25 @@ body,
 .container {
   padding: 32px 48px;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 
   box-sizing: border-box;
 
   margin: auto;
+  margin-top: 0;
   max-width: 1440px;
+
+  @include small-desktop {
+    padding: 16px 24px;
+  }
+
+  @include small-tablet {
+    padding: 16px;
+  }
+
+  &:has(.centered) {
+    margin-top: auto;
+  }
 }
 
 a {
@@ -42,6 +56,12 @@ input {
 
   border: none;
   border-radius: 40px;
+}
+
+form {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
 }
 
 h1,
@@ -65,18 +85,28 @@ h2 {
   font-weight: 700;
   line-height: 50.4px;
   color: #1f2933;
+
+  @include small-tablet {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
 }
 
 h3 {
-  font-family: Segoe UI;
+  font-family: Segoe UI, Inter;
   font-size: 24px;
   font-weight: 600;
   line-height: 26.4px;
   color: #1f2933;
+
+  @include small-tablet {
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 h4 {
-  font-family: Segoe UI;
+  font-family: Segoe UI, Inter;
   font-size: 17px;
   font-weight: 600;
   line-height: 18.7px;
@@ -118,25 +148,34 @@ button,
 }
 
 .small-text {
-  //styleName: Small Text;
-  font-family: Segoe UI;
+  font-family: Segoe UI, Inter;
   font-size: 17px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: -0.03em;
   text-align: left;
+
+  @include small-tablet {
+    font-size: 14px;
+    line-height: 14px;
+  }
 }
 
 .body-text {
-  font-family: Segoe UI;
+  font-family: Segoe UI, Inter;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.03em;
+
+  @include small-tablet {
+    font-size: 17px;
+    line-height: 20.4px;
+  }
 }
 
 .button-text {
-  font-family: Segoe UI;
+  font-family: Segoe UI, Inter;
   font-size: 16px;
   font-weight: 600;
   line-height: 16px;
@@ -144,7 +183,7 @@ button,
 }
 
 .explanation-text {
-  font-family: Segoe UI;
+  font-family: Segoe UI, Inter;
   font-size: 14px;
   font-weight: 600;
   line-height: 15.4px;

@@ -25,34 +25,43 @@ const QUESTIONS = [
 ];
 
 export const HomeFAQ = () => {
+  const questionsElements = QUESTIONS.map((question, index) => (
+    <div className="home__faq-question" key={index}>
+      <div className="home__faq-question-top">
+        <div className="home__faq-question-number">{index + 1}</div>
+        <div className="home__faq-question-info">
+          <h4 className="home__faq-question-title">{question.title}</h4>
+          <p className="small-text home__faq-question-subtitle">
+            {question.subtitle}
+          </p>
+        </div>
+      </div>
+      <img
+        className="home__faq-question-image"
+        src={question.image}
+        alt="Order image"
+      />
+    </div>
+  ));
+
   return (
     <section className="home__faq">
-      <h2 className="home__faq-title">Як все працює?</h2>
-
       <div className="home__faq-container">
-        {QUESTIONS.map((question, index) => (
-          <div className="home__faq-question" key={index}>
-            <div className="home__faq-question-top">
-              <div className="home__faq-question-number">{index + 1}</div>
-              <div className="home__faq-question-info">
-                <h4 className="home__faq-question-title">{question.title}</h4>
-                <p className="small-text home__faq-question-subtitle">
-                  {question.subtitle}
-                </p>
-              </div>
-            </div>
-            <img
-              className="home__faq-question-image"
-              src={question.image}
-              alt="Order image"
-            />
-          </div>
-        ))}
-      </div>
+        <h2 className="home__faq-title">Як все працює?</h2>
 
-      <Link className="home__faq-button button" to="/shop">
-        Перейти до товарів
-      </Link>
+        <div className="home__faq-questions-container">
+          <div className="home__faq-questions-container--top">
+            {questionsElements.slice(0, 2).map((question) => question)}
+          </div>
+          <div className="home__faq-questions-container--bottom">
+            {questionsElements.slice(2).map((question) => question)}
+          </div>
+        </div>
+
+        <Link className="home__faq-button button" to="/shop">
+          Перейти до товарів
+        </Link>
+      </div>
     </section>
   );
 };

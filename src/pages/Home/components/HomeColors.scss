@@ -4,10 +4,26 @@
 .home__colors {
   &-title {
     grid-column: 2 / 7;
+
+    @include small-desktop {
+      grid-column: 2 / 9;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
   }
 
   &-subtitle {
     grid-column: 2 / 6;
+
+    @include small-desktop {
+      grid-column: 2 / 7;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &-container {
@@ -15,6 +31,14 @@
     position: relative;
 
     display: flex;
+
+    @include small-desktop {
+      grid-column: 3 / -2;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
   }
 
   &-image {
@@ -27,15 +51,64 @@
       height: 432px;
 
       margin-top: 250px;
+
+      @include small-desktop {
+        margin-top: 220px;
+
+        width: 383px !important;
+        height: 383px !important;
+      }
+
+      @include tablet {
+        margin-top: 158px;
+
+        width: 276px !important;
+        height: 276px !important;
+      }
+
+      @include tablet {
+        margin-top: 128px;
+
+        width: 216px !important;
+        height: 216px !important;
+      }
     }
   }
 
   &-arrow {
     position: absolute;
 
+    @include tablet {
+      width: 71px;
+    }
+
+    @include small-tablet {
+      width: 61px;
+    }
+
     &--left {
       top: 122px;
       left: 400px;
+
+      @include small-desktop {
+        top: 108px;
+        left: 343px;
+      }
+
+      @include tablet {
+        top: 85px;
+        left: 241px;
+      }
+
+      @include small-tablet {
+        top: 60px;
+        left: 201px;
+      }
+
+      @include phone {
+        top: 60px;
+        left: 120px;
+      }
     }
 
     &--right {
@@ -43,6 +116,26 @@
       right: 284px;
 
       transform: scale(-1, -1);
+
+      @include small-desktop {
+        bottom: 269px;
+        right: 179px;
+      }
+
+      @include tablet {
+        bottom: 202px;
+        right: 142px;
+      }
+
+      @include small-tablet {
+        bottom: 140px;
+        right: 135px;
+      }
+
+      @include phone {
+        bottom: 140px;
+        right: 40px;
+      }
     }
   }
 }

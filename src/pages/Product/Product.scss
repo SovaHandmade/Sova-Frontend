@@ -3,15 +3,17 @@
 
 .product {
   &__container {
-    display: flex;
-    gap: 48px;
+    @include page-grid;
 
     @include border-gradient(white, $border-gradient);
   }
 
   &__photo {
-    height: 546px;
-    width: 546px;
+    width: 100%;
+    grid-column: 1 / 6;
+    grid-row: 1;
+
+    aspect-ratio: 1 / 1;
 
     object-fit: cover;
 
@@ -19,11 +21,30 @@
 
     // change that shit later
     transform: scale(1.005, 1.005);
+
+    @include small-desktop {
+      grid-column: 1 / 7;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include tablet {
+      aspect-ratio: unset;
+    }
+
+    @include small-tablet {
+      aspect-ratio: 1 / 1;
+      box-sizing: border-box;
+    }
   }
 
   &__tags {
     display: flex;
     gap: 8px;
+
+    padding: 8px 0;
   }
 
   &__price {
@@ -47,11 +68,27 @@
   }
 
   &__info {
+    grid-column: 6 / 11;
+    grid-row: 1;
+
     padding: 24px 0;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include small-desktop {
+      grid-column: 7 / -1;
+
+      padding-right: 24px;
+      padding-bottom: 0;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      padding: 16px;
+    }
 
     &-top {
       display: flex;
@@ -76,6 +113,9 @@
       &-name {
         margin: 0;
         color: #616e7c;
+        white-space: nowrap;
+
+        margin-bottom: auto;
       }
 
       &-value {
@@ -87,8 +127,13 @@
   }
 
   &__delivery {
+    grid-column: 10 / -1;
+    grid-row: 1;
+
     margin-left: auto;
     padding: 24px;
+    padding-right: 12px;
+    box-sizing: border-box;
 
     display: flex;
     gap: 24px;
@@ -99,18 +144,59 @@
     border-right: none;
     border-bottom: none;
     border-top: none;
+
+    @include small-desktop {
+      grid-column: 1 / -1;
+      grid-row: initial;
+      flex-direction: row;
+      justify-content: space-between;
+
+      padding: 24px;
+
+      width: 100%;
+
+      @include border-gradient(white, $border-gradient);
+
+      border-right: none;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+
+      flex-direction: column;
+    }
   }
 
   &__section {
     display: flex;
     gap: 16px;
     flex-direction: column;
+
+    @include small-desktop {
+      flex-direction: row;
+    }
+
+    &--group {
+      @include small-desktop {
+        flex-direction: column;
+      }
+    }
   }
 
   &__methods {
     display: flex;
     gap: 12px;
     flex-direction: column;
+
+    &-delivery {
+      @include small-desktop {
+        flex-direction: row;
+        column-gap: 40px;
+        flex-wrap: wrap;
+      }
+    }
   }
 
   &__method {
@@ -148,6 +234,10 @@
     &-text-gray {
       color: #616e7c;
     }
+
+    @include small-desktop {
+      margin: 0;
+    }
   }
 }
 
@@ -161,5 +251,10 @@
   &__products {
     display: flex;
     gap: 24px;
+    flex-wrap: wrap;
+
+    @include small-tablet {
+      gap: 16px;
+    }
   }
 }

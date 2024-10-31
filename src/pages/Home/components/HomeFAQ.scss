@@ -2,32 +2,138 @@
 @import "../../../styles/mixins.scss";
 
 .home__faq {
-  padding: 40px;
+  &-container {
+    grid-column: 1 / -1;
+    margin: 0 48px;
+    padding: 40px;
 
-  @include border-gradient(#e8ecf4, $border-gradient);
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+
+    @include border-gradient(#e8ecf4, $border-gradient);
+
+    @include tablet {
+      padding: 24px;
+    }
+
+    @include small-tablet {
+      margin: 0;
+
+      padding: 16px;
+    }
+
+    @include phone {
+      margin-bottom: 60px;
+    }
+  }
 
   &-title {
     grid-column: 5 / 9;
     text-align: center;
   }
 
-  &-container {
+  &-questions-container {
     grid-column: 1 / -1;
 
     display: flex;
+    align-items: center;
+
+    @include small-desktop {
+      flex-direction: column;
+    }
+
+    @include tablet {
+      margin: 0 24px;
+
+      flex-direction: column;
+    }
+
+    @include small-tablet {
+      margin: 0;
+      flex-direction: column;
+    }
+
+    &--top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      @include tablet {
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      @include small-tablet {
+        gap: 0;
+      }
+
+      @include phone {
+        flex-direction: column;
+      }
+    }
+
+    &--bottom {
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      @include small-desktop {
+        justify-content: end;
+      }
+
+      @include tablet {
+        margin: 0;
+
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      @include small-tablet {
+        gap: 0;
+      }
+
+      @include phone {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
   }
 
   &-button {
-    grid-column: 5 / 9;
+    width: 100%;
+
+    grid-column: 5 / -5;
+    box-sizing: border-box;
+
+    @include small-desktop {
+      grid-column: 4 / -4;
+    }
+
+    @include tablet {
+      grid-column: 1 / -1;
+    }
   }
 
   &-question {
-    width: 310px;
+    max-width: 310px;
 
     display: flex;
     flex-direction: column;
     gap: 16px;
     align-items: center;
+
+    @include small-desktop {
+      width: 220px;
+    }
+
+    @include small-tablet {
+      width: 200px;
+    }
+
+    @include phone {
+      width: 220px;
+    }
 
     &-top {
       display: flex;
@@ -36,9 +142,9 @@
 
     &-number {
       margin-top: -18px;
-      margin-right: -16px;
+      margin-right: -10px;
 
-      font-family: Segoe UI;
+      font-family: Segoe UI, Inter;
       font-size: 128px;
       font-style: italic;
       font-weight: 400;

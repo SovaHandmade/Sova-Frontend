@@ -4,10 +4,9 @@
 .filter {
   width: fit-content;
   padding: 8px 16px;
+  color: #1f2933;
 
   @include border-gradient(white, $border-gradient);
-
-  color: #1f2933;
 
   &--selected {
     @include border-gradient(#fcf1f2, $active-border-gradient);

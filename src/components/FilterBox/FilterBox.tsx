@@ -6,7 +6,7 @@ type Props = {
   showButtons?: boolean;
 };
 
-export const FilterBox: React.FC<Props> = ({ showButtons }) => {
+export const FilterBox: React.FC<Props> = ({ showButtons = true }) => {
   return (
     <div className="filter-box">
       <div className="filter-box__container">

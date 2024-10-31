@@ -4,14 +4,32 @@
 .profile__personal-info {
   grid-column: 1 / 5;
 
-  margin-top: 80px;
+  margin-top: 60px;
 
   display: flex;
   gap: 24px;
   flex-direction: column;
 
+  @include small-desktop {
+    grid-column: 1 / 7;
+  }
+
+  @include tablet {
+    grid-column: 1 / 8;
+  }
+
+  @include small-tablet {
+    grid-column: 1 / -1;
+
+    margin-top: 16px;
+  }
+
   &-title {
     text-align: center;
+
+    @include small-tablet {
+      text-align: left;
+    }
   }
 
   &-form {

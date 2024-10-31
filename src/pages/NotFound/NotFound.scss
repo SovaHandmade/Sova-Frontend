@@ -1,12 +1,56 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
 .not-found {
   display: flex;
   gap: 16px;
   flex-direction: column;
   align-items: center;
 
+  &__top {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 1;
+
+    @include tablet {
+      align-items: start;
+    }
+  }
+
+  &__text {
+    @include small-desktop {
+      margin-top: -64px;
+    }
+
+    @include tablet {
+      margin-top: -128px;
+
+      width: 620px;
+    }
+
+    @include small-tablet {
+      margin-top: -48px;
+      width: 445px;
+    }
+
+    @include phone {
+      margin-top: 48px;
+      width: 340px;
+    }
+  }
+
   &__gradient {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
     position: absolute;
     margin: auto;
+
+    z-index: -1;
 
     top: 0;
     left: 0;

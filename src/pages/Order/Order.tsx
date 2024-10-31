@@ -14,16 +14,16 @@ export const Order = () => {
           <div className="order__product">
             <h4>Осінній віночок</h4>
             <div className="order__product-info">
-              <p className="small-text">2 од.</p>
-              <p className="body-text">1600 грн</p>
+              <p className="small-text order__product-value">2 од.</p>
+              <p className="body-text order__product-value">1600 грн</p>
             </div>
           </div>
 
           <div className="order__product">
             <h4>Осінній віночок</h4>
             <div className="order__product-info">
-              <p className="small-text">2 од.</p>
-              <p className="body-text">1600 грн</p>
+              <p className="small-text order__product-nowrap">2 од.</p>
+              <p className="body-text order__product-nowrap">1600 грн</p>
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@ export const Order = () => {
           <p className="order__total-text explanation-text">
             Разом без вартості доставки:
           </p>
-          <h2>2600 грн</h2>
+          <h2 className="order__total-amount">2600 грн</h2>
         </div>
       </div>
 

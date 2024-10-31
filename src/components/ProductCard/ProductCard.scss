@@ -7,6 +7,10 @@
   background-color: #f5f7fa;
   border-radius: $border-radius-x;
 
+  @include phone {
+    width: 100%;
+  }
+
   &__container {
     display: flex;
     gap: 24px;
@@ -24,6 +28,20 @@
     border-radius: $border-radius-m;
 
     object-fit: cover;
+
+    @include small-desktop {
+      width: 300px;
+    }
+
+    @include tablet {
+      width: 213px;
+      height: 233px;
+    }
+
+    @include phone {
+      width: 100%;
+      height: 250px;
+    }
   }
 
   &__info {
@@ -51,5 +69,9 @@
     color: #000000;
 
     @include border-gradient(white, $active-border-gradient);
+
+    @include tablet {
+      padding: 14px;
+    }
   }
 }

@@ -6,16 +6,29 @@
   flex-direction: column;
   gap: 120px;
 
+  @include small-desktop {
+    gap: 90px;
+  }
+
+  @include tablet {
+    gap: 60px;
+  }
+
   & > section {
     @include page-grid;
   }
 
   &__subtitle {
-    font-family: Segoe UI;
+    font-family: Segoe UI, Inter;
     font-size: 20px;
     font-weight: 400;
     line-height: 28px;
     letter-spacing: -0.02em;
+
+    @include tablet {
+      font-size: 16px;
+      line-height: 22.4px;
+    }
   }
 
   &__background {
@@ -37,6 +50,11 @@
     font-weight: 600;
     line-height: 54px;
 
+    @include tablet {
+      font-size: 32px;
+      line-height: 32px;
+    }
+
     &-gradient {
       font-style: italic;
       font-weight: 400;
@@ -50,6 +68,10 @@
     &-right {
       display: block;
       text-align: right;
+
+      @include small-tablet {
+        text-align: left;
+      }
     }
   }
 
@@ -64,6 +86,21 @@
     object-fit: cover;
 
     @include border-gradient(white, $border-gradient);
+
+    @include small-desktop {
+      width: 220px;
+      height: 220px;
+    }
+
+    @include tablet {
+      width: 156px;
+      height: 156px;
+    }
+
+    @include small-tablet {
+      width: 136px;
+      height: 136px;
+    }
   }
 
   &__gradient {
@@ -73,6 +110,10 @@
     &-1 {
       top: 0;
       left: 0;
+
+      @include small-desktop {
+        display: none;
+      }
     }
 
     &-2 {
@@ -83,6 +124,10 @@
     &-3 {
       margin-top: -30px;
       left: 0;
+
+      @include small-desktop {
+        display: none;
+      }
     }
 
     &-4 {

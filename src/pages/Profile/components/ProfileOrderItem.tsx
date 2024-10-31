@@ -15,17 +15,11 @@ export const ProfileOrderItem: React.FC<Props> = () => {
   return (
     <>
       <div className="profile__orders-row" onClick={handleClick}>
-        <div className="profile__orders-column">
-          <p className="button-text">#4567</p>
-        </div>
-        <div className="profile__orders-column">
-          <p className="small-text">03.10.2024</p>
-        </div>
-        <div className="profile__orders-column">
-          <p className="small-text">Обробка</p>
-        </div>
-        <div className="profile__orders-column">
-          <p className="small-text">2600 grh</p>
+        <p className="profile__orders-column button-text">#4567</p>
+        <div className="profile__orders-row profile__orders-row-group">
+          <p className="profile__orders-column small-text">03.10.2024</p>
+          <p className="profile__orders-column small-text">Обробка</p>
+          <p className="profile__orders-column small-text">2600 grh</p>
         </div>
       </div>
 

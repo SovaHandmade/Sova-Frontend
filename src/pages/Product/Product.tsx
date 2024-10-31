@@ -65,73 +65,79 @@ export const Product = () => {
           </div>
 
           <div className="product__delivery">
-            <div className="product__section">
-              <h4>Delivery:</h4>
+            <div className="product__section product__section--group">
+              <div className="product__section">
+                <h4>Delivery:</h4>
 
-              <div className="product__methods">
-                <div className="product__method">
-                  <img
-                    className="product__method-icon"
-                    src="/icons/expand.svg"
-                    alt="Expand icon"
-                  />
-                  <p className="small-text product__method-text">
-                    Free pickup in Lutsk
-                  </p>
-                </div>
-                <div className="product__method">
-                  <img
-                    className="product__method-icon"
-                    src="/icons/nova-poshta.png"
-                    alt="Expand icon"
-                  />
-                  <div className="product__method--double-text">
-                    <p className="small-text product__method-text">Nova Post</p>
-                    <p className="explanation-text product__method-time">
-                      1-3 days
+                <div className="product__methods product__methods-delivery">
+                  <div className="product__method">
+                    <img
+                      className="product__method-icon"
+                      src="/icons/expand.svg"
+                      alt="Expand icon"
+                    />
+                    <p className="small-text product__method-text">
+                      Free pickup in Lutsk
                     </p>
                   </div>
-                </div>
-                <div className="product__method">
-                  <img
-                    className="product__method-icon"
-                    src="/icons/ukr-poshta.png"
-                    alt="Expand icon"
-                  />
-                  <div className="product__method--double-text">
-                    <p className="small-text product__method-text">Ukrposhta</p>
-                    <p className="explanation-text product__method-time">
-                      2-5 days
-                    </p>
+                  <div className="product__method">
+                    <img
+                      className="product__method-icon"
+                      src="/icons/nova-poshta.png"
+                      alt="Expand icon"
+                    />
+                    <div className="product__method--double-text">
+                      <p className="small-text product__method-text">
+                        Nova Post
+                      </p>
+                      <p className="explanation-text product__method-time">
+                        1-3 days
+                      </p>
+                    </div>
+                  </div>
+                  <div className="product__method">
+                    <img
+                      className="product__method-icon"
+                      src="/icons/ukr-poshta.png"
+                      alt="Expand icon"
+                    />
+                    <div className="product__method--double-text">
+                      <p className="small-text product__method-text">
+                        Ukrposhta
+                      </p>
+                      <p className="explanation-text product__method-time">
+                        2-5 days
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="product__section">
-              <h4>Payment:</h4>
+              <div className="product__section">
+                <h4>Payment:</h4>
 
-              <div className="product__methods">
-                <div className="product__method">
-                  <img
-                    className="product__method-icon"
-                    src="/icons/credit_card.svg"
-                    alt="Expand icon"
-                  />
-                  <p className="small-text product__method-text">
-                    Prepay by Card
-                  </p>
-                </div>
+                <div className="product__methods">
+                  <div className="product__method">
+                    <img
+                      className="product__method-icon"
+                      src="/icons/credit_card.svg"
+                      alt="Expand icon"
+                    />
+                    <p className="small-text product__method-text">
+                      Prepay by Card
+                    </p>
+                  </div>
 
-                <div className="product__method">
-                  <img
-                    className="product__method-icon"
-                    src="/icons/wallet.svg"
-                    alt="Expand icon"
-                  />
-                  <p className="small-text product__method-text">
-                    Cash on Delivery
-                  </p>
+                  <div className="product__method">
+                    <img
+                      className="product__method-icon"
+                      src="/icons/wallet.svg"
+                      alt="Expand icon"
+                    />
+                    <p className="small-text product__method-text">
+                      Cash on Delivery
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

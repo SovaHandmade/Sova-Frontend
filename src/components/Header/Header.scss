@@ -1,4 +1,5 @@
 @import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
 
 .header {
   padding: 15px 24px;
@@ -13,11 +14,19 @@
 
     &-left {
       display: flex;
+
+      & > ul {
+        @include small-tablet {
+          display: none;
+        }
+      }
     }
 
     &-link {
       text-decoration: none;
       color: inherit;
+
+      margin: auto;
 
       display: flex;
       align-items: center;
@@ -37,10 +46,28 @@
       display: flex;
       gap: 24px;
 
+      @include small-tablet {
+        gap: 16px;
+      }
+
       &-item {
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+    }
+
+    &-profile {
+      @include small-tablet {
+        display: none;
+      }
+    }
+
+    &-menu {
+      display: none;
+
+      @include small-tablet {
+        display: inherit;
       }
     }
   }

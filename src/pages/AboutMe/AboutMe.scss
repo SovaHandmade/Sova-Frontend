@@ -12,9 +12,23 @@
     display: flex;
     gap: 60px;
     flex-direction: column;
+
+    @include small-desktop {
+      grid-column: 1 / 11;
+    }
+
+    @include tablet {
+      grid-column: 1 / -1;
+
+      gap: 40px;
+    }
   }
 
   &__title {
     margin-bottom: 24px;
+
+    @include small-tablet {
+      margin-bottom: 16px;
+    }
   }
 }
