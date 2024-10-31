@@ -15,6 +15,7 @@ import { Profile } from "./pages/Profile";
 import { AboutMe } from "./pages/AboutMe";
 import { AuthPage } from "./pages/AuthPage";
 import { NotFound } from "./pages/NotFound";
+import { ResetPassword } from "./pages/ResetPassword";
 import { CreateProduct } from "./pages/CreateProduct";
 
 import App from "./App.tsx";
@@ -35,7 +36,16 @@ const router = createBrowserRouter([
       },
       {
         path: "product",
-        element: <Product />,
+        children: [
+          {
+            index: true,
+            element: <Product />,
+          },
+          {
+            path: "create",
+            element: <CreateProduct />,
+          },
+        ],
       },
       {
         path: "cart",
@@ -55,15 +65,20 @@ const router = createBrowserRouter([
       },
       {
         path: "auth",
-        element: <AuthPage />,
+        children: [
+          {
+            index: true,
+            element: <AuthPage />,
+          },
+          {
+            path: "reset",
+            element: <ResetPassword />,
+          },
+        ],
       },
       {
         path: "profile",
         element: <Profile />,
-      },
-      {
-        path: "product/create",
-        element: <CreateProduct />,
       },
     ],
   },
