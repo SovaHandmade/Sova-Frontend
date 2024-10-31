@@ -7,13 +7,29 @@
   @include page-grid;
 
   align-items: center;
+  justify-content: center;
 
   &__container {
     grid-column: 5 / -5;
+
+    @include small-desktop {
+      grid-column: 4 / -4;
+    }
+
+    @include tablet {
+      grid-column: 3 / -3;
+    }
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
   }
 
   &__title {
-    text-align: center;
+    margin-top: 32px;
     margin-bottom: 24px;
+
+    font-size: 36px;
+    text-align: center;
   }
 }
