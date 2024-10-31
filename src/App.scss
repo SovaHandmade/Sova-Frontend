@@ -36,6 +36,10 @@ body,
   @include small-tablet {
     padding: 16px;
   }
+
+  &:has(.centered) {
+    margin-top: auto;
+  }
 }
 
 a {
