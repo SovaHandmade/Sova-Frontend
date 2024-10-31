@@ -54,6 +54,12 @@ input {
   border-radius: 40px;
 }
 
+form {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
 h1,
 h2,
 h3,
