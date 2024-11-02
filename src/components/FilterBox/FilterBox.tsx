@@ -1,30 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Filter } from "../Filter/Filter";
 import "./FilterBox.scss";
+import { getTags } from "../../utils/api";
 
 type Props = {
   showButtons?: boolean;
 };
 
 export const FilterBox: React.FC<Props> = ({ showButtons = true }) => {
+  const [tags, setTags] = useState<{ topics: string[]; forms: string[] }>({
+    forms: [],
+    topics: [],
+  });
+
+  const fetchTags = async () => {
+    console.log(await getTags());
+  };
+
+  useEffect(() => {
+    fetchTags();
+  }, []);
+
+  if (!tags) {
+    return <></>;
+  }
+
   return (
     <div className="filter-box">
       <div className="filter-box__container">
         <p className="small-text">Topic</p>
         <div className="filter-box__filters filter-box__filters--selected">
-          <Filter text="All" selected={true} />
-          <Filter text="Spring" selected={false} />
-          <Filter text="Winter" selected={false} />
-          <Filter text="Autumn" selected={false} />
+          {tags.topics.map((topic, index) => {
+            <Filter text="All" selected={index === 0} />;
+          })}
         </div>
       </div>
       <div className="filter-box__container">
         <p className="small-text">Form</p>
         <div className="filter-box__filters filter-box__filters--selected">
-          <Filter text="All" selected={true} />
-          <Filter text="Composition" selected={false} />
-          <Filter text="Wreath" selected={false} />
-          <Filter text="Candlestick" selected={false} />
+          {tags.forms.map((form, index) => {
+            <Filter text="All" selected={index === 0} />;
+          })}
         </div>
       </div>
 

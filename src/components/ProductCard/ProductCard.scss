@@ -63,7 +63,7 @@
     }
   }
 
-  &__buy-button {
+  &__buy-button:is(a) {
     padding: 20px;
 
     color: #000000;

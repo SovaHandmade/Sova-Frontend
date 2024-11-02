@@ -1,22 +1,36 @@
+import React from "react";
 import "./ProductCard.scss";
+import { Link } from "react-router-dom";
 
-export const ProductCard = () => {
+type Props = {
+  name: string;
+  image: string;
+  size: string;
+  price: string;
+  id: number;
+};
+
+export const ProductCard: React.FC<Props> = ({
+  name,
+  image,
+  size,
+  price,
+  id,
+}) => {
   return (
     <div className="product-card">
-      <img
-        src="/product-photo/1.jpg"
-        alt="Product photo"
-        className="product-card__image"
-      />
+      <img src={image} alt="Product photo" className="product-card__image" />
 
       <div className="product-card__container">
         <div className="product-card__info">
-          <h3 className="product-card__info-name">Spring Basket</h3>
-          <p className="small-text product-card__info-size">Розмір 50*50 см </p>
-          <h3 className="product-card__info-price">800grn</h3>
+          <h3 className="product-card__info-name">{name}</h3>
+          <p className="small-text product-card__info-size">Розмір {size}</p>
+          <h3 className="product-card__info-price">{price}</h3>
         </div>
 
-        <button className="product-card__buy-button">Buy</button>
+        <Link to={`/product/${id}`} className="product-card__buy-button button">
+          Buy
+        </Link>
       </div>
     </div>
   );

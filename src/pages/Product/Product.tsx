@@ -1,9 +1,32 @@
+import { useParams } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
 import { Filter } from "../../components/Filter";
 import { ProductCard } from "../../components/ProductCard";
 import "./Product.scss";
+import { getProduct } from "../../utils/api";
+import { useEffect, useState } from "react";
+import { ProductType } from "../../types/ProductType";
 
 export const Product = () => {
+  const [product, setProduct] = useState<ProductType>();
+
+  const { id } = useParams();
+  const productId = Number(id);
+  console.log(productId);
+
+  const fetchProduct = async () => {
+    setProduct(await getProduct(productId));
+  };
+
+  useEffect(() => {
+    fetchProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!product) {
+    return <></>;
+  }
+
   return (
     <>
       <div className="product">
@@ -12,47 +35,54 @@ export const Product = () => {
         <div className="product__container">
           <img
             className="product__photo"
-            src="/product-photo/1.jpg"
+            src={product.image}
             alt="Product photo"
           />
 
           <div className="product__info">
             <div className="product__info-top">
-              <h2 className="product__name">Autumn wreath</h2>
+              <h2 className="product__name">{product.name}</h2>
               <div className="product__info-entry">
                 <h4 className="product__info-entry-name">Size :</h4>
-                <p className="small-text product__info-entry-value">50*50 cm</p>
+                <p className="small-text product__info-entry-value">
+                  {product.size}
+                </p>
               </div>
               <div className="product__info-entry">
                 <h4 className="product__info-entry-name">Material :</h4>
                 <p className="small-text product__info-entry-value">
-                  Plastic, natural
+                  {product.material}
                 </p>
               </div>
               <div className="product__info-entry">
                 <h4 className="product__info-entry-name">Color :</h4>
                 <p className="small-text product__info-entry-value">
-                  You can choose custom colors when we contact.
+                  {product.color}
                 </p>
               </div>
               <div className="product__info-entry">
                 <h4 className="product__info-entry-name">Description :</h4>
                 <p className="small-text product__info-entry-value">
-                  This spring composition is a great way to decorate your home,
-                  and can also be an original gift
+                  {product.description}
                 </p>
               </div>
 
               <div className="product__tags">
-                <Filter text="Autumn" selected={false} />
-                <Filter text="Wreath" selected={false} />
+                {product.topic_name && (
+                  <Filter text={product.topic_name} selected={false} />
+                )}
+                {product.form_name && (
+                  <Filter text={product.form_name} selected={false} />
+                )}
               </div>
             </div>
 
             <div className="product__info-bottom">
               <div className="product__price">
                 <p className="explanation-text product__price-text">Price:</p>
-                <h2 className="product__price-value">800 grn</h2>
+                <h2 className="product__price-value">
+                  {product.price_display}
+                </h2>
               </div>
 
               <button className="product__buy-button">Place an order</button>

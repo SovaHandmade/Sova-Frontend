@@ -1,15 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 import { FilterBox } from "../../components/FilterBox";
 import { ProductCard } from "../../components/ProductCard";
 import "./Shop.scss";
+import { getProducts } from "../../utils/api";
 
 export const Shop = () => {
   const [showFilters, setShowFilters] = useState(false);
+  const [products, setProducts] = useState<
+    {
+      name: string;
+      image: string;
+      size: string;
+      price: string;
+    }[]
+  >([]);
 
   const handleFiltersButton = () => {
     setShowFilters(!showFilters);
   };
+
+  const fetch = async () => {
+    console.log(await getProducts());
+    setProducts(await getProducts());
+  };
+
+  useEffect(() => {
+    fetch();
+  }, []);
 
   return (
     <section className="shop">
@@ -29,10 +47,16 @@ export const Shop = () => {
           <FilterBox />
         </div>
         <div className="shop__products-container">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products.map((product, index) => (
+            <ProductCard
+              name={product.name}
+              image={product.image}
+              size={product.size}
+              price={product.price_display}
+              id={index + 1}
+              key={index}
+            />
+          ))}
         </div>
       </div>
     </section>
