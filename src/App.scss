@@ -13,6 +13,16 @@ body,
   min-height: 100vh;
 }
 
+body:has(.burger-menu--visible) {
+  overflow: hidden;
+}
+
+#menu:target {
+  display: flex;
+
+  opacity: 1 !important;
+}
+
 .main {
   display: flex;
   flex-direction: column;

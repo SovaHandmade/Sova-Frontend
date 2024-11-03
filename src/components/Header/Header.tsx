@@ -61,13 +61,13 @@ export const Header = () => {
             </li>
 
             <li className="header__nav-list-item header__nav-menu">
-              <Link className="header__nav-link button-text" to="#menu">
+              <a className="header__nav-link button-text" href="#menu">
                 <img
                   className="header__user-icon"
                   src="/icons/burger_menu.svg"
                   alt="Burger menu icon"
                 />
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
