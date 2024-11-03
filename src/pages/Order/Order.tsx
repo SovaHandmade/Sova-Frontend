@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AuthForm } from "../../components/AuthForm";
 import { BackButton } from "../../components/BackButton";
 import {
@@ -13,14 +13,13 @@ import "./Order.scss";
 import { ProductType } from "../../types/ProductType";
 import { Popup } from "../../components/Popup";
 
-let fetched = false;
-
 export const Order = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [showPopup, setShowPopup] = useState(false);
   const [popupSuccess, setPopupSuccess] = useState(false);
   const [popupTitle, setPopupTitle] = useState("");
   const [popupSubtitle, setPopupSubtitle] = useState("");
+  const isFetched = useRef(false);
 
   const cart = getCart();
 
@@ -31,7 +30,7 @@ export const Order = () => {
       setProducts((currentProducts) => [...currentProducts, product]);
     }
 
-    fetched = true;
+    isFetched.current = true;
   };
 
   const handleOrder = async () => {
@@ -53,7 +52,7 @@ export const Order = () => {
   };
 
   useEffect(() => {
-    if (fetched) {
+    if (isFetched.current) {
       return;
     }
     fetchProducts();
@@ -66,8 +65,8 @@ export const Order = () => {
     window.location.href = "/shop";
   };
 
-  if (!fetched) {
-    return;
+  if (!isFetched.current) {
+    return <></>;
   }
 
   return (

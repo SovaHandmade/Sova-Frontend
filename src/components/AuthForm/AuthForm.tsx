@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
   const [popupSuccess, setPopupSuccess] = useState(false);
   const [popupTitle, setPopupTitle] = useState("");

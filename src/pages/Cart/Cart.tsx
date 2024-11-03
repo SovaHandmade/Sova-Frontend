@@ -44,7 +44,9 @@ export const Cart = () => {
                 Continue shopping
                 <img src="/icons/basket.svg" alt="Basket icon" />
               </Link>
-              <button className="cart__order-button ">Order</button>
+              <Link to="/order" className="cart__order-button button">
+                Order
+              </Link>
             </div>
           </>
         ) : (
