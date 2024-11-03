@@ -1,8 +1,75 @@
+import { useEffect, useState } from "react";
 import { AuthForm } from "../../components/AuthForm";
 import { BackButton } from "../../components/BackButton";
+import {
+  clearCart,
+  createOrder,
+  getCart,
+  getProduct,
+  isLoggedIn,
+} from "../../utils/api";
+import { calculateTotal } from "../../utils/calculateTotal";
 import "./Order.scss";
+import { ProductType } from "../../types/ProductType";
+import { Popup } from "../../components/Popup";
+
+let fetched = false;
 
 export const Order = () => {
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupSuccess, setPopupSuccess] = useState(false);
+  const [popupTitle, setPopupTitle] = useState("");
+  const [popupSubtitle, setPopupSubtitle] = useState("");
+
+  const cart = getCart();
+
+  const fetchProducts = async () => {
+    for (const cartItem of cart) {
+      const product = await getProduct(cartItem.product_id);
+
+      setProducts((currentProducts) => [...currentProducts, product]);
+    }
+
+    fetched = true;
+  };
+
+  const handleOrder = async () => {
+    const result = await createOrder(cart);
+
+    if (result) {
+      setShowPopup(true);
+      setPopupTitle("Дякуємо за замовлення!");
+      setPopupSubtitle(
+        "Ми зв’яжемося з вами найближчим часом для підтвердження."
+      );
+      setPopupSuccess(true);
+    } else {
+      setShowPopup(true);
+      setPopupTitle("Помилка");
+      setPopupSubtitle("Виникла помилка під час замовлення");
+      setPopupSuccess(false);
+    }
+  };
+
+  useEffect(() => {
+    if (fetched) {
+      return;
+    }
+    fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handlePopup = () => {
+    setShowPopup(false);
+    clearCart();
+    window.location.href = "/shop";
+  };
+
+  if (!fetched) {
+    return;
+  }
+
   return (
     <div className="order">
       <BackButton />
@@ -10,29 +77,36 @@ export const Order = () => {
       <div className="order__summary">
         <h2>Ваше замовлення</h2>
 
-        <div className="order__products">
-          <div className="order__product">
-            <h4>Осінній віночок</h4>
-            <div className="order__product-info">
-              <p className="small-text order__product-value">2 од.</p>
-              <p className="body-text order__product-value">1600 грн</p>
-            </div>
-          </div>
+        {showPopup && (
+          <Popup
+            title={popupTitle}
+            subtitle={popupSubtitle}
+            isSuccess={popupSuccess}
+            buttonCallback={handlePopup}
+          />
+        )}
 
-          <div className="order__product">
-            <h4>Осінній віночок</h4>
-            <div className="order__product-info">
-              <p className="small-text order__product-nowrap">2 од.</p>
-              <p className="body-text order__product-nowrap">1600 грн</p>
+        <div className="order__products">
+          {cart.map((cartItem, index) => (
+            <div className="order__product" key={index}>
+              <h4>{products[index].name}</h4>
+              <div className="order__product-info">
+                <p className="small-text order__product-value">
+                  {cartItem.quantity} units
+                </p>
+                <p className="body-text order__product-value">
+                  {cartItem.price * cartItem.quantity} grn
+                </p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
         <div className="order__total">
           <p className="order__total-text explanation-text">
             Разом без вартості доставки:
           </p>
-          <h2 className="order__total-amount">2600 грн</h2>
+          <h2 className="order__total-amount">{calculateTotal(cart)} grn</h2>
         </div>
       </div>
 
@@ -42,7 +116,13 @@ export const Order = () => {
       </p>
 
       <div className="order__form">
-        <AuthForm />
+        {!isLoggedIn() ? (
+          <AuthForm callback={handleOrder} buttonText="Confirm order" />
+        ) : (
+          <button className="order__form-button" onClick={handleOrder}>
+            Confirm order
+          </button>
+        )}
       </div>
     </div>
   );

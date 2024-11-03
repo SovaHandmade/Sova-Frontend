@@ -3,12 +3,18 @@ import { BackButton } from "../../components/BackButton";
 import { Filter } from "../../components/Filter";
 import { ProductCard } from "../../components/ProductCard";
 import "./Product.scss";
-import { getProduct } from "../../utils/api";
+import {
+  addToLocalCart,
+  getProduct,
+  isInLocalCart,
+  removeFromLocalCart,
+} from "../../utils/api";
 import { useEffect, useState } from "react";
 import { ProductType } from "../../types/ProductType";
 
 export const Product = () => {
   const [product, setProduct] = useState<ProductType>();
+  const [isInCart, setIsInCart] = useState(false);
 
   const { id } = useParams();
   const productId = Number(id);
@@ -18,7 +24,23 @@ export const Product = () => {
     setProduct(await getProduct(productId));
   };
 
+  const handleAddToCart = () => {
+    if (!id || !product) {
+      return;
+    }
+
+    if (isInCart) {
+      removeFromLocalCart(productId);
+    } else {
+      addToLocalCart(productId, product.price);
+    }
+
+    setIsInCart(isInLocalCart(productId));
+  };
+
   useEffect(() => {
+    setIsInCart(isInLocalCart(productId));
+
     fetchProduct();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -80,16 +102,22 @@ export const Product = () => {
             <div className="product__info-bottom">
               <div className="product__price">
                 <p className="explanation-text product__price-text">Price:</p>
-                <h2 className="product__price-value">
-                  {product.price_display}
-                </h2>
+                <h2 className="product__price-value">{product.price} grn</h2>
               </div>
 
               <button className="product__buy-button">Place an order</button>
 
-              <button className="product__cart-button">
-                Add To Cart
-                <img src="/icons/basket.svg" alt="Basket icon" />
+              <button
+                className="product__cart-button"
+                onClick={handleAddToCart}
+              >
+                {isInCart ? "Remove From Cart" : "Add To Cart"}
+                <img
+                  src={
+                    isInCart ? "/icons/basket_active.svg" : "/icons/basket.svg"
+                  }
+                  alt="Basket icon"
+                />
               </button>
             </div>
           </div>

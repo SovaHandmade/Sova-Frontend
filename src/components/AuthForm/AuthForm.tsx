@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { login, register } from "../../utils/api";
 import "./AuthForm.scss";
 import classNames from "classnames";
@@ -11,7 +11,12 @@ interface FormFields {
   password: HTMLInputElement;
 }
 
-export const AuthForm = () => {
+type Props = {
+  callback?: () => void;
+  buttonText?: string;
+};
+
+export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupSuccess, setPopupSuccess] = useState(false);
@@ -40,7 +45,11 @@ export const AuthForm = () => {
       try {
         await login(email.value, password.value);
 
-        window.location.href = "/profile";
+        if (callback) {
+          callback();
+        } else {
+          window.location.href = "/profile";
+        }
       } catch {
         addPopup(false, "Помилка", "Неправильний пароль");
       }
@@ -83,6 +92,10 @@ export const AuthForm = () => {
 
   const closePopup = () => {
     setShowPopup(false);
+
+    if (callback) {
+      callback();
+    }
   };
 
   return (
@@ -143,7 +156,7 @@ export const AuthForm = () => {
 
         <p className="auth-form__form-reset button-text">Забули пароль?</p>
 
-        <button>Увійти</button>
+        <button>{buttonText || "Увійти"}</button>
       </form>
     </div>
   );

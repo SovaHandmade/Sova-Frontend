@@ -18,8 +18,16 @@ export const get = async (url: string, token?: string) => {
   return response.data;
 };
 
-export const post = async (url: string, data: object) => {
-  const response = await axios.post(`${API_BASE}/${url}`, data);
+export const post = async (url: string, data: object, token?: string) => {
+  const headers = {};
+
+  if (token) {
+    headers["Authorize"] = `JWT ${token}`;
+  }
+
+  const response = await axios.post(`${API_BASE}/${url}`, data, {
+    headers,
+  });
 
   return response.data;
 };

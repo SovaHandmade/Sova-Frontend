@@ -52,7 +52,7 @@ export const Shop = () => {
               name={product.name}
               image={product.image}
               size={product.size}
-              price={product.price_display}
+              price={product.price}
               id={index + 1}
               key={index}
             />
