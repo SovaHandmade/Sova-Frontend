@@ -26,31 +26,32 @@ export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
         </div>
       </div>
 
-      {showDetails &&
-        order.items.map((item, index) => (
-          <Fragment key={index}>
-            <div className="profile__orders-row">
+      {showDetails && (
+        <Fragment>
+          {order.items.map((item, index) => (
+            <div className="profile__orders-row" key={index}>
               <div className="profile__order-details">
-                <h4>Осінній віночок</h4>
+                <h4>test</h4>
                 <div className="profile__order-details-info">
-                  <p className="small-text">{item.quantity}</p>
-                  <p className="body-text">{item.total_price}</p>
+                  <p className="small-text">{item.quantity} units</p>
+                  <p className="body-text">{item.total_price} grn</p>
                 </div>
               </div>
             </div>
+          ))}
 
-            <div className="profile__orders-row">
-              <div className="profile__order-credentials">
-                <h4>Данні покупця:</h4>
-                <div className="profile__order-credentials-info">
-                  <p className="small-text">Брєд Пітт</p>
-                  <p className="small-text">+380 00 000 0000</p>
-                  <p className="small-text">емайл.ком</p>
-                </div>
+          <div className="profile__orders-row">
+            <div className="profile__order-credentials">
+              <h4>Данні покупця:</h4>
+              <div className="profile__order-credentials-info">
+                <p className="small-text">Брєд Пітт</p>
+                <p className="small-text">+380 00 000 0000</p>
+                <p className="small-text">емайл.ком</p>
               </div>
             </div>
-          </Fragment>
-        ))}
+          </div>
+        </Fragment>
+      )}
     </>
   );
 };

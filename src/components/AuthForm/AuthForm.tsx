@@ -95,6 +95,8 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
 
     if (callback) {
       callback();
+    } else {
+      window.location.href = "/profile";
     }
   };
 

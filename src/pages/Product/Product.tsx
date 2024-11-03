@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
 import { Filter } from "../../components/Filter";
 import { ProductCard } from "../../components/ProductCard";
@@ -15,6 +15,7 @@ import { ProductType } from "../../types/ProductType";
 export const Product = () => {
   const [product, setProduct] = useState<ProductType>();
   const [isInCart, setIsInCart] = useState(false);
+  const navigate = useNavigate();
 
   const { id } = useParams();
   const productId = Number(id);
@@ -36,6 +37,18 @@ export const Product = () => {
     }
 
     setIsInCart(isInLocalCart(productId));
+  };
+
+  const handleBuyNow = () => {
+    if (!id || !product) {
+      return;
+    }
+
+    if (!isInCart) {
+      addToLocalCart(productId, product.price);
+    }
+
+    navigate("/cart");
   };
 
   useEffect(() => {
@@ -105,7 +118,9 @@ export const Product = () => {
                 <h2 className="product__price-value">{product.price} grn</h2>
               </div>
 
-              <button className="product__buy-button">Place an order</button>
+              <button className="product__buy-button" onClick={handleBuyNow}>
+                Place an order
+              </button>
 
               <button
                 className="product__cart-button"

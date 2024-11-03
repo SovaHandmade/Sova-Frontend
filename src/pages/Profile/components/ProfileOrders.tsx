@@ -3,6 +3,7 @@ import { ProfileOrderItem } from "./ProfileOrderItem";
 import { Filter } from "../../../components/Filter";
 import { Order } from "../../../types/Order";
 import "./ProfileOrders.scss";
+import { Link } from "react-router-dom";
 
 type Props = {
   isAdmin: boolean;
@@ -44,9 +45,9 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
             <p className="profile__orders-empty-text body-text">
               Тут з’являться ваші замовлення
             </p>
-            <button className="profile__orders-empty-button">
+            <Link to="/shop" className="profile__orders-empty-button button">
               Перейти до каталогу товарів
-            </button>
+            </Link>
           </div>
         ) : (
           orders.map((order, index) => (
