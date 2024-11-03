@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import classNames from "classnames";
 import "./Header.scss";
+import { isLoggedIn } from "../../utils/api";
 
 export const Header = () => {
   const navClassnameHandler = ({ isActive }: { isActive: boolean }) =>
@@ -43,12 +44,19 @@ export const Header = () => {
             </li>
 
             <li className="header__nav-list-item header__nav-profile">
-              <Link className="header__nav-link button-text" to="/profile">
-                <img
-                  className="header__user-icon"
-                  src="/icons/user_light.svg"
-                  alt="User icon"
-                />
+              <Link
+                className="header__nav-link button-text"
+                to={isLoggedIn() ? "/profile" : "/auth"}
+              >
+                {isLoggedIn() ? (
+                  <img
+                    className="header__user-icon"
+                    src="/icons/user_light.svg"
+                    alt="User icon"
+                  />
+                ) : (
+                  "Login"
+                )}
               </Link>
             </li>
 

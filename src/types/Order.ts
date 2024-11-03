@@ -1,6 +1,10 @@
+import { OrderItem } from "./OrderItem";
+
 export type Order = {
+  id: number;
   name: string;
-  date: Date;
+  date: string;
   status: string;
-  amount: number;
+  total_price: number;
+  items: OrderItem[];
 };

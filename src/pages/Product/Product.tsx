@@ -177,7 +177,7 @@ export const Product = () => {
               <p className="explanation-text product__contact-text-gray">
                 Just call us back:{" "}
               </p>
-              <p className="body-text">+00000000000</p>
+              <p className="body-text">+380 95 131 0343</p>
             </div>
           </div>
         </div>

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import "./ProfileOrderItem.scss";
+import { Order } from "../../../types/Order";
 
 type Props = {
-  showDetails?: boolean;
+  order: Order;
 };
 
-export const ProfileOrderItem: React.FC<Props> = () => {
+export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const handleClick = () => {
@@ -15,38 +16,41 @@ export const ProfileOrderItem: React.FC<Props> = () => {
   return (
     <>
       <div className="profile__orders-row" onClick={handleClick}>
-        <p className="profile__orders-column button-text">#4567</p>
+        <p className="profile__orders-column button-text">{order.id}</p>
         <div className="profile__orders-row profile__orders-row-group">
-          <p className="profile__orders-column small-text">03.10.2024</p>
-          <p className="profile__orders-column small-text">Обробка</p>
-          <p className="profile__orders-column small-text">2600 grh</p>
+          <p className="profile__orders-column small-text">{order.date}</p>
+          <p className="profile__orders-column small-text">{order.status}</p>
+          <p className="profile__orders-column small-text">
+            {order.total_price}
+          </p>
         </div>
       </div>
 
-      {showDetails && (
-        <>
-          <div className="profile__orders-row">
-            <div className="profile__order-details">
-              <h4>Осінній віночок</h4>
-              <div className="profile__order-details-info">
-                <p className="small-text">2 од.</p>
-                <p className="body-text">1600 грн</p>
+      {showDetails &&
+        order.items.map((item, index) => (
+          <Fragment key={index}>
+            <div className="profile__orders-row">
+              <div className="profile__order-details">
+                <h4>Осінній віночок</h4>
+                <div className="profile__order-details-info">
+                  <p className="small-text">{item.quantity}</p>
+                  <p className="body-text">{item.total_price}</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="profile__orders-row">
-            <div className="profile__order-credentials">
-              <h4>Данні покупця:</h4>
-              <div className="profile__order-credentials-info">
-                <p className="small-text">Брєд Пітт</p>
-                <p className="small-text">+380 00 000 0000</p>
-                <p className="small-text">емайл.ком</p>
+            <div className="profile__orders-row">
+              <div className="profile__order-credentials">
+                <h4>Данні покупця:</h4>
+                <div className="profile__order-credentials-info">
+                  <p className="small-text">Брєд Пітт</p>
+                  <p className="small-text">+380 00 000 0000</p>
+                  <p className="small-text">емайл.ком</p>
+                </div>
               </div>
             </div>
-          </div>
-        </>
-      )}
+          </Fragment>
+        ))}
     </>
   );
 };

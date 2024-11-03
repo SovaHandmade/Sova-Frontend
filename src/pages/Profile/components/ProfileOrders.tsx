@@ -49,10 +49,9 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
             </button>
           </div>
         ) : (
-          <>
-            <ProfileOrderItem />
-            <ProfileOrderItem />
-          </>
+          orders.map((order, index) => (
+            <ProfileOrderItem order={order} key={index} />
+          ))
         )}
       </div>
     </div>
