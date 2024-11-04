@@ -44,7 +44,9 @@ export const FilterBox: React.FC<Props> = ({ showButtons = true }) => {
 
       {showButtons && (
         <div className="filter-box__buttons">
-          <button className="filter-box__clear-button">Clear filters</button>
+          <button className="filter-box__clear-button button--text">
+            Clear filters
+          </button>
           <button className="filter-box__apply-button">Apply</button>
         </div>
       )}

@@ -16,17 +16,17 @@ export const Footer = () => {
             <img className="footer__logo" src="/logo.svg" alt="Logo" />
           </Link>
           <ul className="footer__nav-list">
-            <li className="footer__nav-list-item">
+            <li className="footer__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/shop">
                 Shop
               </NavLink>
             </li>
-            <li className="footer__nav-list-item">
+            <li className="footer__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/about-me">
                 About
               </NavLink>
             </li>
-            <li className="footer__nav-list-item">
+            <li className="footer__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/about-me">
                 Q&A
               </NavLink>
@@ -36,17 +36,17 @@ export const Footer = () => {
 
         <div className="footer__nav-right">
           <ul className="footer__nav-list">
-            <li className="footer__nav-list-item small-text">
+            <li className="footer__nav-list-item button--text small-text">
               +380 95 131 0343
             </li>
-            <li className="footer__nav-list-item button-text">
+            <li className="footer__nav-list-item button--text button-text">
               <img
                 className="footer__user-icon"
                 src="/icons/facebook.svg"
                 alt="Facebook icon"
               />
             </li>
-            <li className="footer__nav-list-item button-text">
+            <li className="footer__nav-list-item button--text button-text">
               <img
                 className="footer__user-icon"
                 src="/icons/instagram.svg"

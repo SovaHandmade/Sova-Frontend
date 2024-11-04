@@ -17,12 +17,12 @@ export const Header = () => {
             <img className="header__logo" src="/logo.svg" alt="Logo" />
           </Link>
           <ul className="header__nav-list header__nav-list-left">
-            <li className="header__nav-list-item">
+            <li className="header__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/shop">
                 Shop
               </NavLink>
             </li>
-            <li className="header__nav-list-item">
+            <li className="header__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/about-me">
                 About
               </NavLink>
@@ -32,7 +32,7 @@ export const Header = () => {
 
         <div className="header__nav-right">
           <ul className="header__nav-list">
-            <li className="header__nav-list-item">
+            <li className="header__nav-list-item button--text">
               <Link className="header__nav-link button-text" to="/cart">
                 Cart
                 <img
@@ -43,7 +43,7 @@ export const Header = () => {
               </Link>
             </li>
 
-            <li className="header__nav-list-item header__nav-profile">
+            <li className="header__nav-list-item button--text header__nav-profile">
               <Link
                 className="header__nav-link button-text"
                 to={isLoggedIn() ? "/profile" : "/auth"}
@@ -60,7 +60,7 @@ export const Header = () => {
               </Link>
             </li>
 
-            <li className="header__nav-list-item header__nav-menu">
+            <li className="header__nav-list-item button--text header__nav-menu">
               <a className="header__nav-link button-text" href="#menu">
                 <img
                   className="header__user-icon"

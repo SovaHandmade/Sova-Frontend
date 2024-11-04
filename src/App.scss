@@ -150,19 +150,40 @@ button,
 
   box-sizing: border-box;
 
-  border: 2px double $active-border-gradient;
-  border-radius: $border-radius-x;
-
-  background: $active-border-gradient;
-
   color: #ffffff;
 
   @include border-gradient(transparent, $active-border-gradient);
+
+  transition: filter 300ms, background-image 300ms;
+
+  &:hover {
+    filter: brightness(95%);
+  }
+
+  &:active {
+    filter: brightness(90%);
+  }
 
   &--secondary {
     color: black;
 
     @include border-gradient(white, $active-border-gradient);
+  }
+
+  &--text {
+    padding: 4px 8px;
+
+    border-radius: 40px;
+
+    transition: background-color 300ms;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
   }
 }
 
