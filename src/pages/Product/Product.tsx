@@ -6,6 +6,7 @@ import "./Product.scss";
 import {
   addToLocalCart,
   getProduct,
+  getProducts,
   isInLocalCart,
   removeFromLocalCart,
 } from "../../utils/api";
@@ -14,6 +15,7 @@ import { ProductType } from "../../types/ProductType";
 
 export const Product = () => {
   const [product, setProduct] = useState<ProductType>();
+  const [suggestions, setSuggestions] = useState<ProductType[]>([]);
   const [isInCart, setIsInCart] = useState(false);
   const navigate = useNavigate();
 
@@ -25,6 +27,9 @@ export const Product = () => {
     setProduct(await getProduct(productId));
   };
 
+  const fetchSuggestions = async () => {
+    setSuggestions(await getProducts(productId, 5));
+  };
   const handleAddToCart = () => {
     if (!id || !product) {
       return;
@@ -55,6 +60,8 @@ export const Product = () => {
     setIsInCart(isInLocalCart(productId));
 
     fetchProduct();
+    fetchSuggestions();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -228,9 +235,16 @@ export const Product = () => {
       <div className="suggestions">
         <h2>You may also like</h2>
         <div className="suggestions__products">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {suggestions.map((suggestion, index) => (
+            <ProductCard
+              name={suggestion.name}
+              image={suggestion.image}
+              price={suggestion.price}
+              size={suggestion.size}
+              id={index + 1}
+              key={index}
+            />
+          ))}
         </div>
       </div>
     </>

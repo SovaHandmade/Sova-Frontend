@@ -2,19 +2,13 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import { FilterBox } from "../../components/FilterBox";
 import { ProductCard } from "../../components/ProductCard";
-import "./Shop.scss";
 import { getProducts } from "../../utils/api";
+import { ProductType } from "../../types/ProductType";
+import "./Shop.scss";
 
 export const Shop = () => {
   const [showFilters, setShowFilters] = useState(false);
-  const [products, setProducts] = useState<
-    {
-      name: string;
-      image: string;
-      size: string;
-      price: string;
-    }[]
-  >([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
 
   const handleFiltersButton = () => {
     setShowFilters(!showFilters);

@@ -3,8 +3,11 @@ import { get, post } from "./fetch";
 
 import Cookies from "js-cookie";
 
-export const getProducts = () => {
-  return get("store/product/");
+export const getProducts = (exclude?: number, max_length?: number) => {
+  return get("store/product/", {
+    exclude,
+    max_length,
+  });
 };
 
 export const getProduct = (id: number) => {
@@ -16,7 +19,7 @@ export const getTags = () => {
 };
 
 export const getOrders = async () => {
-  return get(`order/`, Cookies.get("access"));
+  return get(`order/`);
 };
 
 export const login = async (email: string, password: string) => {
@@ -57,7 +60,12 @@ export const register = async (
 };
 
 export const profile = async () => {
-  return get(`user/me/`, Cookies.get("access"));
+  return get(`user/me/`);
+};
+
+export const logout = async () => {
+  Cookies.remove("access");
+  Cookies.remove("refresh");
 };
 
 export const isLoggedIn = () => {
@@ -77,7 +85,7 @@ export const getCart = () => {
 };
 
 export const clearCart = () => {
-  localStorage.setItem("cart", JSON.stringify([]))
+  localStorage.setItem("cart", JSON.stringify([]));
 };
 
 export const addToLocalCart = (product_id: number, price: number) => {

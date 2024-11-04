@@ -5,7 +5,14 @@
   width: fit-content;
 
   background-color: #f5f7fa;
+  border: 2px double white;
   border-radius: $border-radius-x;
+
+  transition: border 300ms;
+
+  &:hover {
+    @include border-gradient(white, $border-gradient);
+  }
 
   @include phone {
     width: 100%;
@@ -28,6 +35,8 @@
     border-radius: $border-radius-m;
 
     object-fit: cover;
+
+    transform: scale(1.01);
 
     @include small-desktop {
       width: 300px;

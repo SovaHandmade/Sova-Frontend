@@ -6,7 +6,7 @@ type Props = {
   name: string;
   image: string;
   size: string;
-  price: string;
+  price: number;
   id: number;
 };
 

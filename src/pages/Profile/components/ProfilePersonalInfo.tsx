@@ -1,6 +1,13 @@
+import { logout } from "../../../utils/api";
 import "./ProfilePersonalInfo.scss";
 
 export const ProfilePersonalInfo = () => {
+  const handleLogout = async () => {
+    await logout();
+
+    window.location.href = "/";
+  };
+
   return (
     <div className="profile__personal-info">
       <h3 className="profile__personal-info-title">Персональна інформація</h3>
@@ -14,7 +21,12 @@ export const ProfilePersonalInfo = () => {
 
       <button className="profile__personal-info-save-button">Зберегти</button>
 
-      <button className="profile__personal-info-logout-button">Вийти</button>
+      <button
+        className="profile__personal-info-logout-button"
+        onClick={handleLogout}
+      >
+        Вийти
+      </button>
     </div>
   );
 };
