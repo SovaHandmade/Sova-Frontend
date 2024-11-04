@@ -1,9 +1,12 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { FilterBox } from "../../components/FilterBox";
+import { isLoggedIn, profile } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
 import "./CreateProduct.scss";
 
 export const CreateProduct = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   const handleFileInputClick = () => {
     if (!fileInputRef.current) {
@@ -12,6 +15,17 @@ export const CreateProduct = () => {
 
     fileInputRef.current.click();
   };
+
+  const fetch = async () => {
+    if (!isLoggedIn() || !(await profile()).isStaff) {
+      navigate("/auth");
+    }
+  };
+
+  useEffect(() => {
+    fetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="create-product">
