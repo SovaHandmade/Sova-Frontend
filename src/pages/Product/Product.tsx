@@ -130,7 +130,7 @@ export const Product = () => {
               </button>
 
               <button
-                className="product__cart-button"
+                className="product__cart-button button--secondary"
                 onClick={handleAddToCart}
               >
                 {isInCart ? "Remove From Cart" : "Add To Cart"}

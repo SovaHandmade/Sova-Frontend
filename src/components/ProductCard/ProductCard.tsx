@@ -28,7 +28,10 @@ export const ProductCard: React.FC<Props> = ({
           <h3 className="product-card__info-price">{price} grn</h3>
         </div>
 
-        <Link to={`/product/${id}`} className="product-card__buy-button button">
+        <Link
+          to={`/product/${id}`}
+          className="product-card__buy-button button button--secondary"
+        >
           Buy
         </Link>
       </div>

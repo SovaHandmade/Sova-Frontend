@@ -11,11 +11,6 @@
     display: none;
 
     padding: 12px 16px;
-    box-sizing: border-box;
-
-    color: black;
-
-    @include border-gradient(white, $active-border-gradient);
 
     @include small-desktop {
       display: block;

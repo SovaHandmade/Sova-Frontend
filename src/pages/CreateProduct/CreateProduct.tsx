@@ -23,7 +23,7 @@ export const CreateProduct = () => {
 
       <div className="create-product__form-container">
         <button
-          className="create-product__form-file-button"
+          className="create-product__form-file-button button--secondary"
           onClick={handleFileInputClick}
         >
           <img src="/icons/plus.svg" alt="Plus icon" />
@@ -50,7 +50,7 @@ export const CreateProduct = () => {
         <FilterBox showButtons={false} />
       </div>
 
-      <button className="create-product__bottom create-product__bottom-button-left">
+      <button className="create-product__bottom create-product__bottom-button-left button--secondary">
         Скасувати
       </button>
 

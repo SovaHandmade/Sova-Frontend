@@ -59,12 +59,8 @@
   }
 
   &__cart-button {
-    padding: 14px;
+    padding: 16px;
     gap: 4px;
-
-    color: black;
-
-    @include border-gradient(white, $active-border-gradient);
   }
 
   &__info {

@@ -9,12 +9,12 @@ export const BackButton = () => {
   };
 
   return (
-    <div className="back-button" onClick={handleClick}>
+    <button className="back-button button--secondary" onClick={handleClick}>
       <img
         className="back-button__image"
         src="/icons/arrow_left_dark.svg"
         alt="Arrow left"
       />
-    </div>
+    </button>
   );
 };

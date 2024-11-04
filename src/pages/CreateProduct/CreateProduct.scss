@@ -33,10 +33,6 @@
       display: flex;
       gap: 4px;
       align-items: center;
-
-      color: black;
-
-      @include border-gradient(white, $active-border-gradient);
     }
 
     &-file-input {
@@ -56,10 +52,6 @@
     &-button {
       &-left {
         grid-column: 7 / 10;
-
-        color: black;
-
-        @include border-gradient(white, $active-border-gradient);
       }
 
       &-right {

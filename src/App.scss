@@ -148,12 +148,22 @@ button,
 
   text-decoration: none;
 
-  border: none;
+  box-sizing: border-box;
+
+  border: 2px double $active-border-gradient;
   border-radius: $border-radius-x;
 
   background: $active-border-gradient;
 
   color: #ffffff;
+
+  @include border-gradient(transparent, $active-border-gradient);
+
+  &--secondary {
+    color: black;
+
+    @include border-gradient(white, $active-border-gradient);
+  }
 }
 
 .title {

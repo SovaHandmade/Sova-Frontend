@@ -51,10 +51,6 @@
     width: 325px;
     box-sizing: border-box;
 
-    color: black;
-
-    @include border-gradient(white, $active-border-gradient);
-
     @include tablet {
       width: 100%;
     }

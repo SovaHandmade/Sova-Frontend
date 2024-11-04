@@ -73,12 +73,6 @@
   }
 
   &__buy-button:is(a) {
-    padding: 20px;
-
-    color: #000000;
-
-    @include border-gradient(white, $active-border-gradient);
-
     @include tablet {
       padding: 14px;
     }

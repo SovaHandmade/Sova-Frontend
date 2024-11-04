@@ -40,7 +40,10 @@ export const Cart = () => {
             </div>
 
             <div className="cart__buttons">
-              <Link to="/shop" className="cart__shopping-button button">
+              <Link
+                to="/shop"
+                className="cart__shopping-button button button--secondary"
+              >
                 Continue shopping
                 <img src="/icons/basket.svg" alt="Basket icon" />
               </Link>
