@@ -4,23 +4,39 @@ import { FilterBox } from "../../components/FilterBox";
 import { ProductCard } from "../../components/ProductCard";
 import { getProducts } from "../../utils/api";
 import { ProductType } from "../../types/ProductType";
+import { useSearchParams } from "react-router-dom";
 import "./Shop.scss";
 
 export const Shop = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [searchParams] = useSearchParams();
 
   const handleFiltersButton = () => {
     setShowFilters(!showFilters);
   };
 
   const fetch = async () => {
-    console.log(await getProducts());
-    setProducts(await getProducts());
+    setProducts([]);
+
+    const params: { [key: string]: string } = {};
+    const topic = searchParams.get("topic");
+    const form = searchParams.get("form");
+
+    if (topic) {
+      params.topic = topic;
+    }
+
+    if (form) {
+      params.form = form;
+    }
+
+    setProducts(await getProducts(params));
   };
 
   useEffect(() => {
     fetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -41,7 +57,7 @@ export const Shop = () => {
             "shop__filter-box--show": showFilters,
           })}
         >
-          <FilterBox />
+          <FilterBox applyCallback={fetch} />
         </div>
         <div className="shop__products-container">
           {products.map((product, index) => (

@@ -28,7 +28,12 @@ export const Product = () => {
   };
 
   const fetchSuggestions = async () => {
-    setSuggestions(await getProducts(productId, 5));
+    setSuggestions(
+      await getProducts({
+        exclude: productId,
+        max_length: 5,
+      })
+    );
   };
   const handleAddToCart = () => {
     if (!id || !product) {
@@ -111,10 +116,10 @@ export const Product = () => {
 
               <div className="product__tags">
                 {product.topic_name && (
-                  <Filter text={product.topic_name} selected={false} />
+                  <Filter name={product.topic_name} selected={false} />
                 )}
                 {product.form_name && (
-                  <Filter text={product.form_name} selected={false} />
+                  <Filter name={product.form_name} selected={false} />
                 )}
               </div>
             </div>

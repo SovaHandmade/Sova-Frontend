@@ -3,10 +3,22 @@ import { get, post } from "./fetch";
 
 import Cookies from "js-cookie";
 
-export const getProducts = (exclude?: number, max_length?: number) => {
+export const getProducts = ({
+  exclude,
+  max_length,
+  form,
+  topic,
+}: {
+  exclude?: number;
+  max_length?: number;
+  form?: string;
+  topic?: string;
+}) => {
   return get("store/product/", {
     exclude,
     max_length,
+    form,
+    topic,
   });
 };
 
