@@ -7,7 +7,7 @@ import "./FilterBox.scss";
 
 type Props = {
   showButtons?: boolean;
-  applyCallback?: (form?: string, topic?: string) => void;
+  applyCallback?: (form?: number, topic?: number) => void;
 };
 
 export const FilterBox: React.FC<Props> = ({
@@ -28,6 +28,12 @@ export const FilterBox: React.FC<Props> = ({
   };
 
   useEffect(() => {
+    if (!showButtons && applyCallback) {
+      applyCallback(
+        tags?.forms.findIndex((form) => form.name === selectedForm),
+        tags?.topics.findIndex((topic) => topic.name === selectedTopic)
+      );
+    }
     const params: { [key: string]: string } = {};
 
     if (selectedTopic) {

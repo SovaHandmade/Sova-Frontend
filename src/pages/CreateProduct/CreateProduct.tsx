@@ -1,23 +1,26 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FilterBox } from "../../components/FilterBox";
 import { createProduct, isLoggedIn, profile } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 import "./CreateProduct.scss";
 
-type FormFields = {
-  name: HTMLInputElement;
-  image: HTMLInputElement;
-  size: HTMLInputElement;
-  material: HTMLInputElement;
-  color: HTMLInputElement;
-  description: HTMLInputElement;
-  price: HTMLInputElement;
-};
-
 export const CreateProduct = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [topicIndex, setTopicIndex] = useState(1);
+  const [formIndex, setFormIndex] = useState(1);
+
   const form = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
+
+  const handleTags = (form?: number, topic?: number) => {
+    if (form !== undefined) {
+      setFormIndex(form + 1);
+    }
+
+    if (topic !== undefined) {
+      setTopicIndex(topic + 1);
+    }
+  };
 
   const handleCreate = async () => {
     if (!form.current) {
@@ -26,8 +29,8 @@ export const CreateProduct = () => {
 
     const formData = new FormData(form.current);
 
-    formData.append("form", "1");
-    formData.append("topic", "1");
+    formData.append("form", formIndex.toString());
+    formData.append("topic", topicIndex.toString());
 
     const result = await createProduct(formData);
 
@@ -97,7 +100,7 @@ export const CreateProduct = () => {
       </div>
 
       <div className="create-product__filters">
-        <FilterBox showButtons={false} />
+        <FilterBox showButtons={false} applyCallback={handleTags} />
       </div>
 
       <button className="create-product__bottom create-product__bottom-button-left button--secondary">
