@@ -1,4 +1,5 @@
 import { CartItemType } from "../types/CartItemType";
+import { ProductType } from "../types/ProductType";
 import { get, post } from "./fetch";
 
 import Cookies from "js-cookie";
@@ -22,8 +23,22 @@ export const getProducts = ({
   });
 };
 
+export const createProduct = async (productData: FormData) => {
+  try {
+    const product = await post(`store/product/`, productData);
+
+    return product;
+  } catch {
+    return false;
+  }
+};
+
 export const getProduct = (id: number) => {
   return get(`store/product/${id}/`);
+};
+
+export const getUser = (id: number) => {
+  return get(`user/${id}/`);
 };
 
 export const getTags = () => {

@@ -5,6 +5,7 @@ export type Order = {
   name: string;
   date: string;
   status: string;
+  user: number;
   total_price: number;
   items: OrderItem[];
 };

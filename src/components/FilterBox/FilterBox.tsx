@@ -7,7 +7,7 @@ import "./FilterBox.scss";
 
 type Props = {
   showButtons?: boolean;
-  applyCallback: () => void;
+  applyCallback?: (form?: string, topic?: string) => void;
 };
 
 export const FilterBox: React.FC<Props> = ({
@@ -37,6 +37,7 @@ export const FilterBox: React.FC<Props> = ({
     if (selectedForm) {
       params.form = selectedForm;
     }
+
     setSearchParams(params);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedForm, selectedTopic]);

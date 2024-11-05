@@ -1,6 +1,8 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./ProfileOrderItem.scss";
 import { Order } from "../../../types/Order";
+import { User } from "../../../types/User";
+import { getUser } from "../../../utils/api";
 
 type Props = {
   order: Order;
@@ -8,10 +10,23 @@ type Props = {
 
 export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
   const [showDetails, setShowDetails] = useState(false);
+  const [user, setUser] = useState<User>();
 
   const handleClick = () => {
     setShowDetails(!showDetails);
   };
+
+  const fetchUser = async () => {
+    setUser(await getUser(order.user));
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  if (!user) {
+    return <></>;
+  }
 
   return (
     <>
@@ -44,9 +59,9 @@ export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
             <div className="profile__order-credentials">
               <h4>Данні покупця:</h4>
               <div className="profile__order-credentials-info">
-                <p className="small-text">Брєд Пітт</p>
-                <p className="small-text">+380 00 000 0000</p>
-                <p className="small-text">емайл.ком</p>
+                <p className="small-text">{user.full_name}</p>
+                <p className="small-text">{user.phone_number}</p>
+                <p className="small-text">{user.email}</p>
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { ProfileOrders } from "./components/ProfileOrders";
 import { ProfilePersonalInfo } from "./components/ProfilePersonalInfo";
 import { User } from "../../types/User";
 import { Order } from "../../types/Order";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Profile.scss";
 
 export const Profile = () => {
@@ -30,6 +30,7 @@ export const Profile = () => {
 
     fetchUser();
     fetchOrders();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!user) {
@@ -44,10 +45,13 @@ export const Profile = () => {
       </div>
 
       {!!user.is_staff && (
-        <button className="profile__new-product-button">
+        <Link
+          className="profile__new-product-button button"
+          to={"/product/create"}
+        >
           Створти новий продукт
           <img src="/icons/plus_white.svg" alt="Plus icon" />
-        </button>
+        </Link>
       )}
 
       <ProfileOrders isAdmin={user.is_staff} orders={orders} />

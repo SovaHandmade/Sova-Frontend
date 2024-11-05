@@ -1,12 +1,42 @@
 import { useEffect, useRef } from "react";
 import { FilterBox } from "../../components/FilterBox";
-import { isLoggedIn, profile } from "../../utils/api";
+import { createProduct, isLoggedIn, profile } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 import "./CreateProduct.scss";
 
+type FormFields = {
+  name: HTMLInputElement;
+  image: HTMLInputElement;
+  size: HTMLInputElement;
+  material: HTMLInputElement;
+  color: HTMLInputElement;
+  description: HTMLInputElement;
+  price: HTMLInputElement;
+};
+
 export const CreateProduct = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const form = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
+
+  const handleCreate = async () => {
+    if (!form.current) {
+      return;
+    }
+
+    const formData = new FormData(form.current);
+
+    formData.append("form", "1");
+    formData.append("topic", "1");
+
+    const result = await createProduct(formData);
+
+    if (!result) {
+      return;
+    }
+
+    navigate(`/product/${result.id}`);
+  };
 
   const handleFileInputClick = () => {
     if (!fileInputRef.current) {
@@ -17,7 +47,7 @@ export const CreateProduct = () => {
   };
 
   const fetch = async () => {
-    if (!isLoggedIn() || !(await profile()).isStaff) {
+    if (!isLoggedIn() || !(await profile()).is_staff) {
       navigate("/auth");
     }
   };
@@ -44,19 +74,25 @@ export const CreateProduct = () => {
           Додати фотографію
         </button>
 
-        <form className="create-product__form" action="">
+        <form
+          className="create-product__form"
+          ref={form}
+          encType="multipart/form-data"
+        >
           <input
             className="create-product__form-file-input"
+            name="image"
             ref={fileInputRef}
             type="file"
+            required
           />
 
-          <input placeholder="Назва" type="text" />
-          <input placeholder="Розмір" type="text" />
-          <input placeholder="Матеріал" type="text" />
-          <input placeholder="Колір" type="text" />
-          <input placeholder="Опис" type="text" />
-          <input placeholder="Ціна" type="text" />
+          <input placeholder="Назва" name="name" type="text" required />
+          <input placeholder="Розмір" name="size" type="text" required />
+          <input placeholder="Матеріал" name="material" type="text" required />
+          <input placeholder="Колір" name="color" type="text" required />
+          <input placeholder="Опис" name="description" type="text" required />
+          <input placeholder="Ціна" name="price" type="number" required />
         </form>
       </div>
 
@@ -68,7 +104,10 @@ export const CreateProduct = () => {
         Скасувати
       </button>
 
-      <button className="create-product__bottom create-product__bottom-button-right">
+      <button
+        className="create-product__bottom create-product__bottom-button-right"
+        onClick={handleCreate}
+      >
         Застосувати
       </button>
     </div>
