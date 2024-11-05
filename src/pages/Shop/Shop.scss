@@ -62,16 +62,12 @@
     grid-column: 4 / -1;
 
     display: flex;
-    gap: 24px;
+    gap: 16px;
     flex-wrap: wrap;
 
     @include small-desktop {
       justify-content: space-between;
       grid-column: 1 / -1;
-    }
-
-    @include tablet {
-      gap: 16px;
     }
   }
 }
