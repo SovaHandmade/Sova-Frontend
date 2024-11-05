@@ -38,6 +38,10 @@
     flex-direction: column;
   }
 
+  &-save-button {
+    margin-top: 16px;
+  }
+
   &-logout-button {
     width: fit-content;
     padding: 8px 28px;

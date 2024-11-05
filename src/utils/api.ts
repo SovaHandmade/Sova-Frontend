@@ -1,6 +1,6 @@
+import { get, post, patch } from "./fetch";
 import { CartItemType } from "../types/CartItemType";
-import { ProductType } from "../types/ProductType";
-import { get, post } from "./fetch";
+import { User } from "../types/User";
 
 import Cookies from "js-cookie";
 
@@ -88,6 +88,10 @@ export const register = async (
 
 export const profile = async () => {
   return get(`user/me/`);
+};
+
+export const editUser = async (newUser: Partial<User>) => {
+  return patch(`user/me/`, newUser);
 };
 
 export const logout = async () => {

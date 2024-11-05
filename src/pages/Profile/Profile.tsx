@@ -56,7 +56,7 @@ export const Profile = () => {
 
       <ProfileOrders isAdmin={user.is_staff} orders={orders} />
 
-      {!user.is_staff && <ProfilePersonalInfo />}
+      {!user.is_staff && <ProfilePersonalInfo user={user} />}
     </div>
   );
 };
