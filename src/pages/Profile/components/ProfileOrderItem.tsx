@@ -2,7 +2,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./ProfileOrderItem.scss";
 import { Order } from "../../../types/Order";
 import { User } from "../../../types/User";
-import { getUser } from "../../../utils/api";
+import { getProduct, getUser } from "../../../utils/api";
+import { ProductType } from "../../../types/ProductType";
 
 type Props = {
   order: Order;
@@ -10,6 +11,7 @@ type Props = {
 
 export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
   const [showDetails, setShowDetails] = useState(false);
+  const [products, setProducts] = useState<ProductType[]>([]);
   const [user, setUser] = useState<User>();
 
   const handleClick = () => {
@@ -20,11 +22,20 @@ export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
     setUser(await getUser(order.user));
   };
 
+  const fetchProducts = async () => {
+    for (const item of order.items) {
+      const product = await getProduct(item.product_id);
+
+      setProducts((currentProducts) => [...currentProducts, product]);
+    }
+  };
+
   useEffect(() => {
     fetchUser();
+    fetchProducts();
   }, []);
 
-  if (!user) {
+  if (!user || !products) {
     return <></>;
   }
 
@@ -43,17 +54,20 @@ export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
 
       {showDetails && (
         <Fragment>
-          {order.items.map((item, index) => (
-            <div className="profile__orders-row" key={index}>
-              <div className="profile__order-details">
-                <h4>test</h4>
-                <div className="profile__order-details-info">
-                  <p className="small-text">{item.quantity} units</p>
-                  <p className="body-text">{item.total_price} grn</p>
+          {order.items.map((item, index) => {
+            console.log(products, order.items);
+            return (
+              <div className="profile__orders-row" key={index}>
+                <div className="profile__order-details">
+                  <h4>{products[index].name}</h4>
+                  <div className="profile__order-details-info">
+                    <p className="small-text">{item.quantity} units</p>
+                    <p className="body-text">{item.total_price} grn</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           <div className="profile__orders-row">
             <div className="profile__order-credentials">
