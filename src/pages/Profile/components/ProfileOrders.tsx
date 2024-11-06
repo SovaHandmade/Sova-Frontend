@@ -80,7 +80,7 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
           )
         ) : (
           filteredOrders.map((order, index) => (
-            <ProfileOrderItem order={order} key={index} />
+            <ProfileOrderItem order={order} isAdmin={isAdmin} key={index} />
           ))
         )}
       </div>

@@ -2,14 +2,15 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./ProfileOrderItem.scss";
 import { Order } from "../../../types/Order";
 import { User } from "../../../types/User";
-import { getProduct, getUser } from "../../../api/api";
+import { getProduct, getUser, profile } from "../../../api/api";
 import { ProductType } from "../../../types/ProductType";
 
 type Props = {
+  isAdmin: boolean;
   order: Order;
 };
 
-export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
+export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
   const [user, setUser] = useState<User>();
@@ -19,7 +20,12 @@ export const ProfileOrderItem: React.FC<Props> = ({ order }) => {
   };
 
   const fetchUser = async () => {
-    setUser(await getUser(order.user));
+    if (isAdmin) {
+      setUser(await getUser(order.user));
+      return;
+    }
+
+    setUser(await profile());
   };
 
   const fetchProducts = async () => {
