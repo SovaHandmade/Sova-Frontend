@@ -32,6 +32,13 @@
     }
   }
 
+  &-image {
+    @include phone {
+      width: 100px !important;
+      height: 100px !important;
+    }
+  }
+
   &-images {
     grid-column: 2 / -2;
     margin-top: 90px;

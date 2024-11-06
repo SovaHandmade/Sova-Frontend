@@ -28,7 +28,7 @@ export const HomeCompositions = () => {
       <div className="home__compositions-images">
         {IMAGES.map((image, index) => (
           <img
-            className="home__image"
+            className="home__compositions-image home__image"
             src={image}
             key={index}
             alt="Product photo"
