@@ -4,10 +4,10 @@
 .auth-page {
   height: 100%;
 
-  @include page-grid;
-
   align-items: center;
   justify-content: center;
+
+  @include page-grid;
 
   &__container {
     grid-column: 5 / -5;

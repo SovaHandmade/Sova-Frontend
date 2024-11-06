@@ -11,20 +11,22 @@
 }
 
 @mixin border-gradient($bg-color, $border-color, $radius: $border-radius-x) {
-  background: #ffffff;
+  & {
+    background: #ffffff;
 
-  border: 2px double transparent;
-  border-radius: $radius;
-  border-image-slice: 1;
+    border: 2px double transparent;
+    border-radius: $radius;
+    border-image-slice: 1;
 
-  background-image: linear-gradient($bg-color, $bg-color),
-    linear-gradient($bg-color, $bg-color), $border-color;
+    background-image: linear-gradient($bg-color, $bg-color),
+      linear-gradient($bg-color, $bg-color), $border-color;
 
-  background-origin: border-box;
-  background-clip: content-box, padding-box, border-box;
+    background-origin: border-box;
+    background-clip: content-box, padding-box, border-box;
 
-  @include small-tablet() {
-    border-radius: 24px;
+    @include small-tablet() {
+      border-radius: 24px;
+    }
   }
 }
 

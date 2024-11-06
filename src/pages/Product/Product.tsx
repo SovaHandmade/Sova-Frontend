@@ -9,7 +9,7 @@ import {
   getProducts,
   isInLocalCart,
   removeFromLocalCart,
-} from "../../utils/api";
+} from "../../api/api";
 import { useEffect, useState } from "react";
 import { ProductType } from "../../types/ProductType";
 

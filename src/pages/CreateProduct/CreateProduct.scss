@@ -2,8 +2,9 @@
 @import "../../styles/mixins.scss";
 
 .create-product {
-  @include page-grid;
   height: 100%;
+
+  @include page-grid;
 
   &__image {
     grid-column: 1 / 6;
@@ -16,13 +17,13 @@
   }
 
   &__form {
-    &-container {
-      grid-column: 6 / 10;
-    }
-
     display: flex;
     gap: 16px;
     flex-direction: column;
+
+    &-container {
+      grid-column: 6 / 10;
+    }
 
     &-file-button {
       padding: 16px;

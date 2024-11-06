@@ -2,8 +2,9 @@
 @import "../../styles/mixins.scss";
 
 .order {
-  @include page-grid;
   row-gap: 0;
+
+  @include page-grid;
 
   &__contact-notice {
     grid-column: 4 / -4;

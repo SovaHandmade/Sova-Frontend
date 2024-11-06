@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const API_BASE = "http://localhost:5555/api";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const getAuthHeaders = () => {
   const headers: { [key: string]: string } = {};

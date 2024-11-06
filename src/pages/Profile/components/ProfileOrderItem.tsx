@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./ProfileOrderItem.scss";
 import { Order } from "../../../types/Order";
 import { User } from "../../../types/User";
-import { getProduct, getUser } from "../../../utils/api";
+import { getProduct, getUser } from "../../../api/api";
 import { ProductType } from "../../../types/ProductType";
 
 type Props = {

@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import classNames from "classnames";
 import "./Header.scss";
-import { isLoggedIn } from "../../utils/api";
+import { isLoggedIn } from "../../api/api";
 
 export const Header = () => {
   const navClassnameHandler = ({ isActive }: { isActive: boolean }) =>

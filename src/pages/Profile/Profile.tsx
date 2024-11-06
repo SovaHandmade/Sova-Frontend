@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getOrders, isLoggedIn, profile } from "../../utils/api";
+import { getOrders, isLoggedIn, profile } from "../../api/api";
 import { ProfileOrders } from "./components/ProfileOrders";
 import { ProfilePersonalInfo } from "./components/ProfilePersonalInfo";
 import { User } from "../../types/User";

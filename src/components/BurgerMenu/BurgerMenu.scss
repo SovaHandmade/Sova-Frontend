@@ -12,6 +12,8 @@
 
   z-index: 10;
 
+  background-color: #e8ecf4;
+
   &--visible {
     display: flex;
   }
@@ -54,6 +56,4 @@
       color: black;
     }
   }
-
-  background-color: #e8ecf4;
 }

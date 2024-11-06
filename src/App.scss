@@ -159,9 +159,9 @@ button,
 
   color: #ffffff;
 
-  @include border-gradient(transparent, $active-border-gradient);
-
   transition: filter 300ms, background-image 300ms;
+
+  @include border-gradient(transparent, $active-border-gradient);
 
   &:hover {
     filter: brightness(95%);

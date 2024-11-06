@@ -7,7 +7,7 @@ import {
   getCart,
   getProduct,
   isLoggedIn,
-} from "../../utils/api";
+} from "../../api/api";
 import { calculateTotal } from "../../utils/calculateTotal";
 import "./Order.scss";
 import { ProductType } from "../../types/ProductType";

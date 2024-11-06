@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FilterBox } from "../../components/FilterBox";
-import { createProduct, isLoggedIn, profile } from "../../utils/api";
+import { createProduct, isLoggedIn, profile } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import "./CreateProduct.scss";
 
