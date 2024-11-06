@@ -12,7 +12,7 @@ export const BackButton = () => {
     <button className="back-button button--secondary" onClick={handleClick}>
       <img
         className="back-button__image"
-        src="/icons/arrow_left_dark.svg"
+        src="icons/arrow_left_dark.svg"
         alt="Arrow left"
       />
     </button>

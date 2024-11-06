@@ -27,10 +27,10 @@ export const BurgerMenu = () => {
     >
       <div className="burger-menu__top">
         <Link className="burger-menu__logo" to="/">
-          <img src="/logo.svg" alt="Logo" />
+          <img src="logo.svg" alt="Logo" />
         </Link>
         <Link className="burger-menu__menu" to="#">
-          <img src="/icons/burger_menu.svg" alt="Burger menu icon" />
+          <img src="icons/burger_menu.svg" alt="Burger menu icon" />
         </Link>
       </div>
 
@@ -51,7 +51,7 @@ export const BurgerMenu = () => {
               Cart
               <img
                 className="header__basket-icon"
-                src="/icons/basket.svg"
+                src="icons/basket.svg"
                 alt="Basket icon"
               />
             </Link>
@@ -63,12 +63,12 @@ export const BurgerMenu = () => {
         <p className="small-text">+380 95 131 0343</p>
         <img
           className="footer__user-icon"
-          src="/icons/facebook.svg"
+          src="icons/facebook.svg"
           alt="Facebook icon"
         />
         <img
           className="footer__user-icon"
-          src="/icons/instagram.svg"
+          src="icons/instagram.svg"
           alt="Instagram icon"
         />
       </div>

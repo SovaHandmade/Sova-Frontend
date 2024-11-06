@@ -14,7 +14,7 @@ export const Header = () => {
       <nav className="header__nav">
         <div className="header__nav-left">
           <Link to="/">
-            <img className="header__logo" src="/logo.svg" alt="Logo" />
+            <img className="header__logo" src="logo.svg" alt="Logo" />
           </Link>
           <ul className="header__nav-list header__nav-list-left">
             <li className="header__nav-list-item button--text">
@@ -37,7 +37,7 @@ export const Header = () => {
                 Cart
                 <img
                   className="header__basket-icon"
-                  src="/icons/basket.svg"
+                  src="icons/basket.svg"
                   alt="Basket icon"
                 />
               </Link>
@@ -51,7 +51,7 @@ export const Header = () => {
                 {isLoggedIn() ? (
                   <img
                     className="header__user-icon"
-                    src="/icons/user_light.svg"
+                    src="icons/user_light.svg"
                     alt="User icon"
                   />
                 ) : (
@@ -64,7 +64,7 @@ export const Header = () => {
               <a className="header__nav-link button-text" href="#menu">
                 <img
                   className="header__user-icon"
-                  src="/icons/burger_menu.svg"
+                  src="icons/burger_menu.svg"
                   alt="Burger menu icon"
                 />
               </a>

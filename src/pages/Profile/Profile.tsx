@@ -50,7 +50,7 @@ export const Profile = () => {
           to={"/product/create"}
         >
           Створти новий продукт
-          <img src="/icons/plus_white.svg" alt="Plus icon" />
+          <img src="icons/plus_white.svg" alt="Plus icon" />
         </Link>
       )}
 

@@ -3,6 +3,7 @@ import { login, register } from "../../utils/api";
 import "./AuthForm.scss";
 import classNames from "classnames";
 import { Popup } from "../Popup";
+import { Link } from "react-router-dom";
 
 interface FormFields {
   name: HTMLInputElement;
@@ -156,7 +157,11 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
           maxLength={64}
         />
 
-        <p className="auth-form__form-reset button-text">Забули пароль?</p>
+        {!!isLogin && (
+          <Link to="/auth/reset" className="auth-form__form-reset button-text">
+            Забули пароль?
+          </Link>
+        )}
 
         <button>{buttonText || "Увійти"}</button>
       </form>
