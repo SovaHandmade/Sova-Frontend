@@ -3,7 +3,7 @@ import { login, register } from "../../utils/api";
 import "./AuthForm.scss";
 import classNames from "classnames";
 import { Popup } from "../Popup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface FormFields {
   name: HTMLInputElement;
@@ -23,6 +23,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
   const [popupSuccess, setPopupSuccess] = useState(false);
   const [popupTitle, setPopupTitle] = useState("");
   const [popupSubtitle, setPopupSubtitle] = useState("");
+  const navigate = useNavigate();
 
   const addPopup = (isSuccess: boolean, title: string, subtitle: string) => {
     setShowPopup(true);
@@ -49,7 +50,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
         if (callback) {
           callback();
         } else {
-          window.location.href = "/profile";
+          navigate("/profile");
         }
       } catch {
         addPopup(false, "Помилка", "Неправильний пароль");
@@ -97,7 +98,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
     if (callback) {
       callback();
     } else {
-      window.location.href = "/profile";
+      navigate("/profile");
     }
   };
 

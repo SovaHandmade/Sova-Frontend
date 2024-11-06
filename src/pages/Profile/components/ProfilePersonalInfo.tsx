@@ -2,16 +2,19 @@ import React from "react";
 import { User } from "../../../types/User";
 import { editUser, logout } from "../../../utils/api";
 import "./ProfilePersonalInfo.scss";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   user: User;
 };
 
 export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
+  const navigate = useNavigate();
+
   const handleLogout = async () => {
     await logout();
 
-    window.location.href = "/";
+    navigate("/");
   };
 
   const handleUpdate = async (event: React.FormEvent<HTMLFormElement>) => {

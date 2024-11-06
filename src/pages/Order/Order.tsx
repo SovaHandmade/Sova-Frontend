@@ -12,6 +12,7 @@ import { calculateTotal } from "../../utils/calculateTotal";
 import "./Order.scss";
 import { ProductType } from "../../types/ProductType";
 import { Popup } from "../../components/Popup";
+import { useNavigate } from "react-router-dom";
 
 export const Order = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -19,6 +20,7 @@ export const Order = () => {
   const [popupSuccess, setPopupSuccess] = useState(false);
   const [popupTitle, setPopupTitle] = useState("");
   const [popupSubtitle, setPopupSubtitle] = useState("");
+  const navigate = useNavigate();
   const isFetched = useRef(false);
 
   const cart = getCart();
@@ -62,7 +64,7 @@ export const Order = () => {
   const handlePopup = () => {
     setShowPopup(false);
     clearCart();
-    window.location.href = "/shop";
+    navigate("/shop");
   };
 
   if (!isFetched.current) {
