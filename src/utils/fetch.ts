@@ -33,13 +33,13 @@ const request = async (
 };
 
 export const get = (url: string, params?: object) => {
-  request("get", url, undefined, params);
+  return request("get", url, undefined, params);
 };
 
 export const post = (url: string, data: object) => {
-  request("post", url, data);
+  return request("post", url, data);
 };
 
 export const patch = (url: string, data: object) => {
-  request("patch", url, data);
+  return request("patch", url, data);
 };
