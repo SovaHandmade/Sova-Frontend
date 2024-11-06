@@ -29,9 +29,12 @@ body:has(.burger-menu--visible) {
 }
 
 .container {
-  padding: 32px 48px;
   width: 100%;
   min-height: 100%;
+
+  padding-top: 32px;
+  padding-bottom: 80px;
+  padding-inline: 32px;
 
   box-sizing: border-box;
 
@@ -40,11 +43,11 @@ body:has(.burger-menu--visible) {
   max-width: 1440px;
 
   @include small-desktop {
-    padding: 16px 24px;
+    padding-inline: 24px;
   }
 
   @include small-tablet {
-    padding: 16px;
+    padding-inline: 16px;
   }
 
   &:has(.centered) {

@@ -22,7 +22,7 @@ export const HomeMain = () => {
         <p className="home__main-title-small">і це все.</p>
       </div>
 
-      <div className="home__main-subtitle">
+      <div className="home__main-subtitle home__subtitle">
         Я не просто прикрашаю простір. Я не намагаєюсь змінити весь інтер'єр. Я
         просто додаю деталі, що створюють затишок і тепло, найприроднішим чином.
       </div>

@@ -22,10 +22,6 @@
 
       padding: 16px;
     }
-
-    @include phone {
-      margin-bottom: 60px;
-    }
   }
 
   &-title {
@@ -138,6 +134,12 @@
     &-top {
       display: flex;
       align-items: start;
+    }
+
+    &-info {
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
     }
 
     &-number {
