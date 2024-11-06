@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Filter } from "../Filter/Filter";
-import { getTags } from "../../utils/api";
+import { getTags } from "../../api/api";
 import { Tags } from "../../types/Tags";
 import { useSearchParams } from "react-router-dom";
 import "./FilterBox.scss";

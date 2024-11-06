@@ -4,7 +4,7 @@ import {
   getProduct,
   removeFromLocalCart,
   updateInLocalCart,
-} from "../../utils/api";
+} from "../../api/api";
 import { CartItemType } from "../../types/CartItemType";
 import "./CartProduct.scss";
 

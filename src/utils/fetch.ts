@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const API_BASE = "http://localhost:5555/api";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const getAuthHeaders = () => {
   const headers: { [key: string]: string } = {};
@@ -13,33 +13,33 @@ const getAuthHeaders = () => {
   return headers;
 };
 
-export const get = async (url: string, params?: object) => {
+const request = async (
+  method: "get" | "post" | "patch",
+  url: string,
+  data?: object,
+  params?: object
+) => {
   const headers = getAuthHeaders();
 
-  const response = await axios.get(`${API_BASE}/${url}`, {
+  const response = await axios({
+    method,
+    url: `${API_BASE}/${url}`,
     headers,
+    data,
     params,
   });
 
   return response.data;
 };
 
-export const post = async (url: string, data: object) => {
-  const headers = getAuthHeaders();
-
-  const response = await axios.post(`${API_BASE}/${url}`, data, {
-    headers,
-  });
-
-  return response.data;
+export const get = (url: string, params?: object) => {
+  request("get", url, undefined, params);
 };
 
-export const patch = async (url: string, data: object) => {
-  const headers = getAuthHeaders();
+export const post = (url: string, data: object) => {
+  request("post", url, data);
+};
 
-  const response = await axios.patch(`${API_BASE}/${url}`, data, {
-    headers,
-  });
-
-  return response.data;
+export const patch = (url: string, data: object) => {
+  request("patch", url, data);
 };

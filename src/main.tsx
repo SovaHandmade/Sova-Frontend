@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 
+import App from "./App.tsx";
 import { Home } from "./pages/Home";
 import { Shop } from "./pages/Shop";
 import { Cart } from "./pages/Cart";
@@ -14,7 +15,6 @@ import { NotFound } from "./pages/NotFound";
 import { ResetPassword } from "./pages/ResetPassword";
 import { CreateProduct } from "./pages/CreateProduct";
 
-import App from "./App.tsx";
 import "./index.scss";
 
 const router = createHashRouter([

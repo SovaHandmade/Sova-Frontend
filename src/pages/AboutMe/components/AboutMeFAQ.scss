@@ -11,9 +11,9 @@
   &-question {
     padding: 24px;
 
-    @include border-gradient(white, $active-border-gradient);
-
     transition: height 100ms;
+
+    @include border-gradient(white, $active-border-gradient);
 
     &-top {
       display: flex;

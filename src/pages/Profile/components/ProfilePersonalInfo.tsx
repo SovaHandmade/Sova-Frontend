@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "../../../types/User";
-import { editUser, logout } from "../../../utils/api";
+import { updateProfile, logout } from "../../../api/api";
 import "./ProfilePersonalInfo.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +35,7 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
       updatedValues.email = values.get("email") as string;
     }
 
-    const result = await editUser(updatedValues);
+    const result = await updateProfile(updatedValues);
 
     console.log(result);
   };

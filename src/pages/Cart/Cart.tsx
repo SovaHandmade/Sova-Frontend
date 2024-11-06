@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BackButton } from "../../components/BackButton";
 import { CartProduct } from "../../components/CartProduct";
-import { getCart } from "../../utils/api";
+import { getCart } from "../../api/api";
 import "./Cart.scss";
 import { Link } from "react-router-dom";
 import { calculateTotal } from "../../utils/calculateTotal";

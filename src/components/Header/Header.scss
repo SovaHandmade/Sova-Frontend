@@ -4,6 +4,11 @@
 .header {
   padding: 15px 24px;
 
+  border-bottom: 2px solid;
+
+  border-image-source: $header-gradient;
+  border-image-slice: 1;
+
   &__logo {
     margin-right: 115px;
   }
@@ -71,9 +76,4 @@
       }
     }
   }
-
-  border-bottom: 2px solid;
-
-  border-image-source: $header-gradient;
-  border-image-slice: 1;
 }

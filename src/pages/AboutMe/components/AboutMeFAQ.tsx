@@ -12,8 +12,12 @@ export const AboutMeFAQ: React.FC<Props> = ({ questions }) => {
       <h2 className="about-me__title">Часті запитання</h2>
 
       <div className="about-me__faq__questions">
-        {questions.map((question) => (
-          <AboutMeFAQItem title={question.title} answer={question.answer} />
+        {questions.map((question, index) => (
+          <AboutMeFAQItem
+            title={question.title}
+            answer={question.answer}
+            key={index}
+          />
         ))}
       </div>
     </section>

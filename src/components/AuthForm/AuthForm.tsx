@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { login, register } from "../../utils/api";
+import { login, register } from "../../api/api";
 import "./AuthForm.scss";
 import classNames from "classnames";
 import { Popup } from "../Popup";

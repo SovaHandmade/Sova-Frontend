@@ -1,19 +1,39 @@
+import React, { useState } from "react";
+import { resetPassword } from "../../api/api";
 import "./ResetPassword.scss";
 
-const SENT = true;
-
 export const ResetPassword = () => {
+  const [isSent, setIsSent] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const email = formData.get("email");
+
+    if (!email || typeof email !== "string") {
+      console.log(email);
+      return;
+    }
+
+    const result = resetPassword(formData);
+
+    console.log(result);
+
+    setIsSent(true);
+  };
+
   return (
     <div className="reset-password centered">
-      {!SENT ? (
+      {!isSent ? (
         <div className="reset-password__form">
           <div className="reset-password__form-top">
             <h2>Відновлення пароля</h2>
             <p className="body-text">Введіть свою електорну пошту</p>
           </div>
 
-          <form action="">
-            <input type="text" placeholder="Email" required />
+          <form onSubmit={handleSubmit}>
+            <input name="email" type="text" placeholder="Email" required />
             <button>Продовжити</button>
           </form>
         </div>

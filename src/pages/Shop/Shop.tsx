@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import classNames from "classnames";
+
 import { FilterBox } from "../../components/FilterBox";
 import { ProductCard } from "../../components/ProductCard";
-import { getProducts } from "../../utils/api";
+import { getProducts } from "../../api/api";
 import { ProductType } from "../../types/ProductType";
-import { useSearchParams } from "react-router-dom";
+
 import "./Shop.scss";
 
 export const Shop = () => {
