@@ -139,6 +139,11 @@
     border-bottom: none;
     border-top: none;
 
+    margin-right: -3px;
+
+    // change that shit later
+    transform: scale(1.005, 1.005);
+
     @include border-gradient(white, $border-gradient);
 
     @include small-desktop {
@@ -147,6 +152,8 @@
       flex-direction: row;
       justify-content: space-between;
 
+      margin-right: 0;
+      margin-bottom: -2px;
       padding: 24px;
 
       width: 100%;
