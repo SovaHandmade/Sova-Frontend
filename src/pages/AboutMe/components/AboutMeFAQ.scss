@@ -2,6 +2,12 @@
 @import "../../../styles/mixins.scss";
 
 .about-me__faq {
+  &__questions {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+
   &-question {
     padding: 24px;
 

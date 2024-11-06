@@ -25,10 +25,10 @@
   }
 
   &__title {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 
-    @include small-tablet {
-      margin-bottom: 16px;
+    @include phone {
+      margin-bottom: 12px;
     }
   }
 }
