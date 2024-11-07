@@ -47,6 +47,10 @@ export const logout = async () => {
   Cookies.remove("refresh");
 };
 
-export const resetPassword = async (data: object) => {
+export const resetPassword = (data: object) => {
   return post(`password-reset/`, data);
+};
+
+export const setNewPassword = (data: object) => {
+  return post(`reset/OQ/set-password/`, data);
 };

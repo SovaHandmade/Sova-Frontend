@@ -10,6 +10,8 @@ const getAuthHeaders = () => {
     headers["Authorize"] = `JWT ${Cookies.get("access")}`;
   }
 
+  headers["x-csrftoken"] = `${Cookies.get("csrftoken")}`;
+
   return headers;
 };
 
@@ -27,6 +29,7 @@ const request = async (
     headers,
     data,
     params,
+    withCredentials: true,
   });
 
   return response.data;

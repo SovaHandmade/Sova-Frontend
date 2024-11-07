@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { resetPassword } from "../../api/api";
 import "./ResetPassword.scss";
+import { Popup } from "../../components/Popup";
+import { setNewPassword } from "../../api/authApi";
 
 export const ResetPassword = () => {
   const [isSent, setIsSent] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const { token } = useParams();
+  const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleEmail = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -23,19 +29,69 @@ export const ResetPassword = () => {
     setIsSent(true);
   };
 
+  const handleNewPassword = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const new_password1 = formData.get("newPassword");
+    const new_password2 = formData.get("newPasswordRepeat");
+
+    if (!new_password1 || !new_password2) {
+      console.log(new_password1, new_password2);
+      return;
+    }
+
+    const result = setNewPassword(formData);
+
+    console.log(result);
+
+    setShowPopup(true);
+  };
+
+  const handleClose = () => {
+    navigate("/auth");
+  };
+
   return (
     <div className="reset-password centered">
-      {!isSent ? (
+      {showPopup ? (
+        <Popup
+          title="Пароль успішно знінений"
+          subtitle="Ви можете перейти до входу в аккаунт"
+          isSuccess={true}
+          buttonCallback={handleClose}
+        />
+      ) : !isSent ? (
         <div className="reset-password__form">
           <div className="reset-password__form-top">
             <h2>Відновлення пароля</h2>
-            <p className="body-text">Введіть свою електорну пошту</p>
+            <p className="body-text">
+              {!token ? "Введіть свою електорну пошту" : "Введіть новий пароль"}
+            </p>
           </div>
 
-          <form onSubmit={handleSubmit}>
-            <input name="email" type="text" placeholder="Email" required />
-            <button>Продовжити</button>
-          </form>
+          {!token ? (
+            <form onSubmit={handleEmail}>
+              <input name="email" type="text" placeholder="Email" required />
+              <button>Продовжити</button>
+            </form>
+          ) : (
+            <form onSubmit={handleNewPassword}>
+              <input
+                name="newPassword"
+                type="password"
+                placeholder="Password"
+                required
+              />
+              <input
+                name="newPasswordRepeat"
+                type="password"
+                placeholder="Repeat password"
+                required
+              />
+              <button>Зберегти</button>
+            </form>
+          )}
         </div>
       ) : (
         <>

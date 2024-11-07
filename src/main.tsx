@@ -68,7 +68,16 @@ const router = createHashRouter([
           },
           {
             path: "reset",
-            element: <ResetPassword />,
+            children: [
+              {
+                index: true,
+                element: <ResetPassword />,
+              },
+              {
+                path: ":token",
+                element: <ResetPassword />,
+              },
+            ],
           },
         ],
       },
