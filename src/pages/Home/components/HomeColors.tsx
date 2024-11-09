@@ -27,7 +27,7 @@ export const HomeColors = () => {
       <div className="home__colors-container">
         <img
           className="home__image home__colors-image--big"
-          src="product-photo/1.jpg"
+          src="product-photo/4.jpg"
           alt="Product photo"
         />
         <img
@@ -37,7 +37,7 @@ export const HomeColors = () => {
         />
         <img
           className="home__image home__colors-image--small"
-          src="product-photo/1.jpg"
+          src="product-photo/5.jpg"
           alt="Product photo"
         />
         <img

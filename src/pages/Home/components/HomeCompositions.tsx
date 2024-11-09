@@ -2,8 +2,8 @@ import "./HomeCompositions.scss";
 
 const IMAGES = [
   "product-photo/1.jpg",
-  "product-photo/1.jpg",
-  "product-photo/1.jpg",
+  "product-photo/2.jpg",
+  "product-photo/3.jpg",
 ];
 
 export const HomeCompositions = () => {
