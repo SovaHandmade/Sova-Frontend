@@ -1,0 +1,86 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+.input-with-label {
+  &__container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 4px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 20px 24px;
+    padding-top: 24px;
+    padding-bottom: 10px;
+
+    box-sizing: border-box;
+
+    color: black;
+
+    border: 2px double white;
+    border-radius: 40px;
+
+    transition: background-color 300ms, border 300ms;
+
+    &--success {
+      border-color: #57cb41 !important;
+    }
+
+    &--explanation {
+      border-color: #00b9ff !important;
+    }
+
+    &--danger {
+      border-color: #d80004 !important;
+    }
+
+    &::placeholder {
+      color: #616e7c;
+    }
+
+    &:hover {
+      background-color: #f5f7fa;
+    }
+
+    &:focus {
+      outline: none;
+
+      @include border-gradient(
+        white,
+        $active-border-gradient,
+        $border-radius-x
+      );
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    pointer-events: none;
+    left: 26px;
+
+    color: #616e7c;
+
+    transition: 0.2s ease all;
+
+    input:focus ~ &,
+    input:not(:placeholder-shown) ~ & {
+      font-size: 12px;
+      transform: translateY(-12px);
+    }
+  }
+
+  &__explanation {
+    padding: 0 24px;
+  }
+}

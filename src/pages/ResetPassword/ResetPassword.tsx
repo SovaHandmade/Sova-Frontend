@@ -4,11 +4,15 @@ import { resetPassword } from "../../api/api";
 import "./ResetPassword.scss";
 import { Popup } from "../../components/Popup";
 import { setNewPassword } from "../../api/authApi";
+import { InputWithLabel } from "../../components/InputWithLabel";
 
 export const ResetPassword = () => {
   const [isSent, setIsSent] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const { token } = useParams();
+
+  const [emailError, setEmailError] = useState("");
+
   const navigate = useNavigate();
 
   const handleEmail = (event: React.FormEvent<HTMLFormElement>) => {
@@ -19,6 +23,15 @@ export const ResetPassword = () => {
 
     if (!email || typeof email !== "string") {
       console.log(email);
+      return;
+    }
+
+    const errors = {
+      email: validateEmail(email) || "",
+    };
+
+    if (errors.email) {
+      setEmailError(errors.email);
       return;
     }
 
@@ -52,6 +65,18 @@ export const ResetPassword = () => {
     navigate("/auth");
   };
 
+  const validateEmail = (input: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(input)) {
+      return "Email is incorrect";
+    }
+
+    setEmailError("");
+
+    return;
+  };
+
   return (
     <div className="reset-password centered">
       {showPopup ? (
@@ -72,7 +97,14 @@ export const ResetPassword = () => {
 
           {!token ? (
             <form onSubmit={handleEmail}>
-              <input name="email" type="text" placeholder="Email" required />
+              <InputWithLabel
+                name="email"
+                type="text"
+                placeholder="Email"
+                errorText={emailError}
+                validateFunction={() => {}}
+                required={true}
+              />
               <button>Продовжити</button>
             </form>
           ) : (

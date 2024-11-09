@@ -59,34 +59,6 @@ a {
   display: flex;
 }
 
-input {
-  @extend .small-text;
-
-  box-sizing: border-box;
-
-  padding: 20px 24px;
-  color: black;
-
-  border: 2px double white;
-  border-radius: 40px;
-
-  transition: background-color 300ms, border 300ms;
-
-  &::placeholder {
-    color: #616e7c;
-  }
-
-  &:hover {
-    background-color: #f5f7fa;
-  }
-
-  &:focus {
-    outline: none;
-
-    @include border-gradient(white, $active-border-gradient);
-  }
-}
-
 form {
   width: 100%;
 

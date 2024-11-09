@@ -4,6 +4,7 @@ import "./AuthForm.scss";
 import classNames from "classnames";
 import { Popup } from "../Popup";
 import { Link, useNavigate } from "react-router-dom";
+import { InputWithLabel } from "../InputWithLabel";
 
 interface FormFields {
   name: HTMLInputElement;
@@ -23,6 +24,12 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
   const [popupSuccess, setPopupSuccess] = useState(false);
   const [popupTitle, setPopupTitle] = useState("");
   const [popupSubtitle, setPopupSubtitle] = useState("");
+
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [nameError, setNameError] = useState("");
+
   const navigate = useNavigate();
 
   const addPopup = (isSuccess: boolean, title: string, subtitle: string) => {
@@ -39,8 +46,25 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
     const { name, phone_number, email, password } =
       form.elements as unknown as FormFields;
 
+    const errors = {
+      email: validateEmail(email.value) || "",
+      password: validatePassword(password.value) || "",
+      name: (!isLogin && validateName(name.value)) || "",
+      phone: (!isLogin && validatePhoneNumber(phone_number.value)) || "",
+    };
+
     if (isLogin) {
-      if (!email.value || !password.value) {
+      if (
+        !email.value ||
+        !password.value ||
+        !!errors.email ||
+        !!errors.password
+      ) {
+        setEmailError(errors.email);
+        setPasswordError(errors.password);
+
+        console.log(errors);
+
         return;
       }
 
@@ -60,8 +84,17 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
         !name.value ||
         !phone_number.value ||
         !email.value ||
-        !password.value
+        !password.value ||
+        !!errors.email ||
+        !!errors.password ||
+        !!errors.name ||
+        !!errors.phone
       ) {
+        setEmailError(errors.email);
+        setPasswordError(errors.password);
+        setNameError(errors.name);
+        setPhoneError(errors.phone);
+
         return;
       }
 
@@ -102,6 +135,50 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
     }
   };
 
+  const validateName = (input: string) => {
+    if (input.length < 2) {
+      return "Name is too short";
+    }
+
+    setNameError("");
+
+    return;
+  };
+
+  const validatePhoneNumber = (input: string) => {
+    const phoneRegex = /^\+380\d{9}$/;
+
+    if (!phoneRegex.test(input)) {
+      return "Phone number is incorrect";
+    }
+
+    setPhoneError("");
+
+    return;
+  };
+
+  const validateEmail = (input: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(input)) {
+      return "Email is incorrect";
+    }
+
+    setEmailError("");
+
+    return;
+  };
+
+  const validatePassword = (input: string) => {
+    if (input.length < 8) {
+      return "Use at least 8 characters";
+    }
+
+    setPasswordError("");
+
+    return;
+  };
+
   return (
     <div className="auth-form">
       {showPopup && (
@@ -134,27 +211,40 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
       <form action="" className="auth-form__form" onSubmit={handleForm}>
         {!isLogin && (
           <>
-            <input
+            <InputWithLabel
               type="text"
               name="name"
               placeholder="Ім'я"
-              required
+              errorText={nameError}
+              validateFunction={validateName}
+              required={true}
               maxLength={32}
             />
-            <input
+            <InputWithLabel
               type="tel"
               name="phone_number"
               placeholder="Номер телефону"
-              required
+              errorText={phoneError}
+              validateFunction={validatePhoneNumber}
+              required={true}
             />
           </>
         )}
-        <input type="email" name="email" placeholder="Е-пошта" required />
-        <input
+        <InputWithLabel
+          type="email"
+          name="email"
+          placeholder="Е-пошта"
+          errorText={emailError}
+          validateFunction={validateEmail}
+          required={true}
+        />
+        <InputWithLabel
           type="password"
           name="password"
           placeholder="Пароль"
-          required
+          errorText={passwordError}
+          validateFunction={validatePassword}
+          required={true}
           maxLength={64}
         />
 
@@ -164,7 +254,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
           </Link>
         )}
 
-        <button>{buttonText || "Увійти"}</button>
+        <button>{buttonText || isLogin ? "Увійти" : "Зареєструватись"}</button>
       </form>
     </div>
   );
