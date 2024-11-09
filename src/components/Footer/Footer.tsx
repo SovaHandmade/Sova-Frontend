@@ -37,21 +37,30 @@ export const Footer = () => {
         <div className="footer__nav-right">
           <ul className="footer__nav-list">
             <li className="footer__nav-list-item button--text small-text">
-              +380 95 131 0343
+              <a
+                className="footer__nav-list-item-link"
+                href="tel:+380951310343"
+              >
+                +380 95 131 0343
+              </a>
             </li>
             <li className="footer__nav-list-item button--text button-text">
-              <img
-                className="footer__user-icon"
-                src="icons/facebook.svg"
-                alt="Facebook icon"
-              />
+              <a href="https://m.facebook.com/profile.php?id=100010911012013">
+                <img
+                  className="footer__user-icon"
+                  src="icons/facebook.svg"
+                  alt="Facebook icon"
+                />
+              </a>
             </li>
             <li className="footer__nav-list-item button--text button-text">
-              <img
-                className="footer__user-icon"
-                src="icons/instagram.svg"
-                alt="Instagram icon"
-              />
+              <a href="https://www.instagram.com/olia.sosnovska/">
+                <img
+                  className="footer__user-icon"
+                  src="icons/instagram.svg"
+                  alt="Instagram icon"
+                />
+              </a>
             </li>
           </ul>
         </div>

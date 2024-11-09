@@ -55,6 +55,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &-link {
+          color: black;
+          text-decoration: none;
+        }
       }
     }
   }
