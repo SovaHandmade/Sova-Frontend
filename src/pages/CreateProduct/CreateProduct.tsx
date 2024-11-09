@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { FilterBox } from "../../components/FilterBox";
-import { createProduct, isLoggedIn, profile } from "../../api/api";
 import { useNavigate } from "react-router-dom";
+import { FilterBox } from "../../components/FilterBox";
+import { InputWithLabel } from "../../components/InputWithLabel";
+import { createProduct, isLoggedIn, profile } from "../../api/api";
 import "./CreateProduct.scss";
 
 export const CreateProduct = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [topicIndex, setTopicIndex] = useState(1);
   const [formIndex, setFormIndex] = useState(1);
+  const [imageUrl, setImageUrl] = useState("gray_placeholder.jpg");
 
   const form = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
@@ -55,6 +57,19 @@ export const CreateProduct = () => {
     }
   };
 
+  const handleLoadImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(123);
+    if (!event.currentTarget.files) {
+      return;
+    }
+
+    console.log(event.currentTarget.files[0]);
+
+    const url = URL.createObjectURL(event.currentTarget.files[0]);
+
+    setImageUrl(url);
+  };
+
   useEffect(() => {
     fetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -64,7 +79,7 @@ export const CreateProduct = () => {
     <div className="create-product">
       <img
         className="create-product__image"
-        src="product-photo/1.jpg"
+        src={imageUrl}
         alt="Product photo"
       />
 
@@ -87,15 +102,58 @@ export const CreateProduct = () => {
             name="image"
             ref={fileInputRef}
             type="file"
+            onChange={handleLoadImage}
             required
           />
 
-          <input placeholder="Назва" name="name" type="text" required />
-          <input placeholder="Розмір" name="size" type="text" required />
-          <input placeholder="Матеріал" name="material" type="text" required />
-          <input placeholder="Колір" name="color" type="text" required />
-          <input placeholder="Опис" name="description" type="text" required />
-          <input placeholder="Ціна" name="price" type="number" required />
+          <InputWithLabel
+            placeholder="Назва"
+            name="name"
+            type="text"
+            errorText=""
+            validateFunction={() => {}}
+            required
+          />
+          <InputWithLabel
+            placeholder="Розмір"
+            name="size"
+            type="text"
+            errorText=""
+            validateFunction={() => {}}
+            required
+          />
+          <InputWithLabel
+            placeholder="Матеріал"
+            name="material"
+            type="text"
+            errorText=""
+            validateFunction={() => {}}
+            required
+          />
+          <InputWithLabel
+            placeholder="Колір"
+            name="color"
+            type="text"
+            errorText=""
+            validateFunction={() => {}}
+            required
+          />
+          <InputWithLabel
+            placeholder="Опис"
+            name="description"
+            type="text"
+            errorText=""
+            validateFunction={() => {}}
+            required
+          />
+          <InputWithLabel
+            placeholder="Ціна"
+            name="price"
+            type="number"
+            errorText=""
+            validateFunction={() => {}}
+            required
+          />
         </form>
       </div>
 
