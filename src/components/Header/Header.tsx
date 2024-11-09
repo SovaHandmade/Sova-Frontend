@@ -19,12 +19,12 @@ export const Header = () => {
           <ul className="header__nav-list header__nav-list-left">
             <li className="header__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/shop">
-                Shop
+                Магазин
               </NavLink>
             </li>
             <li className="header__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/about-me">
-                About
+                Про мене
               </NavLink>
             </li>
           </ul>
@@ -34,7 +34,7 @@ export const Header = () => {
           <ul className="header__nav-list">
             <li className="header__nav-list-item button--text">
               <Link className="header__nav-link button-text" to="/cart">
-                Cart
+                Корзина
                 <img
                   className="header__basket-icon"
                   src="icons/basket.svg"

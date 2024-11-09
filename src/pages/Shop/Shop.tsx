@@ -44,12 +44,12 @@ export const Shop = () => {
   return (
     <section className="shop">
       <div className="shop__top">
-        <h2>Our products</h2>
+        <h2>Наші товари</h2>
         <button
           className="shop__filters-button button--secondary"
           onClick={handleFiltersButton}
         >
-          Filters
+          Фільтри
         </button>
       </div>
 

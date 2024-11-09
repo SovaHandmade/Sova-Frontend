@@ -18,12 +18,12 @@ export const Footer = () => {
           <ul className="footer__nav-list">
             <li className="footer__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/shop">
-                Shop
+                Магазин
               </NavLink>
             </li>
             <li className="footer__nav-list-item button--text">
               <NavLink className={navClassnameHandler} to="/about-me">
-                About
+                Про мене
               </NavLink>
             </li>
             <li className="footer__nav-list-item button--text">

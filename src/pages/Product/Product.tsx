@@ -90,25 +90,25 @@ export const Product = () => {
             <div className="product__info-top">
               <h2 className="product__name">{product.name}</h2>
               <div className="product__info-entry">
-                <h4 className="product__info-entry-name">Size :</h4>
+                <h4 className="product__info-entry-name">Розмір :</h4>
                 <p className="small-text product__info-entry-value">
                   {product.size}
                 </p>
               </div>
               <div className="product__info-entry">
-                <h4 className="product__info-entry-name">Material :</h4>
+                <h4 className="product__info-entry-name">Матеріал :</h4>
                 <p className="small-text product__info-entry-value">
                   {product.material}
                 </p>
               </div>
               <div className="product__info-entry">
-                <h4 className="product__info-entry-name">Color :</h4>
+                <h4 className="product__info-entry-name">Колір :</h4>
                 <p className="small-text product__info-entry-value">
                   {product.color}
                 </p>
               </div>
               <div className="product__info-entry">
-                <h4 className="product__info-entry-name">Description :</h4>
+                <h4 className="product__info-entry-name">Опис :</h4>
                 <p className="small-text product__info-entry-value">
                   {product.description}
                 </p>
@@ -126,19 +126,19 @@ export const Product = () => {
 
             <div className="product__info-bottom">
               <div className="product__price">
-                <p className="explanation-text product__price-text">Price:</p>
-                <h2 className="product__price-value">{product.price} grn</h2>
+                <p className="explanation-text product__price-text">Ціна:</p>
+                <h2 className="product__price-value">{product.price} грн</h2>
               </div>
 
               <button className="product__buy-button" onClick={handleBuyNow}>
-                Place an order
+                Замовити
               </button>
 
               <button
                 className="product__cart-button button--secondary"
                 onClick={handleAddToCart}
               >
-                {isInCart ? "Remove From Cart" : "Add To Cart"}
+                {isInCart ? "Видалити з корзини" : "Додати в корзину"}
                 <img
                   src={
                     isInCart ? "icons/basket_active.svg" : "icons/basket.svg"
@@ -152,7 +152,7 @@ export const Product = () => {
           <div className="product__delivery">
             <div className="product__section product__section--group">
               <div className="product__section">
-                <h4>Delivery:</h4>
+                <h4>Доставка:</h4>
 
                 <div className="product__methods product__methods-delivery">
                   <div className="product__method">
@@ -162,7 +162,7 @@ export const Product = () => {
                       alt="Expand icon"
                     />
                     <p className="small-text product__method-text">
-                      Free pickup in Lutsk
+                      Самовивіз з Луцька
                     </p>
                   </div>
                   <div className="product__method">
@@ -173,10 +173,10 @@ export const Product = () => {
                     />
                     <div className="product__method--double-text">
                       <p className="small-text product__method-text">
-                        Nova Post
+                        Нова пошта
                       </p>
                       <p className="explanation-text product__method-time">
-                        1-3 days
+                        1-3 робочі дні
                       </p>
                     </div>
                   </div>
@@ -188,10 +188,10 @@ export const Product = () => {
                     />
                     <div className="product__method--double-text">
                       <p className="small-text product__method-text">
-                        Ukrposhta
+                        Укрпошта
                       </p>
                       <p className="explanation-text product__method-time">
-                        2-5 days
+                        2-5 робочі дні
                       </p>
                     </div>
                   </div>
@@ -199,7 +199,7 @@ export const Product = () => {
               </div>
 
               <div className="product__section">
-                <h4>Payment:</h4>
+                <h4>Оплата:</h4>
 
                 <div className="product__methods">
                   <div className="product__method">
@@ -209,7 +209,9 @@ export const Product = () => {
                       alt="Expand icon"
                     />
                     <p className="small-text product__method-text">
-                      Prepay by Card
+                      Передоплата
+                      <br />
+                      картою
                     </p>
                   </div>
 
@@ -220,7 +222,9 @@ export const Product = () => {
                       alt="Expand icon"
                     />
                     <p className="small-text product__method-text">
-                      Cash on Delivery
+                      Готівкою при
+                      <br />
+                      отриманні
                     </p>
                   </div>
                 </div>
@@ -228,9 +232,9 @@ export const Product = () => {
             </div>
 
             <div className="product__contact">
-              <h4>Still have questions?</h4>
+              <h4>Є ще запитання?</h4>
               <p className="explanation-text product__contact-text-gray">
-                Just call us back:{" "}
+                Зателефонуйте:
               </p>
               <p className="body-text">+380 95 131 0343</p>
             </div>
@@ -238,7 +242,7 @@ export const Product = () => {
         </div>
       </div>
       <div className="suggestions">
-        <h2>You may also like</h2>
+        <h2>Вам також може сподобатись</h2>
         <div className="suggestions__products">
           {suggestions.map((suggestion, index) => (
             <ProductCard

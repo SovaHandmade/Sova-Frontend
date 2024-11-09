@@ -38,17 +38,17 @@ export const BurgerMenu = () => {
         <ul className="burger-menu__nav-list">
           <li className="burger-menu__nav-item">
             <Link to="/shop" className="button-text">
-              Shop
+              Магазин
             </Link>
           </li>
           <li className="burger-menu__nav-item">
             <Link to="/about-me" className="button-text">
-              About
+              Про мене
             </Link>
           </li>
           <li className="burger-menu__nav-item">
             <Link to="" className="button-text">
-              Cart
+              Корзина
               <img
                 className="header__basket-icon"
                 src="icons/basket.svg"

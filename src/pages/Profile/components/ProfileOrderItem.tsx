@@ -67,8 +67,8 @@ export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
                 <div className="profile__order-details">
                   <h4>{products[index].name}</h4>
                   <div className="profile__order-details-info">
-                    <p className="small-text">{item.quantity} units</p>
-                    <p className="body-text">{item.total_price} grn</p>
+                    <p className="small-text">{item.quantity} од.</p>
+                    <p className="body-text">{item.total_price} грн</p>
                   </div>
                 </div>
               </div>

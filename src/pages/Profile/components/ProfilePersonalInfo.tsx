@@ -133,7 +133,7 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
         />
         <InputWithLabel
           name="email"
-          placeholder="Е-пошта"
+          placeholder="E-mail"
           type="email"
           errorText={emailError}
           validateFunction={validateEmail}
