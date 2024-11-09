@@ -75,7 +75,7 @@ export const FilterBox: React.FC<Props> = ({
   return (
     <div className="filter-box">
       <div className="filter-box__container">
-        <p className="small-text">Topic</p>
+        <p className="small-text">Тема</p>
         <div className="filter-box__filters">
           {tags.topics.map((topic, index) => (
             <Filter
@@ -92,7 +92,7 @@ export const FilterBox: React.FC<Props> = ({
         </div>
       </div>
       <div className="filter-box__container">
-        <p className="small-text">Form</p>
+        <p className="small-text">Форма</p>
         <div className="filter-box__filters">
           {tags.forms.map((form, index) => (
             <Filter
@@ -113,10 +113,10 @@ export const FilterBox: React.FC<Props> = ({
             className="filter-box__clear-button button--text"
             onClick={handleClear}
           >
-            Clear filters
+            Очистити
           </button>
           <button className="filter-box__apply-button" onClick={handleApply}>
-            Apply
+            Застосувати
           </button>
         </div>
       )}

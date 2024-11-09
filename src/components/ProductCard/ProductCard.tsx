@@ -25,14 +25,14 @@ export const ProductCard: React.FC<Props> = ({
         <div className="product-card__info">
           <h3 className="product-card__info-name">{name}</h3>
           <p className="small-text product-card__info-size">Розмір {size}</p>
-          <h3 className="product-card__info-price">{price} grn</h3>
+          <h3 className="product-card__info-price">{price} грн</h3>
         </div>
 
         <Link
           to={`/product/${id}`}
           className="product-card__buy-button button button--secondary"
         >
-          Buy
+          Купити
         </Link>
       </div>
     </div>

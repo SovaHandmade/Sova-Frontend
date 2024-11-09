@@ -32,7 +32,7 @@ export const Cart = () => {
               ))}
               <div className="cart__total">
                 <p className="explanation-text cart__total-text">
-                  Total without delivery:
+                  Загалом без вартості доставки:
                 </p>
 
                 <h2>{calculateTotal(cart)} grn</h2>
@@ -44,11 +44,11 @@ export const Cart = () => {
                 to="/shop"
                 className="cart__shopping-button button button--secondary"
               >
-                Continue shopping
+                Продовжити покупки
                 <img src="icons/basket.svg" alt="Basket icon" />
               </Link>
               <Link to="/order" className="cart__order-button button">
-                Order
+                Замовити
               </Link>
             </div>
           </>

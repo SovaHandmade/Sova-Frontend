@@ -93,10 +93,10 @@ export const Order = () => {
               <h4>{products[index].name}</h4>
               <div className="order__product-info">
                 <p className="small-text order__product-value">
-                  {cartItem.quantity} units
+                  {cartItem.quantity} од.
                 </p>
                 <p className="body-text order__product-value">
-                  {cartItem.price * cartItem.quantity} grn
+                  {cartItem.price * cartItem.quantity} грн
                 </p>
               </div>
             </div>
@@ -121,7 +121,7 @@ export const Order = () => {
           <AuthForm callback={handleOrder} buttonText="Confirm order" />
         ) : (
           <button className="order__form-button" onClick={handleOrder}>
-            Confirm order
+            Підтвердити замолення
           </button>
         )}
       </div>

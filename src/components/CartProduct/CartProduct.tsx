@@ -59,7 +59,7 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
         <div className="cart-product__info">
           <h3 className="cart-product__name">{product.name}</h3>
           <div className="cart-product__info-entry">
-            <h4 className="cart-product__info-entry-name">Color:</h4>
+            <h4 className="cart-product__info-entry-name">Колір:</h4>
             <p className="small-text cart-product__info-entry-value">
               {product.color}
             </p>
@@ -77,19 +77,19 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
           <img
             onClick={handlePlus}
             src="icons/plus.svg"
-            alt="Plus icon  "
+            alt="Plus icon"
             className="cart-product__order-plus-icon"
           />
           <p className="body-text">{cartItem.quantity}</p>
           <img
             onClick={handleMinus}
             src="icons/minus.svg"
-            alt="Minus icon  "
+            alt="Minus icon"
             className="cart-product__order-minus-icon"
           />
         </div>
         <h3 className="cart-product__price">
-          {cartItem.price * cartItem.quantity} grn
+          {cartItem.price * cartItem.quantity} грн
         </h3>
       </div>
     </div>

@@ -15,7 +15,7 @@ export const AboutMeContacts = () => {
             <img src="icons/viber.svg" alt="" />
           </div>
         </div>
-        <h3>Email: sosnovska.0625@gmail.com</h3>
+        <h3>E-mail: sosnovska.0625@gmail.com</h3>
       </div>
     </section>
   );

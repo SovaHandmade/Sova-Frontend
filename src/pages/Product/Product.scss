@@ -256,8 +256,16 @@
     gap: 24px;
     flex-wrap: wrap;
 
+    @include small-desktop {
+      gap: 20px;
+    }
+
+    @include tablet {
+      gap: 22px;
+    }
+
     @include small-tablet {
-      gap: 16px;
+      gap: 14px;
     }
   }
 }

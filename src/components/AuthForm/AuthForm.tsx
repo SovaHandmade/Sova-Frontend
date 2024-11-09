@@ -137,7 +137,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
 
   const validateName = (input: string) => {
     if (input.length < 2) {
-      return "Name is too short";
+      return "Ім'я занадто коротке";
     }
 
     setNameError("");
@@ -149,7 +149,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
     const phoneRegex = /^\+380\d{9}$/;
 
     if (!phoneRegex.test(input)) {
-      return "Phone number is incorrect";
+      return "Некоректний номер телефону";
     }
 
     setPhoneError("");
@@ -161,7 +161,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(input)) {
-      return "Email is incorrect";
+      return "Некоректна пошта";
     }
 
     setEmailError("");
@@ -171,7 +171,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
 
   const validatePassword = (input: string) => {
     if (input.length < 8) {
-      return "Use at least 8 characters";
+      return "Використовуйте щонайменше 8 символів";
     }
 
     setPasswordError("");
@@ -233,7 +233,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
         <InputWithLabel
           type="email"
           name="email"
-          placeholder="Е-пошта"
+          placeholder="E-mail"
           errorText={emailError}
           validateFunction={validateEmail}
           required={true}
