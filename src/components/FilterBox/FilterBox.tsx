@@ -7,11 +7,13 @@ import "./FilterBox.scss";
 
 type Props = {
   showButtons?: boolean;
+  showAllOption?: boolean;
   applyCallback?: (form?: number, topic?: number) => void;
 };
 
 export const FilterBox: React.FC<Props> = ({
   showButtons = true,
+  showAllOption = false,
   applyCallback,
 }) => {
   const [tags, setTags] = useState<Tags>();
@@ -24,7 +26,21 @@ export const FilterBox: React.FC<Props> = ({
   );
 
   const fetchTags = async () => {
-    setTags(await getTags());
+    const serverTags = (await getTags()) as Tags;
+
+    if (showAllOption) {
+      serverTags.forms.unshift({
+        id: 0,
+        name: "All",
+      });
+
+      serverTags.topics.unshift({
+        id: 0,
+        name: "All",
+      });
+    }
+
+    setTags(serverTags);
   };
 
   useEffect(() => {
@@ -36,11 +52,11 @@ export const FilterBox: React.FC<Props> = ({
     }
     const params: { [key: string]: string } = {};
 
-    if (selectedTopic) {
+    if (selectedTopic && selectedTopic !== "All") {
       params.topic = selectedTopic;
     }
 
-    if (selectedForm) {
+    if (selectedForm && selectedForm !== "All") {
       params.form = selectedForm;
     }
 
@@ -66,6 +82,7 @@ export const FilterBox: React.FC<Props> = ({
 
   useEffect(() => {
     fetchTags();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!tags) {

@@ -25,11 +25,11 @@ export const Shop = () => {
     const topic = searchParams.get("topic");
     const form = searchParams.get("form");
 
-    if (topic) {
+    if (topic && topic !== "All") {
       params.topic = topic;
     }
 
-    if (form) {
+    if (form && form !== "All") {
       params.form = form;
     }
 
@@ -59,7 +59,7 @@ export const Shop = () => {
             "shop__filter-box--show": showFilters,
           })}
         >
-          <FilterBox applyCallback={fetch} />
+          <FilterBox applyCallback={fetch} showAllOption={true} />
         </div>
         <div className="shop__products-container">
           {products.map((product, index) => (

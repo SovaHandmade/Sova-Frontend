@@ -33,7 +33,7 @@ export const register = async (
     return false;
   }
 
-  login(email, password);
+  await login(email, password);
 
   return true;
 };
