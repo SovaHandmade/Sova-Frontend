@@ -1,13 +1,21 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import classNames from "classnames";
 import "./Header.scss";
 import { isLoggedIn } from "../../api/api";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
+  const [loggedIn, setLoggedIn] = useState(isLoggedIn());
+  const { pathname } = useLocation();
+
   const navClassnameHandler = ({ isActive }: { isActive: boolean }) =>
     classNames("header__nav-link button-text", {
       "header__nav-link--active": isActive,
     });
+
+  useEffect(() => {
+    setLoggedIn(isLoggedIn());
+  }, [pathname]);
 
   return (
     <header className="header">
@@ -46,9 +54,9 @@ export const Header = () => {
             <li className="header__nav-list-item button--text header__nav-profile">
               <Link
                 className="header__nav-link button-text"
-                to={isLoggedIn() ? "/profile" : "/auth"}
+                to={loggedIn ? "/profile" : "/auth"}
               >
-                {isLoggedIn() ? (
+                {loggedIn ? (
                   <img
                     className="header__user-icon"
                     src="icons/user_light.svg"

@@ -47,10 +47,14 @@ export const logout = async () => {
   Cookies.remove("refresh");
 };
 
-export const resetPassword = (data: object) => {
-  return post(`password-reset/`, data);
+export const resetPassword = (email: string) => {
+  return post(`password-reset/`, { email });
 };
 
-export const setNewPassword = (data: object) => {
-  return post(`reset/OQ/set-password/`, data);
+export const validateResetToken = (token: string) => {
+  return post(`password-reset/validate_token/`, { token });
+};
+
+export const setNewPassword = (password: string, token: string) => {
+  return post(`password-reset/confirm/`, { password, token });
 };

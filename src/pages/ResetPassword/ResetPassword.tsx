@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { resetPassword } from "../../api/api";
 import "./ResetPassword.scss";
 import { Popup } from "../../components/Popup";
-import { setNewPassword } from "../../api/authApi";
+import { setNewPassword, validateResetToken } from "../../api/authApi";
 import { InputWithLabel } from "../../components/InputWithLabel";
 
 export const ResetPassword = () => {
   const [isSent, setIsSent] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const { token } = useParams();
+  const [popupTitle, setPopupTitle] = useState("");
+  const [popupSubtitle, setPopupSubtitle] = useState("");
+  const [popupIsSuccess, setPopupIsSuccess] = useState(true);
 
+  const [firstPassword, setFirstPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
+
+  const { token } = useParams();
 
   const navigate = useNavigate();
 
-  const handleEmail = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleEmail = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -35,30 +41,57 @@ export const ResetPassword = () => {
       return;
     }
 
-    const result = resetPassword(formData);
+    try {
+      await resetPassword(email);
 
-    console.log(result);
-
-    setIsSent(true);
+      setIsSent(true);
+    } catch {
+      setShowPopup(true);
+      setPopupTitle("Помилка");
+      setPopupSubtitle("Виникла помилка при надсиланні");
+      setPopupIsSuccess(false);
+    }
   };
 
-  const handleNewPassword = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleNewPassword = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
-    const new_password1 = formData.get("newPassword");
-    const new_password2 = formData.get("newPasswordRepeat");
-
-    if (!new_password1 || !new_password2) {
-      console.log(new_password1, new_password2);
+    if (!token) {
       return;
     }
 
-    const result = setNewPassword(formData);
+    const formData = new FormData(event.currentTarget);
+    const newPassword = formData.get("newPassword") as string;
+    const newPasswordRepeat = formData.get("newPasswordRepeat") as string;
 
-    console.log(result);
+    if (!newPassword || !newPasswordRepeat) {
+      console.log(newPassword, newPasswordRepeat);
+      return;
+    }
 
-    setShowPopup(true);
+    const errors = {
+      password: newPasswordRepeat && validateSecondPassword(newPasswordRepeat),
+    };
+
+    if (errors.password) {
+      setPasswordError(errors.password);
+
+      return;
+    }
+
+    try {
+      await setNewPassword(newPassword, token);
+
+      setShowPopup(true);
+      setPopupTitle("Пароль успішно знінений");
+      setPopupSubtitle("Ви можете перейти до входу в аккаунт");
+      setPopupIsSuccess(true);
+    } catch {
+      setShowPopup(true);
+      setPopupTitle("Помилка");
+      setPopupSubtitle("Виникла помилка при зміні паролю");
+      setPopupIsSuccess(false);
+    }
   };
 
   const handleClose = () => {
@@ -69,7 +102,7 @@ export const ResetPassword = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(input)) {
-      return "Email is incorrect";
+      return "Некоректна пошта";
     }
 
     setEmailError("");
@@ -77,13 +110,52 @@ export const ResetPassword = () => {
     return;
   };
 
+  const validateFirstPassword = (input: string) => {
+    if (input.length < 8) {
+      return "Пароль занадто короткий";
+    }
+
+    setFirstPassword(input);
+
+    setPasswordError("");
+
+    return;
+  };
+
+  const validateSecondPassword = (input: string) => {
+    if (input !== firstPassword) {
+      return "Обидва паролі повинні співпадати";
+    }
+
+    setPasswordError("");
+
+    return;
+  };
+
+  const checkToken = async () => {
+    if (!token) {
+      return;
+    }
+
+    try {
+      await validateResetToken(token);
+    } catch {
+      navigate("/");
+    }
+  };
+
+  useEffect(() => {
+    checkToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
+
   return (
     <div className="reset-password centered">
       {showPopup ? (
         <Popup
-          title="Пароль успішно знінений"
-          subtitle="Ви можете перейти до входу в аккаунт"
-          isSuccess={true}
+          title={popupTitle}
+          subtitle={popupSubtitle}
+          isSuccess={popupIsSuccess}
           buttonCallback={handleClose}
         />
       ) : !isSent ? (
@@ -102,23 +174,27 @@ export const ResetPassword = () => {
                 type="text"
                 placeholder="Email"
                 errorText={emailError}
-                validateFunction={() => {}}
+                validateFunction={validateEmail}
                 required={true}
               />
               <button>Продовжити</button>
             </form>
           ) : (
             <form onSubmit={handleNewPassword}>
-              <input
+              <InputWithLabel
                 name="newPassword"
                 type="password"
                 placeholder="Password"
+                errorText=""
+                validateFunction={validateFirstPassword}
                 required
               />
-              <input
+              <InputWithLabel
                 name="newPasswordRepeat"
                 type="password"
                 placeholder="Repeat password"
+                errorText={passwordError}
+                validateFunction={validateSecondPassword}
                 required
               />
               <button>Зберегти</button>
@@ -137,7 +213,9 @@ export const ResetPassword = () => {
               </p>
             </div>
           </div>
-          <button className="reset-password__sent-button">Продовжити</button>
+          <button className="reset-password__sent-button" onClick={handleClose}>
+            Продовжити
+          </button>
         </>
       )}
     </div>
