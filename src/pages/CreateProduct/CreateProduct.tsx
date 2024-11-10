@@ -58,12 +58,9 @@ export const CreateProduct = () => {
   };
 
   const handleLoadImage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(123);
     if (!event.currentTarget.files) {
       return;
     }
-
-    console.log(event.currentTarget.files[0]);
 
     const url = URL.createObjectURL(event.currentTarget.files[0]);
 

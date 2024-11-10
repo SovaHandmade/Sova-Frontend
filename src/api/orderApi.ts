@@ -7,13 +7,9 @@ export const getOrders = async () => {
 
 export const createOrder = async (cart: CartItemType[]) => {
   try {
-    console.log(cart);
-
-    const order = await post(`order/`, {
+    await post(`order/`, {
       items: cart,
     });
-
-    console.log(order);
 
     return true;
   } catch {

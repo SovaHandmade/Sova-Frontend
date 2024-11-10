@@ -28,7 +28,6 @@ export const ResetPassword = () => {
     const email = formData.get("email");
 
     if (!email || typeof email !== "string") {
-      console.log(email);
       return;
     }
 
@@ -65,7 +64,6 @@ export const ResetPassword = () => {
     const newPasswordRepeat = formData.get("newPasswordRepeat") as string;
 
     if (!newPassword || !newPasswordRepeat) {
-      console.log(newPassword, newPasswordRepeat);
       return;
     }
 

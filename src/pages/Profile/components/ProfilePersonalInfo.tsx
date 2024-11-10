@@ -90,8 +90,6 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
       setNameError(errors.name);
       setPhoneError(errors.phone);
 
-      console.log(errors);
-
       return;
     }
 

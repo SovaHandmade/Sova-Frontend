@@ -20,9 +20,6 @@ export const Profile = () => {
     setOrders(await getOrders());
   };
 
-  console.log(user);
-  console.log(orders);
-
   useEffect(() => {
     if (!isLoggedIn()) {
       navigate("/auth");

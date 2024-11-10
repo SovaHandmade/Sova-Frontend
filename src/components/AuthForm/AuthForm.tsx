@@ -63,8 +63,6 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
         setEmailError(errors.email);
         setPasswordError(errors.password);
 
-        console.log(errors);
-
         return;
       }
 

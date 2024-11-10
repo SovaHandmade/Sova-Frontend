@@ -21,7 +21,6 @@ export const Product = () => {
 
   const { id } = useParams();
   const productId = Number(id);
-  console.log(productId);
 
   const fetchProduct = async () => {
     setProduct(await getProduct(productId));
