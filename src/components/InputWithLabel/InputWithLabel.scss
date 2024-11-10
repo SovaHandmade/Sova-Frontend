@@ -80,6 +80,16 @@
     }
   }
 
+  &__show-button {
+    padding: 4px;
+    position: absolute;
+    right: 22px;
+
+    color: #616e7c;
+
+    transition: 0.2s ease all;
+  }
+
   &__explanation {
     padding: 0 24px;
   }

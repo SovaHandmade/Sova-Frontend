@@ -25,6 +25,7 @@ export const InputWithLabel: React.FC<Props> = ({
 }) => {
   const [explanationText, setExplanationText] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (
@@ -50,6 +51,10 @@ export const InputWithLabel: React.FC<Props> = ({
     setIsSuccess(true);
   };
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="input-with-label">
       <div className="input-with-label__container">
@@ -60,7 +65,9 @@ export const InputWithLabel: React.FC<Props> = ({
             "input-with-label__input--success":
               !explanationText && !errorText && isSuccess,
           })}
-          type={type}
+          type={
+            type === "password" ? (showPassword ? "text" : "password") : type
+          }
           name={name}
           required={required}
           maxLength={maxLength}
@@ -71,6 +78,15 @@ export const InputWithLabel: React.FC<Props> = ({
         <span className="input-with-label__label small-text">
           {placeholder}
         </span>
+
+        {type === "password" && (
+          <img
+            src={showPassword ? "icons/eye-cross.svg" : "icons/eye.svg"}
+            alt="Show password icon"
+            className="input-with-label__show-button button--text"
+            onClick={handleShowPassword}
+          />
+        )}
       </div>
 
       {(explanationText || errorText) && (
