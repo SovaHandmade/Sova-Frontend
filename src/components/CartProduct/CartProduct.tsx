@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ProductType } from "../../types/ProductType";
-import {
-  getProduct,
-  removeFromLocalCart,
-  updateInLocalCart,
-} from "../../api/api";
+import { getProduct, updateInLocalCart } from "../../api/api";
 import { CartItemType } from "../../types/CartItemType";
 import "./CartProduct.scss";
+import classNames from "classnames";
 
 type Props = {
   cartItem: CartItemType;
@@ -15,6 +12,7 @@ type Props = {
 
 export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
   const [product, setProduct] = useState<ProductType>();
+  const [toRemove, setToRemove] = useState(false);
 
   const fetchProduct = async () => {
     setProduct(await getProduct(cartItem.product_id));
@@ -26,7 +24,7 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
   }, []);
 
   const handlePlus = () => {
-    updateInLocalCart(cartItem.product_id, cartItem.quantity + 1);
+    updateInLocalCart(cartItem.product_id, { quantity: cartItem.quantity + 1 });
     updateCallback();
   };
 
@@ -35,13 +33,18 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
       return;
     }
 
-    updateInLocalCart(cartItem.product_id, cartItem.quantity - 1);
+    updateInLocalCart(cartItem.product_id, { quantity: cartItem.quantity - 1 });
     updateCallback();
   };
 
   const handleRemove = () => {
-    removeFromLocalCart(cartItem.product_id);
-    updateCallback();
+    updateInLocalCart(cartItem.product_id, { toRemove: true });
+    setToRemove(true);
+  };
+
+  const handleReturn = () => {
+    updateInLocalCart(cartItem.product_id, { toRemove: false });
+    setToRemove(false);
   };
 
   if (!product) {
@@ -50,7 +53,11 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
 
   return (
     <div className="cart-product">
-      <div className="cart-product__top">
+      <div
+        className={classNames("cart-product__top", {
+          "cart-product__top--opacity": toRemove,
+        })}
+      >
         <img
           src={product.image}
           alt="Product photo"
@@ -66,26 +73,44 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
           </div>
         </div>
       </div>
-      <img
-        onClick={handleRemove}
-        src="icons/trash.svg"
-        alt="Trash icon"
-        className="cart-product__order-remove-icon"
-      />
+      <div className="cart-product__order-top-right">
+        {toRemove ? (
+          <>
+            <p className="body-text">Товар видалено.</p>
+            <p
+              className="cart-product__order-return-button button-text button--text"
+              onClick={handleReturn}
+            >
+              Повернути в корзину
+            </p>
+          </>
+        ) : (
+          <img
+            onClick={handleRemove}
+            src="icons/trash.svg"
+            alt="Trash icon"
+            className="cart-product__order-remove-icon button--text"
+          />
+        )}
+      </div>
       <div className="cart-product__order-info">
-        <div className="cart-product__order-info-quantity">
+        <div
+          className="cart-product__order-info-quantity"
+          aria-disabled={toRemove}
+        >
           <img
             onClick={handlePlus}
             src="icons/plus.svg"
             alt="Plus icon"
-            className="cart-product__order-plus-icon"
+            className="cart-product__order-plus-icon button--text"
           />
           <p className="body-text">{cartItem.quantity}</p>
           <img
             onClick={handleMinus}
             src="icons/minus.svg"
             alt="Minus icon"
-            className="cart-product__order-minus-icon"
+            aria-disabled={cartItem.quantity === 1}
+            className="cart-product__order-minus-icon button--text"
           />
         </div>
         <h3 className="cart-product__price">

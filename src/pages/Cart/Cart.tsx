@@ -1,17 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
 import { CartProduct } from "../../components/CartProduct";
-import { getCart } from "../../api/api";
-import "./Cart.scss";
-import { Link } from "react-router-dom";
 import { calculateTotal } from "../../utils/calculateTotal";
+import { getCart, removeFromLocalCart } from "../../api/api";
+import { CartItemType } from "../../types/CartItemType";
+import "./Cart.scss";
 
 export const Cart = () => {
-  const [cart, setCart] = useState(getCart());
+  const [cart, setCart] = useState<CartItemType[]>();
 
-  const update = () => {
+  const updateCart = () => {
     setCart(getCart());
   };
+
+  const loadCart = () => {
+    const currentCart = getCart();
+
+    for (const item of currentCart) {
+      if (item.toRemove) {
+        removeFromLocalCart(item.product_id);
+      }
+    }
+
+    setCart(currentCart.filter((item) => !item.toRemove));
+  };
+
+  useEffect(() => {
+    loadCart();
+  }, []);
+
+  if (!cart) {
+    return <></>;
+  }
 
   return (
     <div className="cart">
@@ -27,7 +48,7 @@ export const Cart = () => {
                 <CartProduct
                   cartItem={cartItem}
                   key={index}
-                  updateCallback={update}
+                  updateCallback={updateCart}
                 />
               ))}
               <div className="cart__total">

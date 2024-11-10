@@ -156,6 +156,7 @@ button,
     border-radius: 40px;
 
     transition: background-color 300ms;
+    cursor: pointer;
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.05);

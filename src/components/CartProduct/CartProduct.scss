@@ -12,9 +12,17 @@
     gap: 16px;
   }
 
+  & .button--text {
+    padding: 4px;
+  }
+
   &__top {
     display: flex;
     gap: 24px;
+
+    &--opacity {
+      opacity: 0.5;
+    }
   }
 
   &__photo {
@@ -75,17 +83,43 @@
       &-quantity {
         margin-top: auto;
 
+        align-items: center;
         justify-self: flex-end;
         display: flex;
         gap: 12px;
+
+        &[aria-disabled="true"] {
+          opacity: 0.5;
+          pointer-events: none;
+        }
       }
     }
 
-    &-remove-icon {
+    &-top-right {
       position: absolute;
       top: 0;
       right: 0;
+
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    &-return-button {
+      margin-top: 4px;
+    }
+
+    &-remove-icon {
       width: 24px;
+    }
+
+    &-minus-icon {
+      transition: opacity 300ms;
+
+      &[aria-disabled="true"] {
+        opacity: 0.5;
+        pointer-events: none;
+      }
     }
   }
 }

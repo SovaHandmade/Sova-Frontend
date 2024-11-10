@@ -23,7 +23,7 @@ export const addToLocalCart = (product_id: number, price: number) => {
     return;
   }
 
-  currentCart.push({ product_id, quantity: 1, price });
+  currentCart.push({ product_id, quantity: 1, price, toRemove: false });
 
   localStorage.setItem("cart", JSON.stringify(currentCart));
 };
@@ -42,7 +42,10 @@ export const removeFromLocalCart = (product_id: number) => {
   localStorage.setItem("cart", JSON.stringify(currentCart));
 };
 
-export const updateInLocalCart = (product_id: number, quantity: number) => {
+export const updateInLocalCart = (
+  product_id: number,
+  newValues: Partial<CartItemType>
+) => {
   const currentCart = getCart();
 
   const product = currentCart.find(
@@ -53,7 +56,7 @@ export const updateInLocalCart = (product_id: number, quantity: number) => {
     return;
   }
 
-  product.quantity = quantity;
+  Object.assign(product, newValues);
 
   localStorage.setItem("cart", JSON.stringify(currentCart));
 };
