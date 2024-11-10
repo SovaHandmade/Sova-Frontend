@@ -151,7 +151,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
     const phoneRegex = /^\+380\d{9}$/;
 
     if (!phoneRegex.test(input)) {
-      return "Некоректний номер телефону";
+      return "Некоректний номер телефону. Формат: +380000000000";
     }
 
     setPhoneError("");
@@ -220,7 +220,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
               errorText={nameError}
               validateFunction={validateName}
               required={true}
-              maxLength={32}
+              maxLength={64}
             />
             <InputWithLabel
               type="tel"
@@ -239,6 +239,7 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
           errorText={emailError}
           validateFunction={validateEmail}
           required={true}
+          maxLength={64}
         />
         <InputWithLabel
           type="password"

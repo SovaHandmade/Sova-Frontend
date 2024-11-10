@@ -13,13 +13,12 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
   const navigate = useNavigate();
 
   const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [nameError, setNameError] = useState("");
 
   const validateName = (input: string) => {
     if (input.length < 2) {
-      return "Name is too short";
+      return "Ім'я занадто коротке";
     }
 
     setNameError("");
@@ -31,7 +30,7 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
     const phoneRegex = /^\+380\d{9}$/;
 
     if (!phoneRegex.test(input)) {
-      return "Phone number is incorrect";
+      return "Некоректний номер телефону. Формат: +380000000000";
     }
 
     setPhoneError("");
@@ -43,20 +42,10 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(input)) {
-      return "Email is incorrect";
+      return "Некоректна пошта";
     }
 
     setEmailError("");
-
-    return;
-  };
-
-  const validatePassword = (input: string) => {
-    if (input.length < 8) {
-      return "Use at least 8 characters";
-    }
-
-    setPasswordError("");
 
     return;
   };
@@ -126,6 +115,7 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
           errorText={nameError}
           validateFunction={validateName}
           defaultValue={user.full_name}
+          maxLength={64}
         />
         <InputWithLabel
           name="phone_number"
@@ -142,13 +132,7 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
           errorText={emailError}
           validateFunction={validateEmail}
           defaultValue={user.email}
-        />
-        <InputWithLabel
-          name="password"
-          placeholder="Зміна паролю"
-          type="password"
-          errorText={passwordError}
-          validateFunction={validatePassword}
+          maxLength={64}
         />
         <Link
           to="/auth/reset"
