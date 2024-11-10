@@ -11,6 +11,10 @@
 
   &__logo {
     margin-right: 115px;
+
+    @include small-tablet {
+      margin: 0;
+    }
   }
 
   &__nav {
