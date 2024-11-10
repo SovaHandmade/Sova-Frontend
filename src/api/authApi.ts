@@ -22,20 +22,12 @@ export const register = async (
   email: string,
   password: string
 ) => {
-  const response = await post(`user/register/`, {
+  return post(`user/register/`, {
     full_name,
     phone_number,
     email,
     password,
   });
-
-  if (!response) {
-    return false;
-  }
-
-  await login(email, password);
-
-  return true;
 };
 
 export const isLoggedIn = () => {

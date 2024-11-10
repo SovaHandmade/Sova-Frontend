@@ -27,7 +27,10 @@ export const InputWithLabel: React.FC<Props> = ({
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!event.currentTarget.value) {
+    if (
+      !event.currentTarget.value ||
+      event.currentTarget.value === defaultValue
+    ) {
       setExplanationText("");
       setIsSuccess(false);
 

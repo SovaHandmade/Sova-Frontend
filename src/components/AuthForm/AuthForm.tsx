@@ -106,6 +106,8 @@ export const AuthForm: React.FC<Props> = ({ callback, buttonText }) => {
           password.value
         );
 
+        await login(email.value, password.value);
+
         addPopup(
           true,
           "Дякуємо за реєстрацію!",

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { User } from "../../../types/User";
 import { updateProfile, logout } from "../../../api/api";
 import "./ProfilePersonalInfo.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { InputWithLabel } from "../../../components/InputWithLabel";
 
 type Props = {
@@ -106,9 +106,13 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
       return;
     }
 
-    const result = await updateProfile(updatedValues);
+    await updateProfile(updatedValues);
 
-    console.log(result);
+    setEmailError("");
+    setNameError("");
+    setPhoneError("");
+
+    window.location.reload();
   };
 
   return (
@@ -146,9 +150,13 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
           errorText={passwordError}
           validateFunction={validatePassword}
         />
-        <button type="submit" className="profile__personal-info-save-button">
-          Зберегти
-        </button>
+        <Link
+          to="/auth/reset"
+          className="profile__personal-info-change-password button button--secondary"
+        >
+          Зміна паролю
+        </Link>
+        <button type="submit">Зберегти</button>
       </form>
 
       <button
