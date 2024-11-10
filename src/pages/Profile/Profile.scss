@@ -20,5 +20,9 @@
 
   &__top {
     grid-column: 1 / -5;
+
+    @include small-tablet {
+      grid-column: 1 / -1;
+    }
   }
 }
