@@ -35,6 +35,10 @@
     &-text {
       color: #616e7c;
     }
+
+    &-amount {
+      white-space: nowrap;
+    }
   }
 
   &__order-button:is(a) {

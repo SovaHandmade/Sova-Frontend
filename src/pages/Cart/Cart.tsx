@@ -56,7 +56,7 @@ export const Cart = () => {
                   Загалом без вартості доставки:
                 </p>
 
-                <h2>{calculateTotal(cart)} grn</h2>
+                <h2 className="cart__total-amount">{calculateTotal(cart)} grn</h2>
               </div>
             </div>
 

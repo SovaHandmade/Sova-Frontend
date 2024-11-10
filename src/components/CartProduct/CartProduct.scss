@@ -67,6 +67,10 @@
     }
   }
 
+  &__price {
+    white-space: nowrap;
+  }
+
   &__order {
     &-info {
       margin-left: auto;
