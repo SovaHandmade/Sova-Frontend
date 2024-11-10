@@ -73,26 +73,26 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
           </div>
         </div>
       </div>
-      <div className="cart-product__order-top-right">
-        {toRemove ? (
-          <>
-            <p className="body-text">Товар видалено.</p>
-            <p
-              className="cart-product__order-return-button button-text button--text"
-              onClick={handleReturn}
-            >
-              Повернути в корзину
-            </p>
-          </>
-        ) : (
-          <img
-            onClick={handleRemove}
-            src="icons/trash.svg"
-            alt="Trash icon"
-            className="cart-product__order-remove-icon button--text"
-          />
-        )}
-      </div>
+      {toRemove ? (
+        <div className="cart-product__order-top-right">
+          <p className="cart-product__order-removed-text body-text">
+            Товар видалено.
+          </p>
+          <p
+            className="cart-product__order-return-button button-text button--text"
+            onClick={handleReturn}
+          >
+            Повернути в корзину
+          </p>
+        </div>
+      ) : (
+        <img
+          onClick={handleRemove}
+          src="icons/trash.svg"
+          alt="Trash icon"
+          className="cart-product__order-remove-icon button--text"
+        />
+      )}
       <div className="cart-product__order-info">
         <div
           className="cart-product__order-info-quantity"
