@@ -54,8 +54,10 @@
   &-row {
     display: flex;
     gap: 80px;
-    align-items: end;
+    align-items: center;
     justify-content: space-between;
+
+    padding: 4px 0;
 
     @include tablet {
       gap: 66px;

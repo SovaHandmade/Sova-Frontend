@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./ProfileOrderItem.scss";
 import { Order } from "../../../types/Order";
 import { User } from "../../../types/User";
-import { getProduct, getUser, profile } from "../../../api/api";
+import { getProduct, getUser } from "../../../api/api";
 import { ProductType } from "../../../types/ProductType";
 
 type Props = {
@@ -10,22 +10,27 @@ type Props = {
   order: Order;
 };
 
+let isFetched = false;
+
 export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
   const [user, setUser] = useState<User>();
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    if (!products.length) {
+      await fetchProducts();
+    }
+
     setShowDetails(!showDetails);
   };
 
   const fetchUser = async () => {
     if (isAdmin) {
       setUser(await getUser(order.user));
+
       return;
     }
-
-    setUser(await profile());
   };
 
   const fetchProducts = async () => {
@@ -37,23 +42,29 @@ export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
   };
 
   useEffect(() => {
+    if (isFetched) {
+      return;
+    }
+
     fetchUser();
-    fetchProducts();
+
+    isFetched = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!user || !products) {
+  if (!products) {
     return <></>;
   }
 
   return (
     <>
-      <div className="profile__orders-row" onClick={handleClick}>
+      <div className="profile__orders-row button--text" onClick={handleClick}>
         <p className="profile__orders-column button-text">{order.id}</p>
         <div className="profile__orders-row profile__orders-row-group">
           <p className="profile__orders-column small-text">{order.date}</p>
           <p className="profile__orders-column small-text">{order.status}</p>
           <p className="profile__orders-column small-text">
-            {order.total_price}
+            {order.total_price} грн
           </p>
         </div>
       </div>
@@ -61,7 +72,10 @@ export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
       {showDetails && (
         <Fragment>
           {order.items.map((item, index) => {
-            console.log(products, order.items);
+            if (!products[index]) {
+              return;
+            }
+
             return (
               <div className="profile__orders-row" key={index}>
                 <div className="profile__order-details">
@@ -75,16 +89,18 @@ export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
             );
           })}
 
-          <div className="profile__orders-row">
-            <div className="profile__order-credentials">
-              <h4>Данні покупця:</h4>
-              <div className="profile__order-credentials-info">
-                <p className="small-text">{user.full_name}</p>
-                <p className="small-text">{user.phone_number}</p>
-                <p className="small-text">{user.email}</p>
+          {isAdmin && !!user && (
+            <div className="profile__orders-row">
+              <div className="profile__order-credentials">
+                <h4>Данні покупця:</h4>
+                <div className="profile__order-credentials-info">
+                  <p className="small-text">{user.full_name}</p>
+                  <p className="small-text">{user.phone_number}</p>
+                  <p className="small-text">{user.email}</p>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </Fragment>
       )}
     </>

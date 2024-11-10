@@ -152,7 +152,7 @@ export const ProfilePersonalInfo: React.FC<Props> = ({ user }) => {
       </form>
 
       <button
-        className="profile__personal-info-logout-button"
+        className="profile__personal-info-logout-button button--text"
         onClick={handleLogout}
       >
         Вийти
