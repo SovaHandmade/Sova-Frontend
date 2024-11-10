@@ -24,6 +24,14 @@
     }
   }
 
+  &__privacy-policy-button {
+    width: fit-content;
+    margin-top: -32px;
+
+    text-decoration: none;
+    color: black;
+  }
+
   &__title {
     margin-bottom: 16px;
 
