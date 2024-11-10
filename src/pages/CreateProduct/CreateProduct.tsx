@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FilterBox } from "../../components/FilterBox";
 import { InputWithLabel } from "../../components/InputWithLabel";
 import { createProduct, isLoggedIn, profile } from "../../api/api";
@@ -158,9 +158,12 @@ export const CreateProduct = () => {
         <FilterBox showButtons={false} applyCallback={handleTags} />
       </div>
 
-      <button className="create-product__bottom create-product__bottom-button-left button--secondary">
+      <Link
+        to="/"
+        className="create-product__bottom create-product__bottom-button-left button button--secondary"
+      >
         Скасувати
-      </button>
+      </Link>
 
       <button
         className="create-product__bottom create-product__bottom-button-right"

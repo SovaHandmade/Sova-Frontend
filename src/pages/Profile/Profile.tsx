@@ -46,7 +46,7 @@ export const Profile = () => {
           className="profile__new-product-button button"
           to={"/product/create"}
         >
-          Створти новий продукт
+          Створити новий продукт
           <img src="icons/plus_white.svg" alt="Plus icon" />
         </Link>
       )}

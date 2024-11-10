@@ -27,9 +27,13 @@ export const Order = () => {
 
   const fetchProducts = async () => {
     for (const cartItem of cart) {
-      const product = await getProduct(cartItem.product_id);
+      try {
+        const product = await getProduct(cartItem.product_id);
 
-      setProducts((currentProducts) => [...currentProducts, product]);
+        setProducts((currentProducts) => [...currentProducts, product]);
+      } catch {
+        console.log("Error when fetching product_id ", cartItem.product_id);
+      }
     }
 
     isFetched.current = true;
@@ -121,7 +125,7 @@ export const Order = () => {
           <AuthForm callback={handleOrder} buttonText="Confirm order" />
         ) : (
           <button className="order__form-button" onClick={handleOrder}>
-            Підтвердити замолення
+            Підтвердити замовлення
           </button>
         )}
       </div>
