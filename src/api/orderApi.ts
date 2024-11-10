@@ -1,4 +1,4 @@
-import { get, post } from "../utils/fetch";
+import { get, patch, post } from "../utils/fetch";
 import { CartItemType } from "../types/CartItemType";
 
 export const getOrders = async () => {
@@ -9,6 +9,18 @@ export const createOrder = async (cart: CartItemType[]) => {
   try {
     await post(`order/`, {
       items: cart,
+    });
+
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+export const updateStatus = async (id: string, status: string) => {
+  try {
+    await patch(`order/${id}/`, {
+      status,
     });
 
     return true;

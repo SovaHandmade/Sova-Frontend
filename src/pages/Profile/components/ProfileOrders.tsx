@@ -21,6 +21,7 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
         return true;
       }
 
+      console.log(filter, order.status, order.status === filter);
       return order.status === filter;
     });
   }, [orders, filter]);
@@ -39,6 +40,7 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
                 name={item}
                 selected={filter === item}
                 selectCallback={handleFilter}
+                key={item}
               />
             ))}
           </div>
@@ -79,8 +81,8 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
             </div>
           )
         ) : (
-          filteredOrders.map((order, index) => (
-            <ProfileOrderItem order={order} isAdmin={isAdmin} key={index} />
+          filteredOrders.map((order) => (
+            <ProfileOrderItem order={order} isAdmin={isAdmin} key={order.id} />
           ))
         )}
       </div>

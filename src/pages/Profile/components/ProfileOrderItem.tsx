@@ -2,15 +2,13 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./ProfileOrderItem.scss";
 import { Order } from "../../../types/Order";
 import { User } from "../../../types/User";
-import { getProduct, getUser } from "../../../api/api";
+import { getProduct, getUser, updateStatus } from "../../../api/api";
 import { ProductType } from "../../../types/ProductType";
 
 type Props = {
   isAdmin: boolean;
   order: Order;
 };
-
-let isFetched = false;
 
 export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -27,7 +25,11 @@ export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
 
   const fetchUser = async () => {
     if (isAdmin) {
-      setUser(await getUser(order.user));
+      const serverUser = await getUser(order.user);
+
+      console.log(serverUser);
+
+      setUser(serverUser);
 
       return;
     }
@@ -41,14 +43,32 @@ export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
     }
   };
 
-  useEffect(() => {
-    if (isFetched) {
+  const handleStatusChange = async (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    if (
+      !event.currentTarget.value ||
+      !event.currentTarget.dataset["order_id"]
+    ) {
       return;
     }
 
-    fetchUser();
+    await updateStatus(
+      event.currentTarget.dataset["order_id"],
+      event.currentTarget.value
+    );
 
-    isFetched = true;
+    window.location.reload();
+  };
+
+  const stopPropagation = (
+    event: React.MouseEvent<HTMLSelectElement, MouseEvent>
+  ) => {
+    event?.stopPropagation();
+  };
+
+  useEffect(() => {
+    fetchUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -58,11 +78,33 @@ export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
 
   return (
     <>
-      <div className="profile__orders-row button--text" onClick={handleClick}>
-        <p className="profile__orders-column button-text">{order.id}</p>
+      <div className="profile__orders-row ">
+        <p
+          className="profile__orders-column button-text button--text"
+          onClick={handleClick}
+        >
+          {order.id}
+        </p>
         <div className="profile__orders-row profile__orders-row-group">
           <p className="profile__orders-column small-text">{order.date}</p>
-          <p className="profile__orders-column small-text">{order.status}</p>
+          <p className="profile__orders-column small-text">
+            {isAdmin ? (
+              <select
+                className="profile__order-status-select button--text"
+                name="status"
+                defaultValue={order.status}
+                data-order_id={order.id}
+                onClick={stopPropagation}
+                onChange={handleStatusChange}
+              >
+                <option value="Processing">Processing</option>
+                <option value="In process">In process</option>
+                <option value="Done">Done</option>
+              </select>
+            ) : (
+              order.status
+            )}
+          </p>
           <p className="profile__orders-column small-text">
             {order.total_price} грн
           </p>

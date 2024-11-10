@@ -16,6 +16,13 @@
     }
   }
 
+  &-status-select {
+    outline: none;
+    border: none;
+    padding: 2px;
+    border-radius: 10px;
+  }
+
   &-credentials {
     width: 100%;
     display: flex;
