@@ -68,7 +68,7 @@ export const Shop = () => {
               image={product.image}
               size={product.size}
               price={product.price}
-              id={index + 1}
+              id={product.id}
               key={index}
             />
           ))}
