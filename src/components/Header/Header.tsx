@@ -63,7 +63,7 @@ export const Header = () => {
                     alt="User icon"
                   />
                 ) : (
-                  "Login"
+                  "Увійти"
                 )}
               </Link>
             </li>

@@ -1,11 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
+import { isLoggedIn } from "../../api/api";
 import "./BurgerMenu.scss";
 
 export const BurgerMenu = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(isLoggedIn());
+  const { pathname } = useLocation();
   const location = useLocation();
+
+  useEffect(() => {
+    setLoggedIn(isLoggedIn());
+  }, [pathname]);
 
   useEffect(() => {
     const newHash = location.hash;
@@ -54,6 +61,22 @@ export const BurgerMenu = () => {
                 src="icons/basket.svg"
                 alt="Basket icon"
               />
+            </Link>
+          </li>
+          <li className="burger-menu__nav-item">
+            <Link to={loggedIn ? "/profile" : "/auth"} className="button-text">
+              {loggedIn ? (
+                <>
+                  Профіль
+                  <img
+                    className="header__user-icon"
+                    src="icons/user_light.svg"
+                    alt="User icon"
+                  />
+                </>
+              ) : (
+                "Увійти"
+              )}
             </Link>
           </li>
         </ul>
