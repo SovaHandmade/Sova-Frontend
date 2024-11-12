@@ -1,10 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
+import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 
 import App from "./App.tsx";
 import { Home } from "./pages/Home";
@@ -21,7 +17,7 @@ import { CreateProduct } from "./pages/CreateProduct";
 
 import "./index.scss";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
