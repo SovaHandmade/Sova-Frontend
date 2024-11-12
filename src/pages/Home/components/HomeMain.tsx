@@ -11,7 +11,7 @@ export const HomeMain = () => {
 
         <img
           className="home__gradient home__gradient-1"
-          src="gradients/home/vector_1.svg"
+          src="/gradients/home/vector_1.svg"
           alt=""
         />
 
@@ -27,11 +27,11 @@ export const HomeMain = () => {
         просто додаю деталі, що створюють затишок і тепло, найприроднішим чином.
       </div>
 
-      <img className="home__main-logo" src="logo_big.svg" alt="Big logo" />
+      <img className="home__main-logo" src="/logo_big.svg" alt="Big logo" />
 
       <img
         className="home__gradient home__gradient-2"
-        src="gradients/home/vector_2.svg"
+        src="/gradients/home/vector_2.svg"
         alt=""
       />
     </section>

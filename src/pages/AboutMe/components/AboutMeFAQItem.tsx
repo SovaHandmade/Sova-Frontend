@@ -22,7 +22,7 @@ export const AboutMeFAQItem: React.FC<Question> = ({ title, answer }) => {
     <div className="about-me__faq-question" onClick={handleClick}>
       <div className="about-me__faq-question-top">
         <h3>{title}</h3>
-        <img src="icons/open_arrow.svg" alt="Open icon" />
+        <img src="/icons/open_arrow.svg" alt="Open icon" />
       </div>
 
       <p

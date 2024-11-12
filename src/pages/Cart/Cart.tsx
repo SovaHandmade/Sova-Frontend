@@ -56,7 +56,9 @@ export const Cart = () => {
                   Загалом без вартості доставки:
                 </p>
 
-                <h2 className="cart__total-amount">{calculateTotal(cart)} grn</h2>
+                <h2 className="cart__total-amount">
+                  {calculateTotal(cart)} grn
+                </h2>
               </div>
             </div>
 
@@ -66,7 +68,7 @@ export const Cart = () => {
                 className="cart__shopping-button button button--secondary"
               >
                 Продовжити покупки
-                <img src="icons/basket.svg" alt="Basket icon" />
+                <img src="/icons/basket.svg" alt="Basket icon" />
               </Link>
               <Link to="/order" className="cart__order-button button">
                 Замовити

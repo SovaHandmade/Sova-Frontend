@@ -88,7 +88,7 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
       ) : (
         <img
           onClick={handleRemove}
-          src="icons/trash.svg"
+          src="/icons/trash.svg"
           alt="Trash icon"
           className="cart-product__order-remove-icon button--text"
         />
@@ -100,14 +100,14 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
         >
           <img
             onClick={handlePlus}
-            src="icons/plus.svg"
+            src="/icons/plus.svg"
             alt="Plus icon"
             className="cart-product__order-plus-icon button--text"
           />
           <p className="body-text">{cartItem.quantity}</p>
           <img
             onClick={handleMinus}
-            src="icons/minus.svg"
+            src="/icons/minus.svg"
             alt="Minus icon"
             aria-disabled={cartItem.quantity === 1}
             className="cart-product__order-minus-icon button--text"
