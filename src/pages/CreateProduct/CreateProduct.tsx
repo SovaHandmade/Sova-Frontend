@@ -9,7 +9,7 @@ export const CreateProduct = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [topicIndex, setTopicIndex] = useState(1);
   const [formIndex, setFormIndex] = useState(1);
-  const [imageUrl, setImageUrl] = useState("gray_placeholder.jpg");
+  const [imageUrl, setImageUrl] = useState("/gray_placeholder.jpg");
 
   const form = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
