@@ -140,7 +140,7 @@ export const Product = () => {
                 {isInCart ? "Видалити з корзини" : "Додати в корзину"}
                 <img
                   src={
-                    isInCart ? "icons/basket_active.svg" : "icons/basket.svg"
+                    isInCart ? "/icons/basket_active.svg" : "/icons/basket.svg"
                   }
                   alt="Basket icon"
                 />
