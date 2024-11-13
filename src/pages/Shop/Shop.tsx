@@ -8,6 +8,7 @@ import { getProducts } from "../../api/api";
 import { ProductType } from "../../types/ProductType";
 
 import "./Shop.scss";
+import { Loader } from "../../components/Loader";
 
 export const Shop = () => {
   const [showFilters, setShowFilters] = useState(false);
@@ -54,25 +55,31 @@ export const Shop = () => {
       </div>
 
       <div className="shop__container">
-        <div
-          className={classNames("shop__filter-box", {
-            "shop__filter-box--show": showFilters,
-          })}
-        >
-          <FilterBox applyCallback={fetch} showAllOption={true} />
-        </div>
-        <div className="shop__products-container">
-          {products.map((product, index) => (
-            <ProductCard
-              name={product.name}
-              image={product.image}
-              size={product.size}
-              price={product.price}
-              id={product.id}
-              key={index}
-            />
-          ))}
-        </div>
+        {!products.length ? (
+          <Loader />
+        ) : (
+          <>
+            <div
+              className={classNames("shop__filter-box", {
+                "shop__filter-box--show": showFilters,
+              })}
+            >
+              <FilterBox applyCallback={fetch} showAllOption={true} />
+            </div>
+            <div className="shop__products-container">
+              {products.map((product, index) => (
+                <ProductCard
+                  name={product.name}
+                  image={product.image}
+                  size={product.size}
+                  price={product.price}
+                  id={product.id}
+                  key={index}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

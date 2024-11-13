@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
 import { Filter } from "../../components/Filter";
 import { ProductCard } from "../../components/ProductCard";
-import "./Product.scss";
+import { ProductType } from "../../types/ProductType";
+import { Loader } from "../../components/Loader";
 import {
   addToLocalCart,
   getProduct,
@@ -10,8 +12,7 @@ import {
   isInLocalCart,
   removeFromLocalCart,
 } from "../../api/api";
-import { useEffect, useState } from "react";
-import { ProductType } from "../../types/ProductType";
+import "./Product.scss";
 
 export const Product = () => {
   const [product, setProduct] = useState<ProductType>();
@@ -70,7 +71,7 @@ export const Product = () => {
   }, []);
 
   if (!product) {
-    return <></>;
+    return <Loader />;
   }
 
   return (

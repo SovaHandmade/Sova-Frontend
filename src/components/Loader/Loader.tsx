@@ -8,7 +8,7 @@ type Props = {
 
 export const Loader: React.FC<Props> = ({ isSmall = false }) => {
   return (
-    <div className="loader">
+    <div className="loader centered">
       <img
         src="/loader.png"
         alt="Loader"

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { getOrders, isLoggedIn, profile } from "../../api/api";
+import { Link, useNavigate } from "react-router-dom";
+import { Loader } from "../../components/Loader";
 import { ProfileOrders } from "./components/ProfileOrders";
 import { ProfilePersonalInfo } from "./components/ProfilePersonalInfo";
+import { getOrders, isLoggedIn, profile } from "../../api/api";
 import { User } from "../../types/User";
 import { Order } from "../../types/Order";
-import { Link, useNavigate } from "react-router-dom";
 import "./Profile.scss";
 
 export const Profile = () => {
   const [user, setUser] = useState<User>();
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [orders, setOrders] = useState<Order[] | null>(null);
   const navigate = useNavigate();
 
   const fetchUser = async () => {
@@ -31,7 +32,7 @@ export const Profile = () => {
   }, []);
 
   if (!user) {
-    return <></>;
+    return <Loader />;
   }
 
   return (
