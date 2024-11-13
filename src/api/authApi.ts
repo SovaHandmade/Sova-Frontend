@@ -40,13 +40,13 @@ export const logout = async () => {
 };
 
 export const resetPassword = (email: string) => {
-  return post(`password-reset/`, { email });
+  return post(`auth/reset/`, { email });
 };
 
 export const validateResetToken = (token: string) => {
-  return post(`password-reset/validate_token/`, { token });
+  return post(`auth/reset/validate_token/`, { token });
 };
 
 export const setNewPassword = (password: string, token: string) => {
-  return post(`password-reset/confirm/`, { password, token });
+  return post(`auth/reset/confirm/`, { password, token });
 };
