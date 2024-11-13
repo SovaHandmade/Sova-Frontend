@@ -39,7 +39,7 @@ export const Cart = () => {
       <BackButton />
 
       <div className="cart__container">
-        <h2>Shopping cart</h2>
+        <h2>Корзина</h2>
 
         {cart.length ? (
           <>

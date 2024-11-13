@@ -4,6 +4,7 @@ import { getProduct, updateInLocalCart } from "../../api/api";
 import { CartItemType } from "../../types/CartItemType";
 import "./CartProduct.scss";
 import classNames from "classnames";
+import { Loader } from "../Loader";
 
 type Props = {
   cartItem: CartItemType;
@@ -48,7 +49,7 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
   };
 
   if (!product) {
-    return <></>;
+    return <Loader isSmall={true} />;
   }
 
   return (

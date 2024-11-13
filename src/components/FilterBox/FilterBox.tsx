@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Filter } from "../Filter/Filter";
 import { getTags } from "../../api/api";
 import { Tags } from "../../types/Tags";
-import { useSearchParams } from "react-router-dom";
-import "./FilterBox.scss";
 import { Loader } from "../Loader";
+import "./FilterBox.scss";
 
 type Props = {
   showButtons?: boolean;

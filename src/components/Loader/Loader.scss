@@ -8,6 +8,8 @@
   justify-content: center;
 
   &__spinner {
+    animation: rotation 1s infinite linear;
+
     @keyframes rotation {
       from {
         transform: rotate(0deg);
@@ -16,8 +18,6 @@
         transform: rotate(359deg);
       }
     }
-
-    animation: rotation 1s infinite linear;
 
     &--small {
       width: 80px;
