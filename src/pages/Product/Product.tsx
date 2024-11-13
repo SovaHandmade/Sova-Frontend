@@ -244,16 +244,20 @@ export const Product = () => {
       <div className="suggestions">
         <h2>Вам також може сподобатись</h2>
         <div className="suggestions__products">
-          {suggestions.map((suggestion, index) => (
-            <ProductCard
-              name={suggestion.name}
-              image={suggestion.image}
-              price={suggestion.price}
-              size={suggestion.size}
-              id={index + 1}
-              key={index}
-            />
-          ))}
+          {!suggestions.length ? (
+            <Loader />
+          ) : (
+            suggestions.map((suggestion, index) => (
+              <ProductCard
+                name={suggestion.name}
+                image={suggestion.image}
+                price={suggestion.price}
+                size={suggestion.size}
+                id={index + 1}
+                key={index}
+              />
+            ))
+          )}
         </div>
       </div>
     </>
