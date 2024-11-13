@@ -4,10 +4,11 @@ import { Filter } from "../../../components/Filter";
 import { Order } from "../../../types/Order";
 import "./ProfileOrders.scss";
 import { Link } from "react-router-dom";
+import { Loader } from "../../../components/Loader";
 
 type Props = {
   isAdmin: boolean;
-  orders: Order[];
+  orders: Order[] | null;
 };
 
 const FILTERS = ["All", "Processing", "In process", "Done"];
@@ -16,6 +17,10 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
   const [filter, setFilter] = useState("All");
 
   const filteredOrders = useMemo(() => {
+    if (!orders) {
+      return;
+    }
+
     return orders.filter((order) => {
       if (filter === "All") {
         return true;
@@ -63,7 +68,9 @@ export const ProfileOrders: React.FC<Props> = ({ isAdmin, orders }) => {
           </div>
         </div>
 
-        {!filteredOrders.length ? (
+        {!filteredOrders ? (
+          <Loader isSmall={true} />
+        ) : !filteredOrders.length ? (
           isAdmin ? (
             <div className="profile__orders-empty">
               <p className="profile__orders-empty-text body-text">
