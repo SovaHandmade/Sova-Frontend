@@ -81,7 +81,7 @@ export const InputWithLabel: React.FC<Props> = ({
 
         {type === "password" && (
           <img
-            src={showPassword ? "icons/eye-cross.svg" : "icons/eye.svg"}
+            src={showPassword ? "/icons/eye-cross.svg" : "/icons/eye.svg"}
             alt="Show password icon"
             className="input-with-label__show-button button--text"
             onClick={handleShowPassword}
