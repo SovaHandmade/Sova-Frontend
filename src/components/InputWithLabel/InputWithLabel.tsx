@@ -71,7 +71,7 @@ export const InputWithLabel: React.FC<Props> = ({
           name={name}
           required={required}
           maxLength={maxLength}
-          placeholder=""
+          placeholder=" "
           defaultValue={defaultValue}
           onChange={handleInput}
         />
