@@ -26,11 +26,11 @@ export const Shop = () => {
     const topic = searchParams.get("topic");
     const form = searchParams.get("form");
 
-    if (topic && topic !== "All") {
+    if (topic && topic !== "Всі") {
       params.topic = topic;
     }
 
-    if (form && form !== "All") {
+    if (form && form !== "Всі") {
       params.form = form;
     }
 

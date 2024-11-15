@@ -32,12 +32,12 @@ export const FilterBox: React.FC<Props> = ({
     if (showAllOption) {
       serverTags.forms.unshift({
         id: 0,
-        name: "All",
+        name: "Всі",
       });
 
       serverTags.topics.unshift({
         id: 0,
-        name: "All",
+        name: "Всі",
       });
     }
 
@@ -53,11 +53,11 @@ export const FilterBox: React.FC<Props> = ({
     }
     const params: { [key: string]: string } = {};
 
-    if (selectedTopic && selectedTopic !== "All") {
+    if (selectedTopic && selectedTopic !== "Всі") {
       params.topic = selectedTopic;
     }
 
-    if (selectedForm && selectedForm !== "All") {
+    if (selectedForm && selectedForm !== "Всі") {
       params.form = selectedForm;
     }
 
