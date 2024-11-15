@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { resetPassword } from "../../api/api";
-import "./ResetPassword.scss";
 import { Popup } from "../../components/Popup";
 import { setNewPassword, validateResetToken } from "../../api/authApi";
 import { InputWithLabel } from "../../components/InputWithLabel";
+import "./ResetPassword.scss";
+
+type ResponseError = {
+  response: { data: { password: string } };
+};
 
 export const ResetPassword = () => {
   const [isSent, setIsSent] = useState(false);
@@ -87,8 +91,10 @@ export const ResetPassword = () => {
     } catch (exception) {
       let error = "Виникла помилка при зміні паролю";
 
-      if (exception.response.data.password) {
-        error = exception.response.data.password;
+      const { response } = exception as unknown as ResponseError;
+
+      if (response.data.password) {
+        error = response.data.password;
       }
 
       setShowPopup(true);
