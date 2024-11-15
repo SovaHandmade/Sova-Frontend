@@ -84,16 +84,26 @@ export const ResetPassword = () => {
       setPopupTitle("Пароль успішно знінений");
       setPopupSubtitle("Ви можете перейти до входу в аккаунт");
       setPopupIsSuccess(true);
-    } catch {
+    } catch (exception) {
+      let error = "Виникла помилка при зміні паролю";
+
+      if (exception.response.data.password) {
+        error = exception.response.data.password;
+      }
+
       setShowPopup(true);
       setPopupTitle("Помилка");
-      setPopupSubtitle("Виникла помилка при зміні паролю");
+      setPopupSubtitle(error);
       setPopupIsSuccess(false);
     }
   };
 
-  const handleClose = () => {
+  const handleContinue = () => {
     navigate("/auth");
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
   };
 
   const validateEmail = (input: string) => {
@@ -154,7 +164,7 @@ export const ResetPassword = () => {
           title={popupTitle}
           subtitle={popupSubtitle}
           isSuccess={popupIsSuccess}
-          buttonCallback={handleClose}
+          buttonCallback={handleClosePopup}
         />
       ) : !isSent ? (
         <div className="reset-password__form">
@@ -182,7 +192,7 @@ export const ResetPassword = () => {
               <InputWithLabel
                 name="newPassword"
                 type="password"
-                placeholder="Password"
+                placeholder="Новий пароль"
                 errorText=""
                 validateFunction={validateFirstPassword}
                 required
@@ -190,7 +200,7 @@ export const ResetPassword = () => {
               <InputWithLabel
                 name="newPasswordRepeat"
                 type="password"
-                placeholder="Repeat password"
+                placeholder="Повторіть новий пароль"
                 errorText={passwordError}
                 validateFunction={validateSecondPassword}
                 required
@@ -211,7 +221,10 @@ export const ResetPassword = () => {
               </p>
             </div>
           </div>
-          <button className="reset-password__sent-button" onClick={handleClose}>
+          <button
+            className="reset-password__sent-button"
+            onClick={handleContinue}
+          >
             Продовжити
           </button>
         </>
