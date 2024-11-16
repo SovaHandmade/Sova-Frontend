@@ -20,6 +20,8 @@
     display: flex;
     gap: 24px;
 
+    transition: opacity 300ms;
+
     &--opacity {
       opacity: 0.5;
     }
