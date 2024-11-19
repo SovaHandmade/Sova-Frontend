@@ -100,18 +100,18 @@ export const CartProduct: React.FC<Props> = ({ cartItem, updateCallback }) => {
           aria-disabled={toRemove}
         >
           <img
-            onClick={handlePlus}
-            src="/icons/plus.svg"
-            alt="Plus icon"
-            className="cart-product__order-plus-icon button--text"
-          />
-          <p className="body-text">{cartItem.quantity}</p>
-          <img
             onClick={handleMinus}
             src="/icons/minus.svg"
             alt="Minus icon"
             aria-disabled={cartItem.quantity === 1}
             className="cart-product__order-minus-icon button--text"
+          />
+          <p className="body-text">{cartItem.quantity}</p>
+          <img
+            onClick={handlePlus}
+            src="/icons/plus.svg"
+            alt="Plus icon"
+            className="cart-product__order-plus-icon button--text"
           />
         </div>
         <h3 className="cart-product__price">
