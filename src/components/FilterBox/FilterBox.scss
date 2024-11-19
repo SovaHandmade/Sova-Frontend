@@ -20,9 +20,22 @@
   }
 
   &__buttons {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    gap: 8px;
+  }
+
+  &__apply-button {
+    width: 100%;
+    padding: 20px;
+    flex-grow: 1;
+
+    @include small-desktop {
+      padding: 20px 48px;
+    }
   }
 
   &__clear-button {
