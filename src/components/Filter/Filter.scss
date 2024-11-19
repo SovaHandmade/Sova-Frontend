@@ -6,9 +6,15 @@
   padding: 8px 16px;
   color: #1f2933;
 
+  transition: filter 300ms;
+
   @include border-gradient(white, $border-gradient);
 
   &--selected {
     @include border-gradient(#fcf1f2, $active-border-gradient);
+  }
+
+  &:hover {
+    filter: brightness(95%);
   }
 }
