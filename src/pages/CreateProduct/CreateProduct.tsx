@@ -169,7 +169,7 @@ export const CreateProduct = () => {
         className="create-product__bottom create-product__bottom-button-right"
         onClick={handleCreate}
       >
-        Застосувати
+        Створити
       </button>
     </div>
   );
