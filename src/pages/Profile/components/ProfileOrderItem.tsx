@@ -4,6 +4,7 @@ import { Order } from "../../../types/Order";
 import { User } from "../../../types/User";
 import { getProduct, getUser, updateStatus } from "../../../api/api";
 import { ProductType } from "../../../types/ProductType";
+import { Link } from "react-router-dom";
 
 type Props = {
   isAdmin: boolean;
@@ -121,7 +122,12 @@ export const ProfileOrderItem: React.FC<Props> = ({ isAdmin, order }) => {
             return (
               <div className="profile__orders-row" key={index}>
                 <div className="profile__order-details">
-                  <h4>{products[index].name}</h4>
+                  <Link
+                    to={`/product/${products[index].id}`}
+                    className="profile__order-details-link button--text"
+                  >
+                    <h4>{products[index].name}</h4>
+                  </Link>
                   <div className="profile__order-details-info">
                     <p className="small-text">{item.quantity} од.</p>
                     <p className="body-text">{item.total_price} грн</p>
