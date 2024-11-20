@@ -9,6 +9,7 @@
   }
 
   &__photo {
+    height: 100%;
     width: 100%;
     grid-column: 1 / 6;
     grid-row: 1;
@@ -16,6 +17,7 @@
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
+    box-sizing: border-box;
 
     // change that shit later
     transform: scale(1.005, 1.005);
