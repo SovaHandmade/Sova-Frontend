@@ -5,15 +5,20 @@
     <img src="public/logo_big.svg" alt="Logo" width="300">
   </a>
 
-  <h3 align="center">Sova Frontend</h3>
+  ## Sova Frontend
   <p align="center" style="margin: 4px;">
     A frontend repository for the SovaHandmade website
     <br />
-    Built with 
-    <a href="https://reactjs.org/">
-      <img align="center" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" width="75">
-    </a>
   </p>
+  
+  [DEMO LINK](https://sova-handmade.com.ua/)
+  
+  ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+  ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+  ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+  ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+  ![Classnames](https://img.shields.io/badge/Classnames-2D2D2D?style=for-the-badge&logo=classnames&logoColor=white)
 </div>
 
 <!-- GETTING STARTED -->
